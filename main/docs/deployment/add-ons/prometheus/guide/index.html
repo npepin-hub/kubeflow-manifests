@@ -15,9 +15,9 @@
            "@id": "https:\/\/awslabs.github.io\/kubeflow-manifests\/main"
       },
       "articleSection" : "docs",
-      "name" : "CloudWatch",
-      "headline" : "CloudWatch",
-      "description" : "Set up CloudWatch ContainerInsights on Amazon EKS",
+      "name" : "Prometheus",
+      "headline" : "Prometheus",
+      "description" : "Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/add-ons\/cloudwatch\/guide\/",
-      "wordCount" : "343",
+      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/add-ons\/prometheus\/guide\/",
+      "wordCount" : "507",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -42,22 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>CloudWatch | Kubeflow on AWS</title>
-<meta name="description" content="Set up CloudWatch ContainerInsights on Amazon EKS">
-<meta property="og:title" content="CloudWatch" />
-<meta property="og:description" content="Set up CloudWatch ContainerInsights on Amazon EKS" />
+<title>Prometheus | Kubeflow on AWS</title>
+<meta name="description" content="Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS">
+<meta property="og:title" content="Prometheus" />
+<meta property="og:description" content="Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/cloudwatch/guide/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/prometheus/guide/" /><meta property="article:section" content="docs" />
 
 <meta property="article:modified_time" content="2022-07-27T11:06:47-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
-<meta itemprop="name" content="CloudWatch">
-<meta itemprop="description" content="Set up CloudWatch ContainerInsights on Amazon EKS">
+<meta itemprop="name" content="Prometheus">
+<meta itemprop="description" content="Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS">
 <meta itemprop="dateModified" content="2022-07-27T11:06:47-07:00" />
-<meta itemprop="wordCount" content="343">
+<meta itemprop="wordCount" content="507">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CloudWatch"/>
-<meta name="twitter:description" content="Set up CloudWatch ContainerInsights on Amazon EKS"/>
+<meta name="twitter:title" content="Prometheus"/>
+<meta name="twitter:description" content="Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS"/>
 
 
 
@@ -225,9 +225,9 @@
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsload-balancerguide-check"/>
   <label for="m-kubeflow-manifestsmaindocsdeploymentadd-onsload-balancerguide-check"><a href="/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsload-balancerguide"><span class="">Load Balancer</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide-check"/>
-  <label for="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide-check"><a href="/kubeflow-manifests/main/docs/deployment/add-ons/prometheus/guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide"><span class="">Prometheus</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide-check" checked/>
+  <label for="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide-check"><a href="/kubeflow-manifests/main/docs/deployment/add-ons/prometheus/guide/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsprometheusguide"><span class="td-sidebar-nav-active-item">Prometheus</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsstorageefsguide-li">
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsstorageefsguide-check"/>
@@ -237,9 +237,9 @@
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsstoragefsx-for-lustreguide-check"/>
   <label for="m-kubeflow-manifestsmaindocsdeploymentadd-onsstoragefsx-for-lustreguide-check"><a href="/kubeflow-manifests/main/docs/deployment/add-ons/storage/fsx-for-lustre/guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentadd-onsstoragefsx-for-lustreguide"><span class="">FSx for Lustre</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide-check" checked/>
-  <label for="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide-check"><a href="/kubeflow-manifests/main/docs/deployment/add-ons/cloudwatch/guide/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide"><span class="td-sidebar-nav-active-item">CloudWatch</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide-check"/>
+  <label for="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide-check"><a href="/kubeflow-manifests/main/docs/deployment/add-ons/cloudwatch/guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentadd-onscloudwatchguide"><span class="">CloudWatch</span></a></label>
   
 </li>
   </ul>
@@ -291,10 +291,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/deployment/add-ons/cloudwatch/guide.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/deployment/add-ons/cloudwatch/guide.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/deployment/add-ons/cloudwatch/guide.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=CloudWatch" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/deployment/add-ons/prometheus/guide.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/deployment/add-ons/prometheus/guide.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/deployment/add-ons/prometheus/guide.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=Prometheus" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/awslabs/kubeflow-manifests/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -304,10 +304,11 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#verify-prerequisites">Verify Prerequisites</a></li>
-    <li><a href="#install">Install</a></li>
-    <li><a href="#uninstall">Uninstall</a></li>
-    <li><a href="#additional-information">Additional information</a></li>
+    <li><a href="#why-you-should-use-prometheus-with-amazon-managed-service-for-prometheus-amp-and-amazon-managed-grafana-amg">Why you should use Prometheus with Amazon Managed Service for Prometheus (AMP) and Amazon Managed Grafana (AMG)</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#steps-to-setup-prometheus-and-amp">Steps to Setup Prometheus and AMP</a></li>
+    <li><a href="#steps-to-verify-prometheus-and-amp-are-connected">Steps to Verify Prometheus and AMP are Connected</a></li>
+    <li><a href="#steps-to-setup-amg">Steps to Setup AMG</a></li>
   </ul>
 </nav></div>
 
@@ -350,14 +351,14 @@
     <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/">Add-ons</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/cloudwatch/guide/">CloudWatch</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/prometheus/guide/">Prometheus</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>CloudWatch</h1>
-	<div class="lead">Set up CloudWatch ContainerInsights on Amazon EKS</div>
+	<h1>Prometheus</h1>
+	<div class="lead">Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS</div>
 	<header class="article-meta">
 		
 
@@ -373,39 +374,144 @@
 
 		
 	</header>    
-	<h2 id="verify-prerequisites">Verify Prerequisites</h2>
-<p>The EKS cluster will need IAM service account roles associated with CloudWatchAgentServerPolicy attached.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>&lt;&gt;
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_REGION</span><span class="o">=</span>&lt;&gt;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">eksctl utils associate-iam-oidc-provider --region<span class="o">=</span><span class="nv">$CLUSTER_REGION</span> --cluster<span class="o">=</span><span class="nv">$CLUSTER_NAME</span> --approve
-</span></span><span class="line"><span class="cl">eksctl create iamserviceaccount --name cloudwatch-agent --namespace amazon-cloudwatch --cluster <span class="nv">$CLUSTER_NAME</span> --region <span class="nv">$CLUSTER_REGION</span> cloudwatch-agent --approve --override-existing-serviceaccounts --attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-</span></span><span class="line"><span class="cl">eksctl create iamserviceaccount --name fluent-bit --namespace amazon-cloudwatch --cluster <span class="nv">$CLUSTER_NAME</span> --region <span class="nv">$CLUSTER_REGION</span> --approve --override-existing-serviceaccounts --attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-</span></span></code></pre></div><h2 id="install">Install</h2>
-<p>To install an optimized QuickStart configuration, enter the following command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">FluentBitHttpPort</span><span class="o">=</span><span class="s1">&#39;2020&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">FluentBitReadFromHead</span><span class="o">=</span><span class="s1">&#39;Off&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="o">[[</span> <span class="si">${</span><span class="nv">FluentBitReadFromHead</span><span class="si">}</span> <span class="o">=</span> <span class="s1">&#39;On&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">FluentBitReadFromTail</span><span class="o">=</span><span class="s1">&#39;Off&#39;</span><span class="o">||</span> <span class="nv">FluentBitReadFromTail</span><span class="o">=</span><span class="s1">&#39;On&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="o">[[</span> -z <span class="si">${</span><span class="nv">FluentBitHttpPort</span><span class="si">}</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">FluentBitHttpServer</span><span class="o">=</span><span class="s1">&#39;Off&#39;</span> <span class="o">||</span> <span class="nv">FluentBitHttpServer</span><span class="o">=</span><span class="s1">&#39;On&#39;</span>
-</span></span><span class="line"><span class="cl">curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluent-bit-quickstart.yaml <span class="p">|</span> sed <span class="s1">&#39;s/{{cluster_name}}/&#39;</span><span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span><span class="s1">&#39;/;s/{{region_name}}/&#39;</span><span class="si">${</span><span class="nv">CLUSTER_REGION</span><span class="si">}</span><span class="s1">&#39;/;s/{{http_server_toggle}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitHttpServer</span><span class="si">}</span><span class="s1">&#39;&#34;/;s/{{http_server_port}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitHttpPort</span><span class="si">}</span><span class="s1">&#39;&#34;/;s/{{read_from_head}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitReadFromHead</span><span class="si">}</span><span class="s1">&#39;&#34;/;s/{{read_from_tail}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitReadFromTail</span><span class="si">}</span><span class="s1">&#39;&#34;/&#39;</span> <span class="p">|</span> kubectl apply -f - 
-</span></span></code></pre></div><p>To verify the installation, you can run the <code>list-metrics</code> command and check that metrics have been created. It may take up to 15 minutes for the metrics to populate.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aws cloudwatch list-metrics --namespace ContainerInsights --region <span class="nv">$CLUSTER_REGION</span>
-</span></span></code></pre></div><p>An example of the logs that will be available after installation are the logs of the Pods on your cluster. This way, the Pod logs can still be accessed past their default storage time. This also allows for an easy way to view logs for all Pods on your cluster without having to directly connect to your EKS cluster.</p>
-<p>The logs can be accessed by through CloudWatch log groups <img src="../../../../images/cloudwatch/cloudwatch-logs.png" alt="cloudwatch"></p>
-<p>To view individual Pod logs, select <code>/aws/containerinsights/YOUR_CLUSTER_NAME/application</code>. <img src="../../../../images/cloudwatch/cloudwatch-application-logs.png" alt="application"></p>
-<p>The following image is an example of the <code>jupyter-web-app</code> Pod logs available through CloudWatch. <img src="../../../../images/cloudwatch/cloudwatch-pod-logs.png" alt="jupyter-logs"></p>
-<p>For a full list of metrics that are provided by default, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-EKS.html">Amazon EKS and Kubernetes Container Insights metrics</a>.</p>
-<p>The metrics are grouped by varying parameters such as Cluster, Namespace, or PodName.
-<img src="../../../../images/cloudwatch/cloudwatch-metrics.png" alt="cloudwatch-metrics"></p>
-<p>The following image is an example of the graphed metrics for the <code>istio-system</code> namespace that deals with internet traffic.
-<img src="../../../../images/cloudwatch/cloudwatch-namespace-metrics.png" alt="cloudwatch-namespace-metrics"></p>
-<p>See <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html">Viewing available metrics</a> for more information on CloudWatch metrics. Select the ContainerInsights metric namespace.</p>
-<p>You can see the full list of logs and metrics through the <a href="https://console.aws.amazon.com/cloudwatch/">Amazon CloudWatch AWS Console</a>.</p>
-<h2 id="uninstall">Uninstall</h2>
-<p>To uninstall CloudWatch ContainerInsights, enter the following command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluent-bit-quickstart.yaml <span class="p">|</span> sed <span class="s1">&#39;s/{{cluster_name}}/&#39;</span><span class="si">${</span><span class="nv">ClusterName</span><span class="si">}</span><span class="s1">&#39;/;s/{{region_name}}/&#39;</span><span class="si">${</span><span class="nv">LogRegion</span><span class="si">}</span><span class="s1">&#39;/;s/{{http_server_toggle}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitHttpServer</span><span class="si">}</span><span class="s1">&#39;&#34;/;s/{{http_server_port}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitHttpPort</span><span class="si">}</span><span class="s1">&#39;&#34;/;s/{{read_from_head}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitReadFromHead</span><span class="si">}</span><span class="s1">&#39;&#34;/;s/{{read_from_tail}}/&#34;&#39;</span><span class="si">${</span><span class="nv">FluentBitReadFromTail</span><span class="si">}</span><span class="s1">&#39;&#34;/&#39;</span> <span class="p">|</span> kubectl delete -f -
-</span></span></code></pre></div><h2 id="additional-information">Additional information</h2>
-<p>For full documentation and additional configuration options, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html">Quick Start setup for Container Insights on Amazon EKS and Kubernetes</a>.</p>
+	<p>This guide shows how to setup a Prometheus server, an AMP workspace, and an AMG workspace on top of Kubeflow on AWS. It also explains to validate the ingestion of data from Prometheus to AMP.</p>
+<h2 id="why-you-should-use-prometheus-with-amazon-managed-service-for-prometheus-amp-and-amazon-managed-grafana-amg">Why you should use Prometheus with Amazon Managed Service for Prometheus (AMP) and Amazon Managed Grafana (AMG)</h2>
+<p>Many Kubeflow users utilize Prometheus and Grafana to monitor and visualize their metrics. However it can be difficult to scale open source Prometheus and Grafana as the number of nodes to be monitored increases. AMP seeks to simplify this issue by allowing multiple Prometheus servers to aggregate their metrics in Amazon Managed Prometheus, and finally Amazon Managed Grafana allows customers to then view these aggregated metrics.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Download one of our deployment options by following the directions at: <a href="https://awslabs.github.io/kubeflow-manifests/docs/deployment/">https://awslabs.github.io/kubeflow-manifests/docs/deployment/</a></p>
+<p><strong>Note:</strong> The steps below will assume you are sitting in the kubeflow-manifests directory.</p>
+<h2 id="steps-to-setup-prometheus-and-amp">Steps to Setup Prometheus and AMP</h2>
+<ol>
+<li>Export cluster name and region as environment variables:
+<ol>
+<li>Make sure to replace the following in the below commands:
+<ul>
+<li><strong>&lt;your-cluster-name&gt;</strong></li>
+<li><strong>&lt;your-cluster-region&gt;</strong></li>
+</ul>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>&lt;your-cluster-name&gt;
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_REGION</span><span class="o">=</span>&lt;your-cluster-region&gt;
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Create an IAM Policy:
+<ol>
+<li>Make sure to replace the following in the below command:
+<ul>
+<li><strong>&lt;desired-amp-policy-name&gt;</strong> - a policy name of your choosing</li>
+</ul>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AMP_POLICY_NAME</span><span class="o">=</span>&lt;desired-amp-policy-name&gt;
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AMP_POLICY_ARN</span><span class="o">=</span><span class="k">$(</span>aws iam create-policy --policy-name <span class="nv">$AMP_POLICY_NAME</span> --policy-document file://deployments/add-ons/prometheus/AMPIngestPermissionPolicy.json --query <span class="s1">&#39;Policy.Arn&#39;</span> <span class="p">|</span> tr -d <span class="s1">&#39;&#34;&#39;</span><span class="k">)</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Create a Service Account:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">eksctl create iamserviceaccount --name amp-iamproxy-ingest-service-account --namespace monitoring --cluster <span class="nv">$CLUSTER_NAME</span> --attach-policy-arn <span class="nv">$AMP_POLICY_ARN</span> --override-existing-serviceaccounts --approve --region <span class="nv">$CLUSTER_REGION</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Create an AMP Workspace:
+<ol>
+<li>Make sure to replace the following in the below command:
+<ul>
+<li><strong>&lt;desired-workspace-alias&gt;</strong> - a workspace alias of your choosing</li>
+</ul>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AMP_WORKSPACE_ALIAS</span><span class="o">=</span>&lt;desired-amp-workspace-alias&gt;
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AMP_WORKSPACE_ARN</span><span class="o">=</span><span class="k">$(</span>aws amp create-workspace --region <span class="nv">$CLUSTER_REGION</span> --alias <span class="nv">$AMP_WORKSPACE_ALIAS</span> --query arn <span class="p">|</span> tr -d <span class="s1">&#39;&#34;&#39;</span><span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AMP_WORKSPACE_REGION</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$AMP_WORKSPACE_ARN</span> <span class="p">|</span> cut -d<span class="s1">&#39;:&#39;</span> -f4<span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AMP_WORKSPACE_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$AMP_WORKSPACE_ARN</span> <span class="p">|</span> cut -d<span class="s1">&#39;:&#39;</span> -f6 <span class="p">|</span> cut -d<span class="s1">&#39;/&#39;</span> -f2<span class="k">)</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Update deployments/add-ons/prometheus/params.env with your workspace id and region:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">pushd</span> tests<span class="p">;</span> python3 -c <span class="s1">&#39;import os; import e2e.utils.prometheus.setup_prometheus_server as setup_prometheus_server; region = os.environ[&#34;AMP_WORKSPACE_REGION&#34;]; workspace_id = os.environ[&#34;AMP_WORKSPACE_ID&#34;]; local_prometheus_port = os.environ[&#34;LOCAL_PROMETHEUS_PORT&#34;]; setup_prometheus_server.update_params_env(workspace_id, region, params_env_file_path=&#34;../deployments/add-ons/prometheus/params.env&#34;)&#39;</span><span class="p">;</span> <span class="nb">popd</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Run the kustomize build command to build your prometheus resources:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kustomize build deployments/add-ons/prometheus <span class="p">|</span> kubectl apply -f -
+</span></span></code></pre></div></li>
+</ol>
+</li>
+</ol>
+<h2 id="steps-to-verify-prometheus-and-amp-are-connected">Steps to Verify Prometheus and AMP are Connected</h2>
+<ol>
+<li>Make sure you have awscurl installed:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip3 install awscurl
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Start port-forwarding for the prometheus pod:
+<ol>
+<li>Make sure to replace the following in the below command:
+<ul>
+<li><strong>&lt;desired-local-port&gt;</strong> - a workspace alias of your choosing</li>
+</ul>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LOCAL_PROMETHEUS_PORT</span><span class="o">=</span>&lt;desired-local-port&gt;
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl port-forward <span class="k">$(</span>kubectl get pods --namespace<span class="o">=</span>monitoring <span class="p">|</span> grep <span class="s2">&#34;prometheus-deployment&#34;</span> <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f1<span class="k">)</span> <span class="nv">$LOCAL_PROMETHEUS_PORT</span>:9090 --namespace<span class="o">=</span>monitoring <span class="p">&amp;</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Make sure your credentials are in ~/.aws/credentials:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aws configure
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Run the below command to verify the KFP create experiment count metric is being correctly exported to AMP:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">pushd</span> tests<span class="p">;</span> python3 -c <span class="s1">&#39;import os; import e2e.utils.prometheus.setup_prometheus_server as setup_prometheus_server; cluster_region = os.environ[&#34;CLUSTER_REGION&#34;]; workspace_id = os.environ[&#34;AMP_WORKSPACE_ID&#34;]; setup_prometheus_server.local_prometheus_port = os.environ[&#34;LOCAL_PROMETHEUS_PORT&#34;]; setup_prometheus_server.check_AMP_connects_to_prometheus(cluster_region, workspace_id, expected_value=0)&#39;</span><span class="p">;</span> <span class="nb">popd</span>
+</span></span></code></pre></div></li>
+<li>If all is working, this should not trigger an assertion error.</li>
+</ol>
+</li>
+<li>Get the PID and kill the port-forwarding process:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PORT_FORWARDING_PROCESS</span><span class="o">=</span><span class="k">$(</span>lsof -i :<span class="nv">$LOCAL_PROMETHEUS_PORT</span> <span class="p">|</span> sed -n 2p <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f2<span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">kill</span> <span class="nv">$PORT_FORWARDING_PROCESS</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+</ol>
+<h2 id="steps-to-setup-amg">Steps to Setup AMG</h2>
+<ol>
+<li><a href="https://docs.aws.amazon.com/grafana/latest/userguide/getting-started-with-AMG.html">Create an Amazon Managed Grafana Workspace.</a></li>
+<li><a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMP-adding-AWS-config.html">Add AMP as a data source.</a></li>
+<li><a href="https://docs.aws.amazon.com/grafana/latest/userguide/getting-started-grafanaui.html">Create a dashboard to visualize metrics from your AMP data source.</a></li>
+</ol>
 
 	
 	
