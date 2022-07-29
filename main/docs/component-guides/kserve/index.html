@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/component-guides\/kserve\/",
-      "wordCount" : "1357",
+      "wordCount" : "1358",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-07-28T19:02:45-04:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-07-29T22:57:38+05:30" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="KServe">
 <meta itemprop="description" content="Model serving using KServe with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-07-28T19:02:45-04:00" />
-<meta itemprop="wordCount" content="1357">
+<meta itemprop="dateModified" content="2022-07-29T22:57:38+05:30" />
+<meta itemprop="wordCount" content="1358">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KServe"/>
 <meta name="twitter:description" content="Model serving using KServe with Kubeflow on AWS"/>
@@ -523,7 +523,7 @@ data:
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBEFLOW_DOMAIN</span><span class="o">=</span><span class="s2">&#34;platform.example.com&#34;</span>
 </span></span></code></pre></div><p>Install dependencies for the script by running:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> tests/e2e
-</span></span><span class="line"><span class="cl">pip install requirements.txt
+</span></span><span class="line"><span class="cl">pip install -r requirements.txt
 </span></span></code></pre></div><p>Run the sample python script to send an inference request based on your auth provider:</p>
 <h4 id="cognito-inference">Cognito inference</h4>
 <p>Run the <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/tests/e2e/utils/kserve/inference_sample.py">inference_sample.py</a> Python script by exporting the values for <code>HTTP_HEADER_NAME</code>(e.g. <code>x-api-key</code>) and <code>HTTP_HEADER_VALUE</code>(e.g. <code>token1</code>) according to the values configured in <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/#create-ingress">ingress section</a>.</p>
@@ -585,7 +585,7 @@ data:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 28, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/d24b7ebd744ff8dadb8b682ede1fc04a9de5e496">Added support for non-root EFS files ownership (#268) (d24b7eb)</a>
+  Last modified July 29, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/43570b83cc807cd2e26061e28130061c596dcfc9">Update kserve.md (#304) (43570b8)</a>
 </div>
 
 </div>
