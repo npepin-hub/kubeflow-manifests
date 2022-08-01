@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/add-ons\/prometheus\/guide\/",
-      "wordCount" : "507",
+      "wordCount" : "485",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/prometheus/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-07-29T22:57:38+05:30" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-08-01T11:16:40-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Prometheus">
 <meta itemprop="description" content="Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-07-29T22:57:38+05:30" />
-<meta itemprop="wordCount" content="507">
+<meta itemprop="dateModified" content="2022-08-01T11:16:40-07:00" />
+<meta itemprop="wordCount" content="485">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prometheus"/>
 <meta name="twitter:description" content="Use Prometheus, Amazon Managed Service for Prometheus, and Amazon Managed Grafana to monitor metrics with Kubeflow on AWS"/>
@@ -444,7 +444,10 @@
 <li>Update deployments/add-ons/prometheus/params.env with your workspace id and region:
 <ol>
 <li>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">pushd</span> tests<span class="p">;</span> python3 -c <span class="s1">&#39;import os; import e2e.utils.prometheus.setup_prometheus_server as setup_prometheus_server; region = os.environ[&#34;AMP_WORKSPACE_REGION&#34;]; workspace_id = os.environ[&#34;AMP_WORKSPACE_ID&#34;]; local_prometheus_port = os.environ[&#34;LOCAL_PROMETHEUS_PORT&#34;]; setup_prometheus_server.update_params_env(workspace_id, region, params_env_file_path=&#34;../deployments/add-ons/prometheus/params.env&#34;)&#39;</span><span class="p">;</span> <span class="nb">popd</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; deployments/add-ons/prometheus/params.env <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">workspaceRegion=$AMP_WORKSPACE_REGION
+</span></span></span><span class="line"><span class="cl"><span class="s">workspaceId=$AMP_WORKSPACE_ID
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div></li>
 </ol>
 </li>
@@ -490,7 +493,14 @@
 <li>Run the below command to verify the KFP create experiment count metric is being correctly exported to AMP:
 <ol>
 <li>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">pushd</span> tests<span class="p">;</span> python3 -c <span class="s1">&#39;import os; import e2e.utils.prometheus.setup_prometheus_server as setup_prometheus_server; cluster_region = os.environ[&#34;CLUSTER_REGION&#34;]; workspace_id = os.environ[&#34;AMP_WORKSPACE_ID&#34;]; setup_prometheus_server.local_prometheus_port = os.environ[&#34;LOCAL_PROMETHEUS_PORT&#34;]; setup_prometheus_server.check_AMP_connects_to_prometheus(cluster_region, workspace_id, expected_value=0)&#39;</span><span class="p">;</span> <span class="nb">popd</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">(</span><span class="nb">cd</span> tests<span class="p">;</span> python3 -c <span class="s2">&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">import e2e.utils.prometheus.setup_prometheus_server as setup_prometheus_server
+</span></span></span><span class="line"><span class="cl"><span class="s2">setup_prometheus_server.local_prometheus_port = &#39;</span><span class="nv">$LOCAL_PROMETHEUS_PORT</span><span class="s2">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s2">setup_prometheus_server.check_AMP_connects_to_prometheus(
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#39;</span><span class="nv">$CLUSTER_REGION</span><span class="s2">&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#39;</span><span class="nv">$AMP_WORKSPACE_ID</span><span class="s2">&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    expected_value=0)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span><span class="o">)</span>
 </span></span></code></pre></div></li>
 <li>If all is working, this should not trigger an assertion error.</li>
 </ol>
@@ -516,7 +526,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 29, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/43570b83cc807cd2e26061e28130061c596dcfc9">Update kserve.md (#304) (43570b8)</a>
+  Last modified August 1, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/5313768959a06659590439e299c215a2a2cd3cd4">Updated Prometheus/AMP Guide (#306) (5313768)</a>
 </div>
 
 </div>
