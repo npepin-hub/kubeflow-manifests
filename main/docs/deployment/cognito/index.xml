@@ -265,7 +265,7 @@
 &lt;li&gt;&lt;img src=&#34;https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/cognito/cognito-app-client-settings.png&#34; alt=&#34;cognito-app-client-settings&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;Add a custom domain to the user pool. In order to add a custom domain to your user pool, you need specify a domain name, and provide a certificate managed with AWS Certificate Manager (ACM).
+&lt;li&gt;Add a custom domain to the user pool. In order to add a custom domain to your user pool, you need to specify a domain name, and provide a certificate managed with AWS Certificate Manager (ACM).
 &lt;ol&gt;
 &lt;li&gt;In order to use a custom domain, its root(i.e. &lt;code&gt;platform.example.com&lt;/code&gt;) must have an valid A type record. Create a new record of type &lt;code&gt;A&lt;/code&gt; in &lt;code&gt;platform.example.com&lt;/code&gt; hosted zone with an arbitrary IP for now. Once we have ALB created, we will update this value.
 &lt;ol&gt;
