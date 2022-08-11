@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/docs/deployment/vanilla/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-05T20:13:54-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-08-11T14:58:53-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Vanilla Installation">
 <meta itemprop="description" content="Deploy Kubeflow on AWS using Amazon Elastic Kubernetes Service (EKS)">
-<meta itemprop="dateModified" content="2022-08-05T20:13:54-07:00" />
+<meta itemprop="dateModified" content="2022-08-11T14:58:53-07:00" />
 <meta itemprop="wordCount" content="1272">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vanilla Installation"/>
@@ -121,7 +121,7 @@
 	
 	<a class="dropdown-item" href="https://awslabs.github.io/kubeflow-manifests/docs">latest</a>
 	
-	<a class="dropdown-item" href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.1/docs">v1.5</a>
+	<a class="dropdown-item" href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.0/docs">v1.5</a>
 	
 	<a class="dropdown-item" href="https://awslabs.github.io/kubeflow-manifests/release-v1.4.1-aws-b1.0.0/docs">v1.4</a>
 	
@@ -427,7 +427,7 @@ network authorization, and implement routing policies.</p>
 </span></span></code></pre></div><h4 id="knative">Knative</h4>
 <p>Knative is used by the KServe/KFServing official Kubeflow component.</p>
 <p>Install Knative Serving:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/base <span class="p">|</span> kubectl apply -f -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/overlays/gateways <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><p>Optionally, you can install Knative Eventing, which can be used for inference request logging.</p>
 <p>Install Knative Eventing:</p>
@@ -537,7 +537,7 @@ components:</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 5, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/2a536c32f8c8fc07b7debf2757c2ffed36e5df05">Cherry pick few more bug fixes to 1.5.1-1.0.1 (#316) (2a536c3)</a>
+  Last modified August 11, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/07ee721ccf381dc7181f01c65ef1a1d882733b5f">fixed knative serving kustomize path on website (07ee721)</a>
 </div>
 
 </div>
