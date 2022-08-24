@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/component-guides\/kserve\/",
-      "wordCount" : "1358",
+      "wordCount" : "1361",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-19T13:13:49-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-08-24T12:38:07-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="KServe">
 <meta itemprop="description" content="Model serving using KServe with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-08-19T13:13:49-07:00" />
-<meta itemprop="wordCount" content="1358">
+<meta itemprop="dateModified" content="2022-08-24T12:38:07-07:00" />
+<meta itemprop="wordCount" content="1361">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KServe"/>
 <meta name="twitter:description" content="Model serving using KServe with Kubeflow on AWS"/>
@@ -395,7 +395,7 @@
 	</header>    
 	<p>This tutorial shows how to set up a load balancer endpoint for serving prediction requests over an external DNS on AWS.</p>
 <blockquote>
-<p>Note: Kubeflow on AWS v1.4 uses <a href="https://www.kubeflow.org/docs/external-add-ons/kserve/kserve/#kfserving-is-now-kservehttpskservegithubiowebsite07blogarticles2021-09-27-kfserving-transition">KFServing</a>. The KFServing project is now called KServe.</p>
+<p>Note: The KFServing project is now called <a href="https://kserve.github.io/website/0.7/blog/articles/2021-09-27-kfserving-transition/#kfserving-is-now-kserve">KServe</a>. To migrate from KFServing to Kserve follow this <a href="https://kserve.github.io/website/0.7/admin/migration/">guide</a>.</p>
 </blockquote>
 <p>Read the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#background">background</a> section of the Load Balancer installation guide to familiarize yourself with the requirements for creating an Application Load Balancer on AWS.</p>
 <h2 id="prerequisites">Prerequisites</h2>
@@ -501,7 +501,7 @@ data:
 <p>Once your ingress-managed Load Balancer is ready, copy the <code>ADDRESS</code> of that Load Balancer and create a <code>CNAME</code> entry to it in <a href="https://aws.amazon.com/route53/">Amazon Route 53</a> under your subdomain (e.g. <code>platform.example.com</code>) for <code>*.staging.platform.example.com</code>.</p>
 <h2 id="run-a-sample-inferenceservice">Run a sample InferenceService</h2>
 <h3 id="create-an-authorizationpolicy">Create an <code>AuthorizationPolicy</code></h3>
-<p>Namespaces created by the Kubeflow profile controller have a missing authorization policy that prevents the KFServing predictor and transformer from working.</p>
+<p>Namespaces created by the Kubeflow profile controller have a missing authorization policy that prevents the KServe predictor and transformer from working.</p>
 <blockquote>
 <p>Known Issue: See <a href="https://github.com/kserve/kserve/issues/1558">kserve/kserve#1558</a> and <a href="https://github.com/kubeflow/kubeflow/issues/5965">kubeflow/kubeflow#5965</a> for more information.</p>
 </blockquote>
@@ -510,7 +510,7 @@ data:
 </span></span></code></pre></div><h3 id="create-an-inferenceservice">Create an <code>InferenceService</code></h3>
 <p>Set the environment variable value for <code>PROFILE_NAMESPACE</code>(e.g. <code>staging</code>) according to your environment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILE_NAMESPACE</span><span class="o">=</span><span class="s2">&#34;staging&#34;</span>
-</span></span></code></pre></div><p>Create a scikit-learn <code>InferenceService</code> using a <a href="https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml">sample</a> from the KFserving repository and wait for <code>READY</code> to be <code>True</code>.</p>
+</span></span></code></pre></div><p>Create a scikit-learn <code>InferenceService</code> using a <a href="https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml">sample</a> from the KServe repository and wait for <code>READY</code> to be <code>True</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span> -f https://raw.githubusercontent.com/kserve/kserve/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml
 </span></span></code></pre></div><h3 id="check-inferenceservice-status">Check <code>InferenceService</code> status</h3>
 <p>Check the <code>InferenceService</code> status. Once it is ready, copy the URL to use for sending a prediction request.</p>
@@ -585,7 +585,7 @@ data:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 19, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/9a8a0a1ed3a834f745534810fb9f4fa0152cf150">Fix efs and fsx auto script OIDC detection.  (#324) (9a8a0a1)</a>
+  Last modified August 24, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/3787059fd4456bca4f641c58e1c356eebbf82758">update istio and remove kfserving (#319) (3787059)</a>
 </div>
 
 </div>

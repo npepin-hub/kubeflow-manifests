@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/cognito-rds-s3\/guide\/",
-      "wordCount" : "572",
+      "wordCount" : "535",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito-rds-s3/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-19T13:13:49-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-08-24T12:38:07-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Cognito, RDS, and S3">
 <meta itemprop="description" content="Deploying Kubeflow with Amazon Cognito, RDS and S3">
-<meta itemprop="dateModified" content="2022-08-19T13:13:49-07:00" />
-<meta itemprop="wordCount" content="572">
+<meta itemprop="dateModified" content="2022-08-24T12:38:07-07:00" />
+<meta itemprop="wordCount" content="535">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cognito, RDS, and S3"/>
 <meta name="twitter:description" content="Deploying Kubeflow with Amazon Cognito, RDS and S3"/>
@@ -404,9 +404,9 @@
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/kubeflow-roles/base <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Istio</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/istio-crds/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/istio-namespace/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/istio-install/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-crds/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-namespace/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-install/base <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Cert-Manager</span>
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/cert-manager/cert-manager/base <span class="p">|</span> kubectl apply -f -
@@ -415,17 +415,14 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># KNative</span>
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/overlays/gateways <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-eventing/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Kubeflow Istio Resources</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/kubeflow-istio-resources/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/kubeflow-istio-resources/base <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># KServe</span>
 </span></span><span class="line"><span class="cl">kustomize build awsconfigs/apps/kserve <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">kustomize build upstream/contrib/kserve/models-web-app/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># KFServing -  This is an optional component and required only if you are not ready to migrate to KServe. We recommend migrating to KServe as soon as possible</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/kfserving/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Central Dashboard</span>
 </span></span><span class="line"><span class="cl">kustomize build upstream/apps/centraldashboard/upstream/overlays/kserve <span class="p">|</span> kubectl apply -f -
@@ -488,7 +485,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 19, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/9a8a0a1ed3a834f745534810fb9f4fa0152cf150">Fix efs and fsx auto script OIDC detection.  (#324) (9a8a0a1)</a>
+  Last modified August 24, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/3787059fd4456bca4f641c58e1c356eebbf82758">update istio and remove kfserving (#319) (3787059)</a>
 </div>
 
 </div>

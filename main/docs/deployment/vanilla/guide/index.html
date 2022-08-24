@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/vanilla\/guide\/",
-      "wordCount" : "1272",
+      "wordCount" : "1227",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-19T13:13:49-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-08-24T12:38:07-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Vanilla Installation">
 <meta itemprop="description" content="Deploy Kubeflow on AWS using Amazon Elastic Kubernetes Service (EKS)">
-<meta itemprop="dateModified" content="2022-08-19T13:13:49-07:00" />
-<meta itemprop="wordCount" content="1272">
+<meta itemprop="dateModified" content="2022-08-24T12:38:07-07:00" />
+<meta itemprop="wordCount" content="1227">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vanilla Installation"/>
 <meta name="twitter:description" content="Deploy Kubeflow on AWS using Amazon Elastic Kubernetes Service (EKS)"/>
@@ -417,9 +417,9 @@ admission webhooks.</p>
 <p>Istio is used by many Kubeflow components to secure their traffic, enforce
 network authorization, and implement routing policies.</p>
 <p>Install Istio:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/istio-crds/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/istio-namespace/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/istio-install/base <span class="p">|</span> kubectl apply -f -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-crds/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-namespace/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-install/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="dex">Dex</h4>
 <p>Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with the email <code>user@example.com</code>. By default, the user&rsquo;s password is <code>12341234</code>. For any production Kubeflow deployment, you should change the default password by following the steps in <a href="#change-default-user-password">Change default user password</a>.</p>
 <p>Install Dex:</p>
@@ -429,10 +429,10 @@ network authorization, and implement routing policies.</p>
 <p>Install OIDC AuthService:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/oidc-authservice/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="knative">Knative</h4>
-<p>Knative is used by the KServe/KFServing official Kubeflow component.</p>
+<p>Knative is used by the KServe official Kubeflow component.</p>
 <p>Install Knative Serving:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/overlays/gateways <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><p>Optionally, you can install Knative Eventing, which can be used for inference request logging.</p>
 <p>Install Knative Eventing:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-eventing/base <span class="p">|</span> kubectl apply -f -
@@ -453,19 +453,17 @@ creates an Istio Gateway named <code>kubeflow-gateway</code> in the <code>kubefl
 If you want to install with your own Istio, then you need this kustomization as
 well.</p>
 <p>Install Istio resources:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/istio-1-11/kubeflow-istio-resources/base <span class="p">|</span> kubectl apply -f -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/kubeflow-istio-resources/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="kubeflow-pipelines">Kubeflow Pipelines</h4>
 <p>Install the <a href="https://www.kubeflow.org/docs/components/pipelines/multi-user/">Multi-User Kubeflow Pipelines</a> official Kubeflow component:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/apps/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user <span class="p">|</span> kubectl apply -f -
-</span></span></code></pre></div><h4 id="kserve--kfserving">KServe / KFServing</h4>
-<p>KFServing was rebranded to KServe.</p>
+</span></span></code></pre></div><h4 id="kserve">KServe</h4>
+<p>Kubeflow 1.6 and above only supports KServe
+KFServing was rebranded to KServe.</p>
 <p>Install the KServe component:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build awsconfigs/apps/kserve <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><p>Install the Models web app:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/contrib/kserve/models-web-app/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span></code></pre></div><p>For those not ready to migrate to KServe, you can still install KFServing v0.6.1 with
-the following command, but we recommend migrating to KServe as soon as possible:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/apps/kfserving/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="katib">Katib</h4>
 <p>Install the Katib official Kubeflow component:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/apps/katib/upstream/installs/katib-with-kubeflow <span class="p">|</span> kubectl apply -f -
@@ -510,8 +508,6 @@ components:</p>
 </span></span><span class="line"><span class="cl">kubectl get pods -n knative-serving
 </span></span><span class="line"><span class="cl">kubectl get pods -n kubeflow
 </span></span><span class="line"><span class="cl">kubectl get pods -n kubeflow-user-example-com
-</span></span><span class="line"><span class="cl"><span class="c1"># Depending on your installation if you installed KServe</span>
-</span></span><span class="line"><span class="cl">kubectl get pods -n kserve
 </span></span></code></pre></div><h4 id="port-forward">Port-Forward</h4>
 <p>To get started quickly, you can access Kubeflow via port-forward. Run the following to port-forward Istio&rsquo;s Ingress-Gateway to local port <code>8080</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
@@ -541,7 +537,7 @@ components:</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 19, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/9a8a0a1ed3a834f745534810fb9f4fa0152cf150">Fix efs and fsx auto script OIDC detection.  (#324) (9a8a0a1)</a>
+  Last modified August 24, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/3787059fd4456bca4f641c58e1c356eebbf82758">update istio and remove kfserving (#319) (3787059)</a>
 </div>
 
 </div>

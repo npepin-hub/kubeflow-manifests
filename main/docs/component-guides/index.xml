@@ -493,7 +493,7 @@ public.ecr.aws/c9e4w0g3/notebook-servers/jupyter-pytorch:1.11.0-cpu-py38-ubuntu2
         
         &lt;p&gt;This tutorial shows how to set up a load balancer endpoint for serving prediction requests over an external DNS on AWS.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Note: Kubeflow on AWS v1.4 uses &lt;a href=&#34;https://www.kubeflow.org/docs/external-add-ons/kserve/kserve/#kfserving-is-now-kservehttpskservegithubiowebsite07blogarticles2021-09-27-kfserving-transition&#34;&gt;KFServing&lt;/a&gt;. The KFServing project is now called KServe.&lt;/p&gt;
+&lt;p&gt;Note: The KFServing project is now called &lt;a href=&#34;https://kserve.github.io/website/0.7/blog/articles/2021-09-27-kfserving-transition/#kfserving-is-now-kserve&#34;&gt;KServe&lt;/a&gt;. To migrate from KFServing to Kserve follow this &lt;a href=&#34;https://kserve.github.io/website/0.7/admin/migration/&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Read the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#background&#34;&gt;background&lt;/a&gt; section of the Load Balancer installation guide to familiarize yourself with the requirements for creating an Application Load Balancer on AWS.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -599,7 +599,7 @@ data:
 &lt;p&gt;Once your ingress-managed Load Balancer is ready, copy the &lt;code&gt;ADDRESS&lt;/code&gt; of that Load Balancer and create a &lt;code&gt;CNAME&lt;/code&gt; entry to it in &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Amazon Route 53&lt;/a&gt; under your subdomain (e.g. &lt;code&gt;platform.example.com&lt;/code&gt;) for &lt;code&gt;*.staging.platform.example.com&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;run-a-sample-inferenceservice&#34;&gt;Run a sample InferenceService&lt;/h2&gt;
 &lt;h3 id=&#34;create-an-authorizationpolicy&#34;&gt;Create an &lt;code&gt;AuthorizationPolicy&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Namespaces created by the Kubeflow profile controller have a missing authorization policy that prevents the KFServing predictor and transformer from working.&lt;/p&gt;
+&lt;p&gt;Namespaces created by the Kubeflow profile controller have a missing authorization policy that prevents the KServe predictor and transformer from working.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Known Issue: See &lt;a href=&#34;https://github.com/kserve/kserve/issues/1558&#34;&gt;kserve/kserve#1558&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubeflow/kubeflow/issues/5965&#34;&gt;kubeflow/kubeflow#5965&lt;/a&gt; for more information.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -608,7 +608,7 @@ data:
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-an-inferenceservice&#34;&gt;Create an &lt;code&gt;InferenceService&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Set the environment variable value for &lt;code&gt;PROFILE_NAMESPACE&lt;/code&gt;(e.g. &lt;code&gt;staging&lt;/code&gt;) according to your environment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PROFILE_NAMESPACE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;staging&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a scikit-learn &lt;code&gt;InferenceService&lt;/code&gt; using a &lt;a href=&#34;https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml&#34;&gt;sample&lt;/a&gt; from the KFserving repository and wait for &lt;code&gt;READY&lt;/code&gt; to be &lt;code&gt;True&lt;/code&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a scikit-learn &lt;code&gt;InferenceService&lt;/code&gt; using a &lt;a href=&#34;https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml&#34;&gt;sample&lt;/a&gt; from the KServe repository and wait for &lt;code&gt;READY&lt;/code&gt; to be &lt;code&gt;True&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -n &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROFILE_NAMESPACE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -f https://raw.githubusercontent.com/kserve/kserve/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;check-inferenceservice-status&#34;&gt;Check &lt;code&gt;InferenceService&lt;/code&gt; status&lt;/h3&gt;
 &lt;p&gt;Check the &lt;code&gt;InferenceService&lt;/code&gt; status. Once it is ready, copy the URL to use for sending a prediction request.&lt;/p&gt;
