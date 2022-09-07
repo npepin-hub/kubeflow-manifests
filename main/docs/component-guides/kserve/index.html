@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/component-guides\/kserve\/",
-      "wordCount" : "1361",
+      "wordCount" : "1311",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-07T11:39:30-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-07T09:30:34-10:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="KServe">
 <meta itemprop="description" content="Model serving using KServe with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-07T11:39:30-07:00" />
-<meta itemprop="wordCount" content="1361">
+<meta itemprop="dateModified" content="2022-09-07T09:30:34-10:00" />
+<meta itemprop="wordCount" content="1311">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KServe"/>
 <meta name="twitter:description" content="Model serving using KServe with Kubeflow on AWS"/>
@@ -511,13 +511,13 @@ data:
 <p>Set the environment variable value for <code>PROFILE_NAMESPACE</code>(e.g. <code>staging</code>) according to your environment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILE_NAMESPACE</span><span class="o">=</span><span class="s2">&#34;staging&#34;</span>
 </span></span></code></pre></div><p>Create a scikit-learn <code>InferenceService</code> using a <a href="https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml">sample</a> from the KServe repository and wait for <code>READY</code> to be <code>True</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span> -f https://raw.githubusercontent.com/kserve/kserve/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span> -f https://raw.githubusercontent.com/kserve/kserve/release-0.7/docs/samples/v1beta1/sklearn/v1/sklearn.yaml
 </span></span></code></pre></div><h3 id="check-inferenceservice-status">Check <code>InferenceService</code> status</h3>
 <p>Check the <code>InferenceService</code> status. Once it is ready, copy the URL to use for sending a prediction request.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get inferenceservices sklearn-irisv2 -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get inferenceservices sklearn-iris -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NAME             URL                                                 READY   PREV   LATEST   PREVROLLEDOUTREVISION   LATESTREADYREVISION                      AGE
-</span></span><span class="line"><span class="cl">sklearn-irisv2   http://sklearn-iris2.staging.platform.example.com   True           <span class="m">100</span>                              sklearn-irisv2-predictor-default-00001   3m31s
+</span></span><span class="line"><span class="cl">sklearn-iris   http://sklearn-iris.staging.platform.example.com   True           <span class="m">100</span>                              sklearn-iris-predictor-default-00001   3m31s
 </span></span></code></pre></div><h3 id="send-an-inference-request">Send an inference request</h3>
 <p>Set the environment variable values for <code>KUBEFLOW_DOMAIN</code>(e.g. <code>platform.example.com</code>) according to your environment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBEFLOW_DOMAIN</span><span class="o">=</span><span class="s2">&#34;platform.example.com&#34;</span>
@@ -534,24 +534,7 @@ data:
 </span></span></code></pre></div><p>The output should look similar to the following:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Status Code <span class="m">200</span>
 </span></span><span class="line"><span class="cl">JSON Response  <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;model_name&#34;</span>: <span class="s2">&#34;sklearn-irisv2&#34;</span>,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;model_version&#34;</span>: null,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;e5fc40ba-5f02-42f7-aff8-34042facbe11&#34;</span>,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;parameters&#34;</span>: null,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;outputs&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">    <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;predict&#34;</span>,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;shape&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        <span class="m">2</span>
-</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datatype&#34;</span>: <span class="s2">&#34;FP32&#34;</span>,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;parameters&#34;</span>: null,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;data&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        1,
-</span></span><span class="line"><span class="cl">        <span class="m">2</span>
-</span></span><span class="line"><span class="cl">      <span class="o">]</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;predictions&#34;</span>: <span class="o">[</span>1, 1<span class="o">]</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h4 id="dex-inference">Dex inference</h4>
 <p>Run the <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/tests/e2e/utils/kserve/inference_sample.py">inference_sample.py</a> Python script by exporting the values for <code>USERNAME</code>(e.g. <code>user@example.com</code>), <code>PASSWORD</code> according to the user profile</p>
@@ -562,30 +545,13 @@ data:
 </span></span></code></pre></div><p>The output should look similar to the following:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Status Code <span class="m">200</span>
 </span></span><span class="line"><span class="cl">JSON Response  <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;model_name&#34;</span>: <span class="s2">&#34;sklearn-irisv2&#34;</span>,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;model_version&#34;</span>: null,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;e5fc40ba-5f02-42f7-aff8-34042facbe11&#34;</span>,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;parameters&#34;</span>: null,
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;outputs&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">    <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;predict&#34;</span>,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;shape&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        <span class="m">2</span>
-</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datatype&#34;</span>: <span class="s2">&#34;FP32&#34;</span>,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;parameters&#34;</span>: null,
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;data&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        1,
-</span></span><span class="line"><span class="cl">        <span class="m">2</span>
-</span></span><span class="line"><span class="cl">      <span class="o">]</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;predictions&#34;</span>: <span class="o">[</span>1, 1<span class="o">]</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 7, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/2a1015fdf29a234690a265f83d10b19068e155b8">Fix rds-s3 Integration test (#344) (2a1015f)</a>
+  Last modified September 7, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/e6cba26530f4f7ea86b60ad04b562d13a2b39ebc">update kserve with sample (#337) (e6cba26)</a>
 </div>
 
 </div>
