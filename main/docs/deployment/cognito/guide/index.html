@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-09T09:59:25-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-09T15:43:07-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Manual Deployment Guide">
 <meta itemprop="description" content="Deploying Kubeflow with AWS Cognito as identity provider">
-<meta itemprop="dateModified" content="2022-09-09T09:59:25-07:00" />
+<meta itemprop="dateModified" content="2022-09-09T15:43:07-07:00" />
 <meta itemprop="wordCount" content="1535">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manual Deployment Guide"/>
@@ -522,7 +522,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># Istio</span>
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-crds/base <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-namespace/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-install/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/istio <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Cert-Manager</span>
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/cert-manager/cert-manager/base <span class="p">|</span> kubectl apply -f -
@@ -653,7 +653,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 9, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/68f2de07b84cc637e8ee93eec1bb3cba6e94b7dc">Fix istio (#347) (68f2de0)</a>
+  Last modified September 9, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/26e4f2a10c47611707a7fdc22aed94aaa5cc91c7">Fix istio (#349) (26e4f2a)</a>
 </div>
 
 </div>

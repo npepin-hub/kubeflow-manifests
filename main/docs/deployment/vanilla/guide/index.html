@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-09T09:59:25-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-09T15:43:07-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Vanilla Installation">
 <meta itemprop="description" content="Deploy Kubeflow on AWS using Amazon Elastic Kubernetes Service (EKS)">
-<meta itemprop="dateModified" content="2022-09-09T09:59:25-07:00" />
+<meta itemprop="dateModified" content="2022-09-09T15:43:07-07:00" />
 <meta itemprop="wordCount" content="1227">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vanilla Installation"/>
@@ -419,7 +419,7 @@ network authorization, and implement routing policies.</p>
 <p>Install Istio:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-crds/base <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-namespace/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-install/base <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/istio <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="dex">Dex</h4>
 <p>Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with the email <code>user@example.com</code>. By default, the user&rsquo;s password is <code>12341234</code>. For any production Kubeflow deployment, you should change the default password by following the steps in <a href="#change-default-user-password">Change default user password</a>.</p>
 <p>Install Dex:</p>
@@ -537,7 +537,7 @@ components:</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 9, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/68f2de07b84cc637e8ee93eec1bb3cba6e94b7dc">Fix istio (#347) (68f2de0)</a>
+  Last modified September 9, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/26e4f2a10c47611707a7fdc22aed94aaa5cc91c7">Fix istio (#349) (26e4f2a)</a>
 </div>
 
 </div>

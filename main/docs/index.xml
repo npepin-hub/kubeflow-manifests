@@ -1616,7 +1616,7 @@ Source: &lt;a href=&#34;https://www.tensorflow.org/tutorials/load_data/images&#3
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Istio&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-crds/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-install/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/common/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Cert-Manager&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/cert-manager/cert-manager/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
@@ -2299,7 +2299,7 @@ network authorization, and implement routing policies.&lt;/p&gt;
 &lt;p&gt;Install Istio:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-crds/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-install/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/common/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dex&#34;&gt;Dex&lt;/h4&gt;
 &lt;p&gt;Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with the email &lt;code&gt;user@example.com&lt;/code&gt;. By default, the user&amp;rsquo;s password is &lt;code&gt;12341234&lt;/code&gt;. For any production Kubeflow deployment, you should change the default password by following the steps in &lt;a href=&#34;#change-default-user-password&#34;&gt;Change default user password&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Install Dex:&lt;/p&gt;
@@ -3025,7 +3025,7 @@ Take note of your &lt;code&gt;S3 bucket name&lt;/code&gt; to use in the followin
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Istio&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-crds/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-install/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/common/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Cert-Manager&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/cert-manager/cert-manager/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -

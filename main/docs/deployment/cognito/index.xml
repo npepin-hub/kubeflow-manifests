@@ -366,7 +366,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Istio&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-crds/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-install/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/common/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Cert-Manager&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/cert-manager/cert-manager/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
