@@ -409,7 +409,7 @@ Take note of your &lt;code&gt;S3 bucket name&lt;/code&gt; to use in the followin
 &lt;li&gt;For more details about configuring or finding your AWS credentials, see &lt;a href=&#34;https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html&#34;&gt;AWS security credentials&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;S3_SECRET&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;your s3 secret name&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws secretsmanager create-secret --name S3_SECRET --secret-string &lt;span class=&#34;s1&#34;&gt;&amp;#39;{&amp;#34;accesskey&amp;#34;:&amp;#34;AXXXXXXXXXXXXXXXXXX6&amp;#34;,&amp;#34;secretkey&amp;#34;:&amp;#34;eXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXq&amp;#34;}&amp;#39;&lt;/span&gt; --region &lt;span class=&#34;nv&#34;&gt;$CLUSTER_REGION&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws secretsmanager create-secret --name &lt;span class=&#34;nv&#34;&gt;$S3_SECRET&lt;/span&gt; --secret-string &lt;span class=&#34;s1&#34;&gt;&amp;#39;{&amp;#34;accesskey&amp;#34;:&amp;#34;AXXXXXXXXXXXXXXXXXX6&amp;#34;,&amp;#34;secretkey&amp;#34;:&amp;#34;eXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXq&amp;#34;}&amp;#39;&lt;/span&gt; --region &lt;span class=&#34;nv&#34;&gt;$CLUSTER_REGION&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
