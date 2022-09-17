@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-14T16:21:44-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-16T20:28:54-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="KServe">
 <meta itemprop="description" content="Model serving using KServe with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-14T16:21:44-07:00" />
+<meta itemprop="dateModified" content="2022-09-16T20:28:54-07:00" />
 <meta itemprop="wordCount" content="1311">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KServe"/>
@@ -511,7 +511,7 @@ data:
 <p>Set the environment variable value for <code>PROFILE_NAMESPACE</code>(e.g. <code>staging</code>) according to your environment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILE_NAMESPACE</span><span class="o">=</span><span class="s2">&#34;staging&#34;</span>
 </span></span></code></pre></div><p>Create a scikit-learn <code>InferenceService</code> using a <a href="https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml">sample</a> from the KServe repository and wait for <code>READY</code> to be <code>True</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span> -f https://raw.githubusercontent.com/kserve/kserve/release-0.7/docs/samples/v1beta1/sklearn/v1/sklearn.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span> -f https://raw.githubusercontent.com/kserve/kserve/release-0.8/docs/samples/v1beta1/sklearn/v1/sklearn.yaml
 </span></span></code></pre></div><h3 id="check-inferenceservice-status">Check <code>InferenceService</code> status</h3>
 <p>Check the <code>InferenceService</code> status. Once it is ready, copy the URL to use for sending a prediction request.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get inferenceservices sklearn-iris -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span>
@@ -551,7 +551,7 @@ data:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 14, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/853f35fea2f7131ebeb9e2b1cf0604f2ac14035a">Fix AWS-load-balancer-controller Helm Chart Version (#364) (853f35f)</a>
+  Last modified September 16, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/ca455394501c6ba56d85fd817bcc237b7f956011">fix kserve model server link (#372) (ca45539)</a>
 </div>
 
 </div>
