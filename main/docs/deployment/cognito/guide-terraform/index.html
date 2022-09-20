@@ -17,7 +17,7 @@
       "articleSection" : "docs",
       "name" : "Terraform Deployment Guide",
       "headline" : "Terraform Deployment Guide",
-      "description" : "Deploy Kubeflow with AWS Cognito as identity provider using Terraform",
+      "description" : "Deploy Kubeflow with AWS Cognito as an identity provider using Terraform",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/cognito\/guide-terraform\/",
-      "wordCount" : "95",
+      "wordCount" : "325",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -43,21 +43,21 @@
 <meta name="theme-color" content="#4279f4">
 
 <title>Terraform Deployment Guide | Kubeflow on AWS</title>
-<meta name="description" content="Deploy Kubeflow with AWS Cognito as identity provider using Terraform">
+<meta name="description" content="Deploy Kubeflow with AWS Cognito as an identity provider using Terraform">
 <meta property="og:title" content="Terraform Deployment Guide" />
-<meta property="og:description" content="Deploy Kubeflow with AWS Cognito as identity provider using Terraform" />
+<meta property="og:description" content="Deploy Kubeflow with AWS Cognito as an identity provider using Terraform" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide-terraform/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-20T14:46:23-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T15:14:37-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Terraform Deployment Guide">
-<meta itemprop="description" content="Deploy Kubeflow with AWS Cognito as identity provider using Terraform">
-<meta itemprop="dateModified" content="2022-09-20T14:46:23-07:00" />
-<meta itemprop="wordCount" content="95">
+<meta itemprop="description" content="Deploy Kubeflow with AWS Cognito as an identity provider using Terraform">
+<meta itemprop="dateModified" content="2022-09-20T15:14:37-07:00" />
+<meta itemprop="wordCount" content="325">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Terraform Deployment Guide"/>
-<meta name="twitter:description" content="Deploy Kubeflow with AWS Cognito as identity provider using Terraform"/>
+<meta name="twitter:description" content="Deploy Kubeflow with AWS Cognito as an identity provider using Terraform"/>
 
 
 
@@ -360,8 +360,16 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
+    <li><a href="#background">Background</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#deployment-steps">Deployment Steps</a></li>
+    <li><a href="#deployment-steps">Deployment Steps</a>
+      <ul>
+        <li><a href="#configure">Configure</a></li>
+        <li><a href="#all-configurations">All Configurations</a></li>
+        <li><a href="#preview">Preview</a></li>
+        <li><a href="#apply">Apply</a></li>
+      </ul>
+    </li>
     <li><a href="#connect-to-your-kubeflow-dashboard">Connect to your Kubeflow dashboard</a></li>
     <li><a href="#cleanup">Cleanup</a></li>
   </ul>
@@ -413,7 +421,7 @@
             
 <div class="td-content">
 	<h1>Terraform Deployment Guide</h1>
-	<div class="lead">Deploy Kubeflow with AWS Cognito as identity provider using Terraform</div>
+	<div class="lead">Deploy Kubeflow with AWS Cognito as an identity provider using Terraform</div>
 	<header class="article-meta">
 		
 
@@ -432,6 +440,17 @@
 	<blockquote>
 <p>Note: Terraform deployment options are still in preview.</p>
 </blockquote>
+<h2 id="background">Background</h2>
+<p>This guide will walk you through using Terraform to:</p>
+<ul>
+<li>Create a VPC</li>
+<li>Create an EKS cluster</li>
+<li>Create a Route53 subdomain</li>
+<li>Create a Cognito user pool</li>
+<li>Deploy Kubeflow with Cognito as an identity provider</li>
+</ul>
+<p>Additional background on using Cognito with the AWS Distribution for Kubeflow can be found <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/#background">here</a>.</p>
+<p>Terraform documentation can be found <a href="https://www.terraform.io/docs">here</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Be sure that you have satisfied the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/">installation prerequisites</a> before working through this guide.</p>
 <p>Specifially, you must:</p>
@@ -440,15 +459,50 @@
 <li><a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#clone-repository">Clone the repository</a></li>
 <li><a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment">Install the necessary tools</a></li>
 </ul>
-<h2 id="deployment-steps">Deployment Steps</h2>
-<p>Define the following environment variables:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TF_VAR_cluster_name</span><span class="o">=</span>&lt;desired_cluster_name&gt;
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TF_VAR_cluster_region</span><span class="o">=</span>&lt;desired_cluster_region&gt;
-</span></span></code></pre></div><p>Run the following command:</p>
+<p>Additionally, ensure you are in the <code>REPO_ROOT/deployments/cognito/terraform</code> folder.</p>
+<p>If you are in repository&rsquo;s root folder, run:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> deployments/cognito/terraform
-</span></span><span class="line"><span class="cl">make deploy
+</span></span><span class="line"><span class="cl"><span class="nb">pwd</span>
+</span></span></code></pre></div><h2 id="deployment-steps">Deployment Steps</h2>
+<h3 id="configure">Configure</h3>
+<p>Create a root domain manually (e.g. not through Terraform.) To create a domain as the root domain through Route53 follow the steps <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html">here</a>.</p>
+<p>To create a subdomain manually as well follow the steps <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-domain-and-certificates">here</a>.</p>
+<p>Define the following environment variables:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Region to create the cluster in</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_REGION</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Name of the cluster to create</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Name of an existing Route53 root domain (e.g. example.com)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ROOT_DOMAIN</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Name of the subdomain to create (e.g. platform.example.com)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SUBDOMAIN</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Name of the cognito user pool to create</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">USER_POOL_NAME</span><span class="o">=</span>
+</span></span></code></pre></div><p>Save the variables to a <code>.tfvars</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF &gt; sample.auto.tfvars
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster_name=&#34;${CLUSTER_NAME}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster_region=&#34;${CLUSTER_REGION}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">aws_route53_root_zone_name=&#34;${ROOT_DOMAIN}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">aws_route53_subdomain_zone_name=&#34;${SUBDOMAIN}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">cognito_user_pool_name=&#34;${USER_POOL_NAME}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">create_subdomain=&#34;true&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><h3 id="all-configurations">All Configurations</h3>
+<p>A full list of inputs for the terraform stack can be found <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/deployments/cognito/terraform/variables.tf">here</a>.</p>
+<h3 id="preview">Preview</h3>
+<p>View a preview of the configuration you are about apply:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">terraform init <span class="o">&amp;&amp;</span> terraform plan
+</span></span></code></pre></div><h3 id="apply">Apply</h3>
+<p>Run the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make deploy
 </span></span></code></pre></div><h2 id="connect-to-your-kubeflow-dashboard">Connect to your Kubeflow dashboard</h2>
-<p>For information on connecting to your Kubeflow dashboard depending on your deployment environment, see <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#port-forward-terraform-deployment">Port-forward (Terraform deployment)</a>. Then, <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#log-into-the-kubeflow-ui">log into the Kubeflow UI</a>.</p>
+<ol>
+<li>Head over to your user pool in the Cognito console and create a user with email <code>user@example.com</code> in <code>Users and groups</code>.</li>
+<li>Get the link to the central dashboard:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">terraform output -raw kubelow_platform_domain
+</span></span></code></pre></div></li>
+<li>Open the link in the browser and connect via the user credentials that were just configured.</li>
+</ol>
 <h2 id="cleanup">Cleanup</h2>
 <p>Uninstall Kubeflow on AWS with a single command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make delete
@@ -456,7 +510,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/0677cab9518acb36996757724171fd4dbffe8e87">Update make commands for website docs (#386) (0677cab)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/ceb95780e5fd61b5e1ac7e387bc37a7b5462702c">Terraform Website Docs (#387) (ceb9578)</a>
 </div>
 
 </div>
