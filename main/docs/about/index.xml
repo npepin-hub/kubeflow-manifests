@@ -41,12 +41,18 @@
 &lt;li&gt;Manage external traffic with &lt;strong&gt;&lt;a href=&#34;https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html&#34;&gt;AWS Application Load Balancer&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Get started with TLS authentication using &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/certificate-manager/&#34;&gt;AWS Certificate Manager&lt;/a&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/cognito/&#34;&gt;AWS Cognito&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;integrate-with-aws-database-and-storage-solutions&#34;&gt;Integrate with AWS database and storage solutions&lt;/h2&gt;
+&lt;h2 id=&#34;aws-database-and-storage-solutions&#34;&gt;AWS database and storage solutions&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Integrate Kubeflow with &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/rds/&#34;&gt;Amazon Relational Database Service (RDS)&lt;/a&gt;&lt;/strong&gt; for a highly scalable pipelines and metadata store.&lt;/li&gt;
 &lt;li&gt;Deploy Kubeflow with integrations for &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/s3/&#34;&gt;Amazon S3&lt;/a&gt;&lt;/strong&gt; for an easy-to-use pipeline artifacts store.&lt;/li&gt;
 &lt;li&gt;Use Kubeflow with &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/efs/&#34;&gt;Amazon Elastic File System (EFS)&lt;/a&gt;&lt;/strong&gt; for a simple, scalabale, and serverless storage solution.&lt;/li&gt;
 &lt;li&gt;Leverage the &lt;strong&gt;&lt;a href=&#34;https://github.com/kubernetes-sigs/aws-fsx-csi-driver&#34;&gt;Amazon FSx CSI driver&lt;/a&gt;&lt;/strong&gt; to manage Lustre file systems which are optimized for compute-intensive workloads, such as high-performance computing and machine learning. &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/fsx/lustre/&#34;&gt;Amazon FSx for Lustre&lt;/a&gt;&lt;/strong&gt; can scale to hundreds of GBps of throughput and millions of IOPS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;integrate-with-amazon-sagemaker&#34;&gt;Integrate with Amazon SageMaker&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Kubeflow on AWS with &lt;strong&gt;&lt;a href=&#34;https://aws.amazon.com/sagemaker/&#34;&gt;Amazon SageMaker&lt;/a&gt;&lt;/strong&gt; to create hybrid machine learning workflows.&lt;/li&gt;
+&lt;li&gt;Train, tune, and deploy machine learning models in Amazon SageMaker without logging into the SageMaker console using &lt;strong&gt;&lt;a href=&#34;https://github.com/aws-controllers-k8s/sagemaker-controller&#34;&gt;SageMaker Operators for Kubernetes (ACK)&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Create a Kubeflow Pipeline built entirely using &lt;strong&gt;&lt;a href=&#34;https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker&#34;&gt;SageMaker Components for Kubeflow Pipelines&lt;/a&gt;&lt;/strong&gt;, or integrate individual components into your workflow as needed.&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -88,31 +94,35 @@
         
         
         &lt;h2 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h2&gt;
-&lt;p&gt;Amazon EKS maintains end-to-end testing between EKS Kubernetes versions and Kubeflow versions. The following table relates compatibility between Kubernetes versions on Amazon EKS and Kubeflow v1.5.&lt;/p&gt;
+&lt;p&gt;Amazon EKS maintains end-to-end testing between EKS Kubernetes versions and Kubeflow versions. The following table relates compatibility between Kubernetes versions on Amazon EKS and Kubeflow v1.6.&lt;/p&gt;
 &lt;div class=&#34;table-responsive&#34;&gt;
   &lt;table class=&#34;table table-bordered&#34;&gt;
     &lt;thead class=&#34;thead-light&#34;&gt;
       &lt;tr&gt;
         &lt;th&gt;EKS Versions&lt;/th&gt;
-        &lt;th&gt;Kubeflow v1.5&lt;/th&gt;
+        &lt;th&gt;Kubeflow v1.6&lt;/th&gt;
       &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;1.22&lt;/td&gt;
+    &lt;tr&gt;
+        &lt;td&gt;1.23&lt;/td&gt;
         &lt;td&gt;&lt;b&gt;Incompatible&lt;/b&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-        &lt;td&gt;1.21&lt;/td&gt;
+        &lt;td&gt;1.22&lt;/td&gt;
         &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.21&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;Incompatible&lt;/b&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
         &lt;td&gt;1.20&lt;/td&gt;
-        &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;Incompatible&lt;/b&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
         &lt;td&gt;1.19&lt;/td&gt;
-        &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;Incompatible&lt;/b&gt;&lt;/td&gt;
       &lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;

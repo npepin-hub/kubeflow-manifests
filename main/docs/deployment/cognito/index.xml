@@ -40,7 +40,7 @@
 &lt;li&gt;If your domain is managed in route53, enter the Hosted zone ID found under Hosted zone details in &lt;code&gt;route53.rootDomain.hostedZoneId&lt;/code&gt;. Skip this step if your domain is managed by other domain provider.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;Name of the sudomain you want to host Kubeflow (e.g. &lt;code&gt;platform.example.com&lt;/code&gt;) in &lt;code&gt;route53.subDomain.name&lt;/code&gt;. Please read &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#create-domain-and-certificates&#34;&gt;this section&lt;/a&gt; to understand why we use a subdomain.&lt;/li&gt;
+&lt;li&gt;Name of the sudomain you want to host Kubeflow (e.g. &lt;code&gt;platform.example.com&lt;/code&gt;) in &lt;code&gt;route53.subDomain.name&lt;/code&gt;. Please read &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-domain-and-certificates&#34;&gt;this section&lt;/a&gt; to understand why we use a subdomain.&lt;/li&gt;
 &lt;li&gt;Cluster name and region where kubeflow will be deployed in &lt;code&gt;cluster.name&lt;/code&gt; and &lt;code&gt;cluster.region&lt;/code&gt; (e.g. us-west-2) respectively.&lt;/li&gt;
 &lt;li&gt;Name of cognito userpool in &lt;code&gt;cognitoUserpool.name&lt;/code&gt; e.g. kubeflow-users.&lt;/li&gt;
 &lt;li&gt;The config file will look something like:
@@ -105,9 +105,67 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Install Kubeflow using the following command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; ! kustomize build deployments/cognito &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Retrying to apply resources&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; sleep 30&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;p&gt;Install Kubeflow using the following command:
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-5&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active tab-Kustomize&#34;
+        id=&#34;tabs-5-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-5-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Kustomize&amp;#34;);&#34;
+        aria-controls=&#34;tabs-5-0&#34; aria-selected=&#34;true&#34;&gt;
+        Kustomize
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-Helm&#34;
+        id=&#34;tabs-5-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-5-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Helm&amp;#34;);&#34;
+        aria-controls=&#34;tabs-5-1&#34; aria-selected=&#34;false&#34;&gt;
+        Helm
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;/ul&gt;
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-5-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-5-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-5-0-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-5-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-5-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Updating the domain with ALB address&lt;/p&gt;
 &lt;ol&gt;
@@ -215,7 +273,7 @@
     </item>
     
     <item>
-      <title>Docs: Manual Deployment Guide</title>
+      <title>Docs: Manifest Deployment Guide</title>
       <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -233,14 +291,14 @@
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;Check to make sure that you have the necessary &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/&#34;&gt;prerequisites&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
-&lt;p&gt;Read the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#background&#34;&gt;background section&lt;/a&gt; in the Load Balancer guide for information on the requirements for exposing Kubeflow over a Load Balancer.&lt;/p&gt;
-&lt;p&gt;Read the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#create-domain-and-certificates&#34;&gt;create domain and certificate section&lt;/a&gt; for information on why we use a subdomain for hosting Kubeflow.&lt;/p&gt;
+&lt;p&gt;Read the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#background&#34;&gt;background section&lt;/a&gt; in the Load Balancer guide for information on the requirements for exposing Kubeflow over a Load Balancer.&lt;/p&gt;
+&lt;p&gt;Read the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-domain-and-certificates&#34;&gt;create domain and certificate section&lt;/a&gt; for information on why we use a subdomain for hosting Kubeflow.&lt;/p&gt;
 &lt;h2 id=&#34;optional-automated-setup&#34;&gt;(Optional) Automated setup&lt;/h2&gt;
 &lt;p&gt;The rest of the sections in this guide walk you through each step for setting up domain, certificates, and a Cognito userpool using the AWS Console. This guide is intended for a new user to understand the design and details of these setup steps. If you prefer to use automated scripts and avoid human error for setting up the resources for deploying Kubeflow with Cognito, follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide-automated/&#34;&gt;automated setup guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;10-custom-domain-and-certificates&#34;&gt;1.0 Custom domain and certificates&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#create-a-subdomain&#34;&gt;Create a subdomain&lt;/a&gt; section of the Load Balancer guide to create a subdomain(e.g. &lt;code&gt;platform.example.com&lt;/code&gt;) for hosting Kubeflow.&lt;/li&gt;
-&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#create-certificates-for-domain&#34;&gt;Create certificates for domain&lt;/a&gt; section of the Load Balancer guide to create certificates required for TLS.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-a-subdomain&#34;&gt;Create a subdomain&lt;/a&gt; section of the Load Balancer guide to create a subdomain(e.g. &lt;code&gt;platform.example.com&lt;/code&gt;) for hosting Kubeflow.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-certificates-for-domain&#34;&gt;Create certificates for domain&lt;/a&gt; section of the Load Balancer guide to create certificates required for TLS.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;From this point onwards, we will be creating/updating the DNS records &lt;strong&gt;only in the subdomain&lt;/strong&gt;. All the screenshots of the hosted zone in the following sections/steps of this guide are for the subdomain.&lt;/p&gt;
 &lt;h2 id=&#34;20-cognito-user-pool&#34;&gt;2.0 Cognito User Pool&lt;/h2&gt;
@@ -276,7 +334,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;If your cluster is not in N.Virginia(us-east-1), create an ACM certificate in us-east-1 for &lt;code&gt;*.platform.example.com&lt;/code&gt; by following the process similar to &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#create-certificates-for-domain&#34;&gt;section 2.0&lt;/a&gt;. That is because &lt;a href=&#34;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html&#34;&gt;Cognito requires&lt;/a&gt; a certificate in N.Virginia in order to have a custom domain for a user pool.&lt;/li&gt;
+&lt;li&gt;If your cluster is not in N.Virginia(us-east-1), create an ACM certificate in us-east-1 for &lt;code&gt;*.platform.example.com&lt;/code&gt; by following the process similar to &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-certificates-for-domain&#34;&gt;section 2.0&lt;/a&gt;. That is because &lt;a href=&#34;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html&#34;&gt;Cognito requires&lt;/a&gt; a certificate in N.Virginia in order to have a custom domain for a user pool.&lt;/li&gt;
 &lt;li&gt;In the &lt;code&gt;Domain name&lt;/code&gt; choose &lt;code&gt;Use your domain&lt;/code&gt;, type &lt;code&gt;auth.platform.example.com&lt;/code&gt; and select the &lt;code&gt;*.platform.example.com&lt;/code&gt; AWS managed certificate you’ve created in N.Virginia. Creating domain takes up to 15 mins.
 &lt;ol&gt;
 &lt;li&gt;&lt;img src=&#34;https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/cognito/cognito-active-domain.png&#34; alt=&#34;cognito-active-domain&#34;&gt;&lt;/li&gt;
@@ -347,15 +405,72 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/add-ons/load-balancer/guide/#configure-load-balancer-controller&#34;&gt;Configure Load Balancer Controller&lt;/a&gt; section of the load balancer guide to setup the resources required the load balancer controller.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#configure-load-balancer-controller&#34;&gt;Configure Load Balancer Controller&lt;/a&gt; section of the load balancer guide to setup the resources required the load balancer controller.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;40-building-manifests-and-deploying-kubeflow&#34;&gt;4.0 Building manifests and deploying Kubeflow&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Choose one of the two options to deploy kubeflow:
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;[Option 1]&lt;/strong&gt; Install with a single command:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; ! kustomize build deployments/cognito &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Retrying to apply resources&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; sleep 30&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-8&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active tab-Kustomize&#34;
+        id=&#34;tabs-8-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-8-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Kustomize&amp;#34;);&#34;
+        aria-controls=&#34;tabs-8-0&#34; aria-selected=&#34;true&#34;&gt;
+        Kustomize
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-Helm&#34;
+        id=&#34;tabs-8-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-8-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Helm&amp;#34;);&#34;
+        aria-controls=&#34;tabs-8-1&#34; aria-selected=&#34;false&#34;&gt;
+        Helm
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;/ul&gt;
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-8-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-8-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-8-0-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-8-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-8-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;[Option 2]&lt;/strong&gt; Install individual components:
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Kubeflow namespace&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/kubeflow-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
@@ -494,6 +609,42 @@
 &lt;h2 id=&#34;70-uninstall-kubeflow&#34;&gt;7.0 Uninstall Kubeflow&lt;/h2&gt;
 &lt;p&gt;To delete the resources created in this guide, refer to the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide-automated/#uninstall-kubeflow&#34;&gt;Uninstall section in Automated Cognito deployment guide&lt;/a&gt;&lt;/p&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Terraform Deployment Guide</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide-terraform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide-terraform/</guid>
+      <description>
+        
+        
+        &lt;blockquote&gt;
+&lt;p&gt;Note: Terraform deployment options are still in preview.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Be sure that you have satisfied the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/&#34;&gt;installation prerequisites&lt;/a&gt; before working through this guide.&lt;/p&gt;
+&lt;p&gt;Specifially, you must:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment&#34;&gt;Create a Ubuntu environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#clone-repository&#34;&gt;Clone the repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment&#34;&gt;Install the necessary tools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deployment-steps&#34;&gt;Deployment Steps&lt;/h2&gt;
+&lt;p&gt;Define the following environment variables:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TF_VAR_cluster_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;desired_cluster_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TF_VAR_cluster_region&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;desired_cluster_region&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; deployments/cognito/terraform
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;connect-to-your-kubeflow-dashboard&#34;&gt;Connect to your Kubeflow dashboard&lt;/h2&gt;
+&lt;p&gt;For information on connecting to your Kubeflow dashboard depending on your deployment environment, see &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#port-forward-terraform-deployment&#34;&gt;Port-forward (Terraform deployment)&lt;/a&gt;. Then, &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#log-into-the-kubeflow-ui&#34;&gt;log into the Kubeflow UI&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;cleanup&#34;&gt;Cleanup&lt;/h2&gt;
+&lt;p&gt;Uninstall Kubeflow on AWS with a single command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make delete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
