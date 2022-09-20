@@ -34,9 +34,6 @@
 &lt;p&gt;⚠️ Warning: We use a default email (&lt;code&gt;user@example.com&lt;/code&gt;) and password (&lt;code&gt;12341234&lt;/code&gt;) for our guides. For any production Kubeflow deployment, you should change the default password by following the steps in &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#change-the-default-user-password-kustomize&#34;&gt;Change default user password&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;kubectl apply&lt;/code&gt; commands may fail on the first try. This is inherent in how Kubernetes and &lt;code&gt;kubectl&lt;/code&gt; work (e.g., CR must be created after CRD becomes ready). The solution is to re-run the command until it succeeds. For the single-line command, we have included a bash one-liner to retry the command.&lt;/p&gt;
-&lt;hr&gt;
 &lt;h3 id=&#34;install-with-a-single-command&#34;&gt;Install with a single command&lt;/h3&gt;
 &lt;p&gt;Install all Kubeflow official components (residing under &lt;code&gt;apps&lt;/code&gt;) and all common services (residing under &lt;code&gt;common&lt;/code&gt;) using either Kustomize or Helm with a single command:&lt;/p&gt;
 
@@ -90,17 +87,33 @@
 
 
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-3-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
-        id=&#34;tabs-3-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-3-0-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;deploy-kf-vanilla&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        id=&#34;tabs-3-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-3-0-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DEPLOYMENT_OPTION&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;vanilla&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;INSTALLATION_OPTION&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;kustomize&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;deploy-kubeflow&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-3-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-3-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=vanilla&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        id=&#34;tabs-3-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-3-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;export DEPLOYMENT_OPTION=vanilla&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;export INSTALLATION_OPTION=helm&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;make deploy-kubeflow&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
   
 &lt;/div&gt;
 
-&lt;h3 id=&#34;connect-to-your-kubeflow-dashboard&#34;&gt;Connect to your Kubeflow Dashboard&lt;/h3&gt;
+&lt;h3 id=&#34;connect-to-your-kubeflow-cluster&#34;&gt;Connect to your Kubeflow cluster&lt;/h3&gt;
+&lt;p&gt;After installation, it will take some time for all Pods to become ready. Make sure all Pods are ready before trying to connect, otherwise you might get unexpected errors. To check that all Kubeflow-related Pods are ready, use the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n cert-manager
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n istio-system
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n auth
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n knative-eventing
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n knative-serving
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n kubeflow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n kubeflow-user-example-com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;connect-to-your-kubeflow-dashboard&#34;&gt;Connect to your Kubeflow Dashboard&lt;/h3&gt;
 &lt;p&gt;You can now start experimenting and running your end-to-end ML workflows with Kubeflow on AWS!&lt;/p&gt;
 &lt;p&gt;For information on connecting to your Kubeflow dashboard depending on your deployment environment, see  &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/&#34;&gt;Connect to your Kubeflow Dashboard&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;uninstall-kubeflow-on-aws&#34;&gt;Uninstall Kubeflow on AWS&lt;/h3&gt;
 &lt;p&gt;Uninstall Kubeflow on AWS with a single command.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: Make sure you have the correct INSTALLATION_OPTION and DEPLOYMENT_OPTION environment variables set for your chosen installation&lt;/p&gt;
+&lt;/blockquote&gt;
 
 
 
@@ -152,9 +165,13 @@
 
 
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-5-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
-        id=&#34;tabs-5-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-5-0-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;delete-kubeflow&lt;/span&gt; &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        id=&#34;tabs-5-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-5-0-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DEPLOYMENT_OPTION&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;vanilla&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;INSTALLATION_OPTION&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;kustomize&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;delete-kubeflow&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-5-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-5-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;make delete-kubeflow DEPLOYMENT_OPTION=rds-s3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        id=&#34;tabs-5-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-5-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;export DEPLOYMENT_OPTION=vanilla&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;export INSTALLATION_OPTION=helm&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;make delete-kubeflow&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
   
 &lt;/div&gt;
 

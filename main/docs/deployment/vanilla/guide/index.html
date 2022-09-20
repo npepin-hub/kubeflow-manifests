@@ -17,7 +17,7 @@
       "articleSection" : "docs",
       "name" : "Manifest Deployment Guide",
       "headline" : "Manifest Deployment Guide",
-      "description" : "Deploy the vanilla distribution of Kubeflow on AWS using Kustomize or Helm",
+      "description" : "Deploy the vanilla version of Kubeflow on AWS using Kustomize or Helm",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/vanilla\/guide\/",
-      "wordCount" : "288",
+      "wordCount" : "343",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -43,21 +43,21 @@
 <meta name="theme-color" content="#4279f4">
 
 <title>Manifest Deployment Guide | Kubeflow on AWS</title>
-<meta name="description" content="Deploy the vanilla distribution of Kubeflow on AWS using Kustomize or Helm">
+<meta name="description" content="Deploy the vanilla version of Kubeflow on AWS using Kustomize or Helm">
 <meta property="og:title" content="Manifest Deployment Guide" />
-<meta property="og:description" content="Deploy the vanilla distribution of Kubeflow on AWS using Kustomize or Helm" />
+<meta property="og:description" content="Deploy the vanilla version of Kubeflow on AWS using Kustomize or Helm" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-19T18:41:53-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T14:46:23-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Manifest Deployment Guide">
-<meta itemprop="description" content="Deploy the vanilla distribution of Kubeflow on AWS using Kustomize or Helm">
-<meta itemprop="dateModified" content="2022-09-19T18:41:53-07:00" />
-<meta itemprop="wordCount" content="288">
+<meta itemprop="description" content="Deploy the vanilla version of Kubeflow on AWS using Kustomize or Helm">
+<meta itemprop="dateModified" content="2022-09-20T14:46:23-07:00" />
+<meta itemprop="wordCount" content="343">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manifest Deployment Guide"/>
-<meta name="twitter:description" content="Deploy the vanilla distribution of Kubeflow on AWS using Kustomize or Helm"/>
+<meta name="twitter:description" content="Deploy the vanilla version of Kubeflow on AWS using Kustomize or Helm"/>
 
 
 
@@ -364,6 +364,7 @@
     <li><a href="#build-manifests-and-install-kubeflow">Build Manifests and install Kubeflow</a>
       <ul>
         <li><a href="#install-with-a-single-command">Install with a single command</a></li>
+        <li><a href="#connect-to-your-kubeflow-cluster">Connect to your Kubeflow cluster</a></li>
         <li><a href="#connect-to-your-kubeflow-dashboard">Connect to your Kubeflow Dashboard</a></li>
         <li><a href="#uninstall-kubeflow-on-aws">Uninstall Kubeflow on AWS</a></li>
         <li><a href="#optional-delete-amazon-eks-cluster">(Optional) Delete Amazon EKS cluster</a></li>
@@ -418,7 +419,7 @@
             
 <div class="td-content">
 	<h1>Manifest Deployment Guide</h1>
-	<div class="lead">Deploy the vanilla distribution of Kubeflow on AWS using Kustomize or Helm</div>
+	<div class="lead">Deploy the vanilla version of Kubeflow on AWS using Kustomize or Helm</div>
 	<header class="article-meta">
 		
 
@@ -445,9 +446,6 @@
 <blockquote>
 <p>⚠️ Warning: We use a default email (<code>user@example.com</code>) and password (<code>12341234</code>) for our guides. For any production Kubeflow deployment, you should change the default password by following the steps in <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#change-the-default-user-password-kustomize">Change default user password</a>.</p>
 </blockquote>
-<hr>
-<p><strong>NOTE</strong></p>
-<p><code>kubectl apply</code> commands may fail on the first try. This is inherent in how Kubernetes and <code>kubectl</code> work (e.g., CR must be created after CRD becomes ready). The solution is to re-run the command until it succeeds. For the single-line command, we have included a bash one-liner to retry the command.</p>
 <hr>
 <h3 id="install-with-a-single-command">Install with a single command</h3>
 <p>Install all Kubeflow official components (residing under <code>apps</code>) and all common services (residing under <code>common</code>) using either Kustomize or Helm with a single command:</p>
@@ -502,17 +500,33 @@
 
 
 <div class="tab-content" id="tabs-3-content"><div class="tab-pane fade show active"
-        id="tabs-3-0" role="tabpanel" aria-labelled-by="tabs-3-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kf-vanilla</span></span></span></code></pre></div></div>
+        id="tabs-3-0" role="tabpanel" aria-labelled-by="tabs-3-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">vanilla</span>
+</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
+</span></span><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-3-1" role="tabpanel" aria-labelled-by="tabs-3-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=vanilla</span></span></span></code></pre></div></div>
+        id="tabs-3-1" role="tabpanel" aria-labelled-by="tabs-3-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">export DEPLOYMENT_OPTION=vanilla</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">make deploy-kubeflow</span></span></span></code></pre></div></div>
   
 </div>
 
-<h3 id="connect-to-your-kubeflow-dashboard">Connect to your Kubeflow Dashboard</h3>
+<h3 id="connect-to-your-kubeflow-cluster">Connect to your Kubeflow cluster</h3>
+<p>After installation, it will take some time for all Pods to become ready. Make sure all Pods are ready before trying to connect, otherwise you might get unexpected errors. To check that all Kubeflow-related Pods are ready, use the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get pods -n cert-manager
+</span></span><span class="line"><span class="cl">kubectl get pods -n istio-system
+</span></span><span class="line"><span class="cl">kubectl get pods -n auth
+</span></span><span class="line"><span class="cl">kubectl get pods -n knative-eventing
+</span></span><span class="line"><span class="cl">kubectl get pods -n knative-serving
+</span></span><span class="line"><span class="cl">kubectl get pods -n kubeflow
+</span></span><span class="line"><span class="cl">kubectl get pods -n kubeflow-user-example-com
+</span></span></code></pre></div><h3 id="connect-to-your-kubeflow-dashboard">Connect to your Kubeflow Dashboard</h3>
 <p>You can now start experimenting and running your end-to-end ML workflows with Kubeflow on AWS!</p>
 <p>For information on connecting to your Kubeflow dashboard depending on your deployment environment, see  <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/">Connect to your Kubeflow Dashboard</a>.</p>
 <h3 id="uninstall-kubeflow-on-aws">Uninstall Kubeflow on AWS</h3>
 <p>Uninstall Kubeflow on AWS with a single command.</p>
+<blockquote>
+<p>Note: Make sure you have the correct INSTALLATION_OPTION and DEPLOYMENT_OPTION environment variables set for your chosen installation</p>
+</blockquote>
 
 
 
@@ -564,9 +578,13 @@
 
 
 <div class="tab-content" id="tabs-5-content"><div class="tab-pane fade show active"
-        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">delete-kubeflow</span> </span></span></code></pre></div></div>
+        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">vanilla</span>
+</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
+</span></span><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">delete-kubeflow</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make delete-kubeflow DEPLOYMENT_OPTION=rds-s3</span></span></span></code></pre></div></div>
+        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">export DEPLOYMENT_OPTION=vanilla</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">make delete-kubeflow</span></span></span></code></pre></div></div>
   
 </div>
 
@@ -581,7 +599,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 19, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/5fdb7b1c3e53b8633d75b08253dc3aadba361c85">Kubeflow 1.6 docs (#365) (5fdb7b1)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/0677cab9518acb36996757724171fd4dbffe8e87">Update make commands for website docs (#386) (0677cab)</a>
 </div>
 
 </div>

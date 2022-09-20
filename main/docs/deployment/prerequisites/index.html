@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/prerequisites\/",
-      "wordCount" : "466",
+      "wordCount" : "516",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-19T18:41:53-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T14:46:23-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Prerequisites">
 <meta itemprop="description" content="Set up your environment for deploying Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-19T18:41:53-07:00" />
-<meta itemprop="wordCount" content="466">
+<meta itemprop="dateModified" content="2022-09-20T14:46:23-07:00" />
+<meta itemprop="wordCount" content="516">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prerequisites"/>
 <meta name="twitter:description" content="Set up your environment for deploying Kubeflow on AWS"/>
@@ -369,6 +369,7 @@
     </li>
     <li><a href="#clone-repository">Clone repository</a></li>
     <li><a href="#install-necessary-tools">Install necessary tools</a></li>
+    <li><a href="#installation-options">Installation options</a></li>
   </ul>
 </nav></div>
 
@@ -443,7 +444,7 @@
 <p>Launch a Ubuntu-based Amazon EC2 instance. We recommend using a Ubuntu AWS Deep Learning AMI (DLAMI), such as the <a href="https://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-18-04/">AWS Deep Learning Base AMI (Ubuntu 18.04)</a> for your EC2 instance. To quickly get started with a DLAMI on Amazon EC2, see <a href="https://aws.amazon.com/getting-started/hands-on/get-started-dlami/">Launch an AWS Deep Learning AMI</a>.</p>
 <p>For more information about DLAMI options, see <a href="https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html">Release Notes for DLAMI</a>. For information on instance type selection, see <a href="https://docs.aws.amazon.com/dlami/latest/devguide/instance-select.html">Selecting the Instance Type for DLAMI</a>.</p>
 <h3 id="option-2-docker">Option 2: Docker</h3>
-<p>Create a Ubuntu environment using Docker. Pull the latest version of the Ubuntu image of your choice. For more information, see <a href="https://docs.docker.com/engine/reference/commandline/pull/#pull-an-image-by-digest-immutable-identifier">Pull an image by digest (immutable identifier)</a> in the Docker documentation.</p>
+<p>Create a Ubuntu environment using Docker. Pull the latest version of the Ubuntu image of your choice.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker pull ubuntu:18.04
 </span></span></code></pre></div><p>Connect to localhost from your container:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker container run -it -p 127.0.0.1:8080:8080 ubuntu:18.04
@@ -456,7 +457,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Launch Ubuntu 18.04 cloud9 instance 
 </span></span></code></pre></div><h2 id="clone-repository">Clone repository</h2>
 <p>Clone the <a href="https://github.com/awslabs/kubeflow-manifests"><code>awslabs/kubeflow-manifests</code></a> and the <a href="https://github.com/kubeflow/manifests"><code>kubeflow/manifests</code></a> repositories and check out the release branches of your choosing.</p>
-<p>Substitute the value for <code>KUBEFLOW_RELEASE_VERSION</code>(e.g. v1.6.0) and <code>AWS_RELEASE_VERSION</code>(e.g. v1.6.1-aws-b1.0.1) with the tag or branch you want to use below. Read more about <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/about/releases/">releases and versioning</a> if you are unsure about what these values should be.</p>
+<p>Substitute the value for <code>KUBEFLOW_RELEASE_VERSION</code>(e.g. v1.6.0) and <code>AWS_RELEASE_VERSION</code>(e.g. v1.6.0-aws-b1.0.0) with the tag or branch you want to use below. Read more about <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/about/releases/">releases and versioning</a> if you are unsure about what these values should be.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBEFLOW_RELEASE_VERSION</span><span class="o">=</span>v1.6.0
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AWS_RELEASE_VERSION</span><span class="o">=</span>main
 </span></span><span class="line"><span class="cl">git clone https://github.com/awslabs/kubeflow-manifests.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> kubeflow-manifests
@@ -464,7 +465,7 @@
 </span></span><span class="line"><span class="cl">git clone --branch <span class="si">${</span><span class="nv">KUBEFLOW_RELEASE_VERSION</span><span class="si">}</span> https://github.com/kubeflow/manifests.git upstream
 </span></span></code></pre></div><h2 id="install-necessary-tools">Install necessary tools</h2>
 <p>Install the necessary tools with the following command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make install-all-prerequisites
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make install-tools
 </span></span></code></pre></div><p>The command above installs the following tools:</p>
 <ul>
 <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS CLI</a> - A command line tool for interacting with AWS services.</li>
@@ -480,12 +481,16 @@
 <ul>
 <li><a href="https://www.python.org/downloads/">python 3.8+</a> - A programming language used for automated installation scripts.</li>
 <li><a href="https://pip.pypa.io/en/stable/installation/">pip</a> - A package installer for python.</li>
+<li><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">terraform</a> - An infrastructure as code tool that lets you develop cloud and on-prem resources.</li>
+<li><a href="https://helm.sh/docs/intro/install/">helm</a> - A package manager for Kubernetes</li>
 </ul>
+<h2 id="installation-options">Installation options</h2>
+<p>Kubeflow on AWS can be installed completely using terraform or using manifests(kustomize, helm). If you are looking to install using terraform, navigate directly to one of the Terraform deployment guides. To deploy using manifests, proceed to <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/create-eks-cluster/">Create an EKS Cluster guide</a></p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 19, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/5fdb7b1c3e53b8633d75b08253dc3aadba361c85">Kubeflow 1.6 docs (#365) (5fdb7b1)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/0677cab9518acb36996757724171fd4dbffe8e87">Update make commands for website docs (#386) (0677cab)</a>
 </div>
 
 </div>

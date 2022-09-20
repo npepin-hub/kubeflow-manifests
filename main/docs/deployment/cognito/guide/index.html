@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/cognito\/guide\/",
-      "wordCount" : "1520",
+      "wordCount" : "1528",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-19T18:41:53-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T14:46:23-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Manifest Deployment Guide">
 <meta itemprop="description" content="Deploying Kubeflow with AWS Cognito as identity provider using Kustomize or Helm">
-<meta itemprop="dateModified" content="2022-09-19T18:41:53-07:00" />
-<meta itemprop="wordCount" content="1520">
+<meta itemprop="dateModified" content="2022-09-20T14:46:23-07:00" />
+<meta itemprop="wordCount" content="1528">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manifest Deployment Guide"/>
 <meta name="twitter:description" content="Deploying Kubeflow with AWS Cognito as identity provider using Kustomize or Helm"/>
@@ -617,10 +617,14 @@
 
 
 <div class="tab-content" id="tabs-8-content"><div class="tab-pane fade show active"
-        id="tabs-8-0" role="tabpanel" aria-labelled-by="tabs-8-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">        <span class="nx">make</span>
+        id="tabs-8-0" role="tabpanel" aria-labelled-by="tabs-8-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">        <span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">cognito</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">make</span> <span class="nx">deploy-kubeflow</span>
 </span></span><span class="line"><span class="cl">        </span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-8-1" role="tabpanel" aria-labelled-by="tabs-8-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">        </span><span class="l">make</span><span class="w">
+        id="tabs-8-1" role="tabpanel" aria-labelled-by="tabs-8-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">        </span><span class="l">export DEPLOYMENT_OPTION=cognito</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">make deploy-kubeflow</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span></span></span></code></pre></div></div>
   
 </div>
@@ -766,7 +770,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 19, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/5fdb7b1c3e53b8633d75b08253dc3aadba361c85">Kubeflow 1.6 docs (#365) (5fdb7b1)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/0677cab9518acb36996757724171fd4dbffe8e87">Update make commands for website docs (#386) (0677cab)</a>
 </div>
 
 </div>
