@@ -15,9 +15,9 @@
            "@id": "https:\/\/awslabs.github.io\/kubeflow-manifests\/main"
       },
       "articleSection" : "docs",
-      "name" : "Terraform Deployment Guide",
-      "headline" : "Terraform Deployment Guide",
-      "description" : "Deploy Kubeflow with RDS and S3 using Terraform",
+      "name" : "KServe with Kubeflow on AWS",
+      "headline" : "KServe with Kubeflow on AWS",
+      "description" : "Serve prediction requests using Knative Serving and AWS Load Balancer",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/rds-s3\/guide-terraform\/",
-      "wordCount" : "369",
+      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/component-guides\/kserve\/tutorial\/",
+      "wordCount" : "1311",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -42,22 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>Terraform Deployment Guide | Kubeflow on AWS</title>
-<meta name="description" content="Deploy Kubeflow with RDS and S3 using Terraform">
-<meta property="og:title" content="Terraform Deployment Guide" />
-<meta property="og:description" content="Deploy Kubeflow with RDS and S3 using Terraform" />
+<title>KServe with Kubeflow on AWS | Kubeflow on AWS</title>
+<meta name="description" content="Serve prediction requests using Knative Serving and AWS Load Balancer">
+<meta property="og:title" content="KServe with Kubeflow on AWS" />
+<meta property="og:description" content="Serve prediction requests using Knative Serving and AWS Load Balancer" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/guide-terraform/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/" /><meta property="article:section" content="docs" />
 
 <meta property="article:modified_time" content="2022-09-21T11:18:22-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
-<meta itemprop="name" content="Terraform Deployment Guide">
-<meta itemprop="description" content="Deploy Kubeflow with RDS and S3 using Terraform">
+<meta itemprop="name" content="KServe with Kubeflow on AWS">
+<meta itemprop="description" content="Serve prediction requests using Knative Serving and AWS Load Balancer">
 <meta itemprop="dateModified" content="2022-09-21T11:18:22-07:00" />
-<meta itemprop="wordCount" content="369">
+<meta itemprop="wordCount" content="1311">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Terraform Deployment Guide"/>
-<meta name="twitter:description" content="Deploy Kubeflow with RDS and S3 using Terraform"/>
+<meta name="twitter:title" content="KServe with Kubeflow on AWS"/>
+<meta name="twitter:description" content="Serve prediction requests using Knative Serving and AWS Load Balancer"/>
 
 
 
@@ -180,8 +180,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsdeployment-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeployment-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsdeployment-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeployment-check"/>
   <label for="m-kubeflow-manifestsmaindocsdeployment-check"><a href="/kubeflow-manifests/main/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsdeployment"><span class="">Deployment Options</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -208,8 +208,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3-check"/>
   <label for="m-kubeflow-manifestsmaindocsdeploymentrds-s3-check"><a href="/kubeflow-manifests/main/docs/deployment/rds-s3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3"><span class="">RDS and S3</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -217,9 +217,9 @@
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-check"/>
   <label for="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-check"><a href="/kubeflow-manifests/main/docs/deployment/rds-s3/guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide"><span class="">Manifest Deployment Guide</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform-check" checked/>
-  <label for="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform-check"><a href="/kubeflow-manifests/main/docs/deployment/rds-s3/guide-terraform/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform"><span class="td-sidebar-nav-active-item">Terraform Deployment Guide</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform-check"/>
+  <label for="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform-check"><a href="/kubeflow-manifests/main/docs/deployment/rds-s3/guide-terraform/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentrds-s3guide-terraform"><span class="">Terraform Deployment Guide</span></a></label>
   
 </li>
   </ul>
@@ -297,8 +297,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocscomponent-guides-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guides-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocscomponent-guides-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guides-check" checked/>
   <label for="m-kubeflow-manifestsmaindocscomponent-guides-check"><a href="/kubeflow-manifests/main/docs/component-guides/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocscomponent-guides"><span class="">Component Guides</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -318,14 +318,14 @@
   <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guidestraining-check"/>
   <label for="m-kubeflow-manifestsmaindocscomponent-guidestraining-check"><a href="/kubeflow-manifests/main/docs/component-guides/training/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocscomponent-guidestraining"><span class="">Training Operators</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocscomponent-guideskserve-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guideskserve-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocscomponent-guideskserve-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guideskserve-check" checked/>
   <label for="m-kubeflow-manifestsmaindocscomponent-guideskserve-check"><a href="/kubeflow-manifests/main/docs/component-guides/kserve/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocscomponent-guideskserve"><span class="">KServe</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial-check"/>
-  <label for="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial-check"><a href="/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial"><span class="">KServe with Kubeflow on AWS</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial-check" checked/>
+  <label for="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial-check"><a href="/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocscomponent-guideskservetutorial"><span class="td-sidebar-nav-active-item">KServe with Kubeflow on AWS</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocscomponent-guideskserveaws-deep-learning-containers-li">
   <input type="checkbox" id="m-kubeflow-manifestsmaindocscomponent-guideskserveaws-deep-learning-containers-check"/>
@@ -369,10 +369,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/deployment/rds-s3/guide-terraform.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/deployment/rds-s3/guide-terraform.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/deployment/rds-s3/guide-terraform.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=Terraform%20Deployment%20Guide" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/component-guides/kserve/tutorial.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/component-guides/kserve/tutorial.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/component-guides/kserve/tutorial.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=KServe%20with%20Kubeflow%20on%20AWS" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/awslabs/kubeflow-manifests/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -382,18 +382,33 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#background">Background</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#deployment-steps">Deployment Steps</a>
+    <li><a href="#configure-a-default-domain-with-knative-serving">Configure a default domain with Knative Serving</a></li>
+    <li><a href="#request-a-certificate">Request a certificate</a>
       <ul>
-        <li><a href="#configure">Configure</a></li>
-        <li><a href="#all-configurations">All Configurations</a></li>
-        <li><a href="#preview">Preview</a></li>
-        <li><a href="#apply">Apply</a></li>
+        <li><a href="#certificate-request-background">Certificate request background</a></li>
+        <li><a href="#create-a-certificate">Create a certificate</a></li>
       </ul>
     </li>
-    <li><a href="#connect-to-your-kubeflow-dashboard">Connect to your Kubeflow dashboard</a></li>
-    <li><a href="#cleanup">Cleanup</a></li>
+    <li><a href="#cognito-ingress">Cognito ingress</a>
+      <ul>
+        <li><a href="#create-ingress">Create ingress</a></li>
+      </ul>
+    </li>
+    <li><a href="#dex-ingress">Dex ingress</a>
+      <ul>
+        <li><a href="#update-the-certificate-for-your-load-balancer">Update the certificate for your Load Balancer</a></li>
+      </ul>
+    </li>
+    <li><a href="#add-dns-records">Add DNS records</a></li>
+    <li><a href="#run-a-sample-inferenceservice">Run a sample InferenceService</a>
+      <ul>
+        <li><a href="#create-an-authorizationpolicy">Create an <code>AuthorizationPolicy</code></a></li>
+        <li><a href="#create-an-inferenceservice">Create an <code>InferenceService</code></a></li>
+        <li><a href="#check-inferenceservice-status">Check <code>InferenceService</code> status</a></li>
+        <li><a href="#send-an-inference-request">Send an inference request</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
 
@@ -430,20 +445,20 @@
     <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/">Deployment Options</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/">Component Guides</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/">RDS and S3</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/">KServe</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/guide-terraform/">Terraform Deployment Guide</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/">KServe with Kubeflow on AWS</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Terraform Deployment Guide</h1>
-	<div class="lead">Deploy Kubeflow with RDS and S3 using Terraform</div>
+	<h1>KServe with Kubeflow on AWS</h1>
+	<div class="lead">Serve prediction requests using Knative Serving and AWS Load Balancer</div>
 	<header class="article-meta">
 		
 
@@ -459,82 +474,160 @@
 
 		
 	</header>    
-	<blockquote>
-<p>Note: Terraform deployment options are still in preview.</p>
+	<p>This tutorial shows how to set up a load balancer endpoint for serving prediction requests over an external DNS on AWS.</p>
+<blockquote>
+<p>Note: The KFServing project is now called <a href="https://kserve.github.io/website/0.7/blog/articles/2021-09-27-kfserving-transition/#kfserving-is-now-kserve">KServe</a>. To migrate from KFServing to Kserve follow this <a href="https://kserve.github.io/website/0.7/admin/migration/">guide</a>.</p>
 </blockquote>
-<h2 id="background">Background</h2>
-<p>This guide will walk you through using Terraform to:</p>
-<ul>
-<li>Create a VPC</li>
-<li>Create an EKS cluster</li>
-<li>Create a S3 bucket</li>
-<li>Create an RDS DB instance</li>
-<li>Deploy Kubeflow with RDS as a KFP and Katib persistence layer and S3 as an artifact store</li>
-</ul>
-<p>Terraform documentation can be found <a href="https://www.terraform.io/docs">here</a>.</p>
+<p>Read the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#background">background</a> section of the Load Balancer installation guide to familiarize yourself with the requirements for creating an Application Load Balancer on AWS.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Be sure that you have satisfied the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/">installation prerequisites</a> before working through this guide.</p>
-<p>Specifially, you must:</p>
-<ul>
-<li><a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment">Create a Ubuntu environment</a></li>
-<li><a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#clone-repository">Clone the repository</a></li>
-<li><a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment">Install the necessary tools</a></li>
-</ul>
-<p>Additionally, ensure you are in the <code>REPO_ROOT/deployments/rds-s3/terraform</code> folder.</p>
-<p>If you are in repository&rsquo;s root folder, run:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> deployments/rds-s3/terraform
-</span></span><span class="line"><span class="cl"><span class="nb">pwd</span>
-</span></span></code></pre></div><h2 id="deployment-steps">Deployment Steps</h2>
-<h3 id="configure">Configure</h3>
+<p>This guide assumes that you have:</p>
 <ol>
-<li>
-<p>Create an IAM user to use with the Minio Client</p>
-<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi">Create an IAM user</a> with permissions to get bucket locations and allow read and write access to objects in an S3 bucket where you want to store the Kubeflow artifacts. Take note of the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY of the IAM user that you created to use in the following step, which will be referenced as <code>TF_VAR_minio_aws_access_key_id</code> and <code>TF_VAR_minio_aws_secret_access_key</code> respectively.</p>
+<li>The necessary <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/">prerequisites</a>, including a Kubeflow deployment.</li>
+<li>The <a href="https://kubernetes-sigs.github.io/aws-load-balancer-controller/">AWS Load Balancer controller</a> configured with one of the following deployment options:
+<ul>
+<li>A Cognito-integrated deployment that is configured with the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#30-configure-ingress">AWS Load Balancer controller by default</a>.</li>
+<li>A deployment that is not integrated with Cognito (for example, the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/">Vanilla deployment</a>, which uses Dex as an auth provider), but have followed the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/">Exposing Kubeflow over Load Balancer guide</a>.</li>
+</ul>
 </li>
-<li>
-<p>Define the following environment variables:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Region to create the cluster in</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_REGION</span><span class="o">=</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Name of the cluster to create</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># AWS access key id of the static credentials used to authenticate the Minio Client</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TF_VAR_minio_aws_access_key_id</span><span class="o">=</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># AWS secret access key of the static credentials used to authenticate the Minio Client</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TF_VAR_minio_aws_secret_access_key</span><span class="o">=</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># true/false flag to configure and deploy with RDS</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">USE_RDS</span><span class="o">=</span><span class="s2">&#34;true&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># true/false flag to configure and deploy with S3</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">USE_S3</span><span class="o">=</span><span class="s2">&#34;true&#34;</span>
+<li>A subdomain for hosting Kubeflow. For this guide, we will use the domain <code>platform.example.com</code>.</li>
+<li>An existing <a href="https://www.kubeflow.org/docs/components/multi-tenancy/getting-started/#manual-profile-creation">profile namespace</a> for a user in Kubeflow. For this guide, we will use the example profile namespace <code>staging</code>.</li>
+<li>Verified that your current directory is the root of the repository by running the <code>pwd</code> command. The output should be <code>&lt;path/to/kubeflow-manifests&gt;</code> directory.</li>
+</ol>
+<h2 id="configure-a-default-domain-with-knative-serving">Configure a default domain with Knative Serving</h2>
+<p>Use <a href="https://knative.dev/docs/serving/">Knative Serving</a> to set up network routing resources.</p>
+<p>The default fully qualified domain name (FQDN) for a route in Knative Serving is <code>{route}.{namespace}.{default-domain}</code>. Knative Serving routes use <code>example.com</code> as the default domain. If you create an <code>InferenceService</code> resource called <code>sklearn-iris</code> in the <code>staging</code> namespace without changing the default domain, the resulting <code>InfererenceService</code> domain would be <code>http://sklearn-iris.staging.example.com</code>.</p>
+<p>To host an <code>InferenceService</code> on the same domain that you use to host Kubeflow (for example, <code>platform.example.com</code>), then you will need to edit the <code>config-domain</code> ConfigMap in the <code>knative-serving</code> namespace to configure <code>platform.example.com</code> to be used as the domain for the routes.</p>
+<p>Edit the ConfigMap to change the default domain as per your deployment. Remove the <code>_example</code> key and replace <code>example.com</code> with your domain (e.g. <code>platform.example.com</code>).</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: ConfigMap
+data:
+  platform.example.com: &#34;&#34;
+...
+</code></pre><p>For more detailed instructions, see the KNative Serving <a href="https://knative.dev/docs/serving/using-a-custom-domain/#procedure">Changing the default domain</a> procedure.</p>
+<h2 id="request-a-certificate">Request a certificate</h2>
+<p>Request a certificate in AWS Certificate Manager (ACM) to get TLS support from the Load Balancer.</p>
+<h3 id="certificate-request-background">Certificate request background</h3>
+<p>Knative concatenates the namespace in the FQDN for a route and the domain is delimited by a dot by default. The URLs for <code>InferenceService</code>  resources created in each namespace will be in a different <a href="https://en.wikipedia.org/wiki/Subdomain">subdomain</a>.</p>
+<ul>
+<li>For example, if you have two namespaces, <code>staging</code> and <code>prod</code>, and create an <code>InferenceService</code> resource called <code>sklearn-iris</code> in both of these namespaces, then the URLs for each resource will be <code>http://sklearn-iris.staging.platform.example.com</code> and <code>http://sklearn-iris.prod.platform.example.com</code>, respectively.</li>
+</ul>
+<p>This means that you need to specify all subdomains in which you plan to create an <code>InferenceService</code> resource while creating the SSL certificate in ACM.</p>
+<ul>
+<li>For example, for <code>staging</code> and <code>prod</code> namespaces, you will need to add <code>*.prod.platform.example.com</code>, <code>*.staging.platform.example.com</code> and <code>*.platform.example.com</code> to the certificate.</li>
+</ul>
+<p>DNS only supports wildcard placeholders in the <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">leftmost part of the domain name</a>. When you request a wildcard certificate using ACM, the asterisk (*) must be in the leftmost position of the domain name and can protect only one subdomain level.</p>
+<ul>
+<li>For example, <code>*.platform.example.com</code> can protect <code>staging.platform.example.com</code>, and <code>prod.platform.example.com</code>, but it cannot protect <code>sklearn-iris.staging.platform.example.com</code>.</li>
+</ul>
+<h3 id="create-a-certificate">Create a certificate</h3>
+<blockquote>
+<p>Note: Both of these domains should be requested in the same certificate</p>
+</blockquote>
+<p>Create an ACM certificate for <code>*.platform.example.com</code> and <code>*.staging.platform.example.com</code> in your cluster&rsquo;s region by following the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-certificates-for-domain">create certificates for domain</a> steps in the Load Balancer installation guide.</p>
+<p>Once the certificate status changes to <code>Issued</code>, export the ARN of the certificate created:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">certArn</span><span class="o">=</span>&lt;&gt;
+</span></span></code></pre></div><p>If you are using Cognito for user authentication, see <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#cognito-ingress">Cognito</a>. If you use Dex as the auth provider in your Kubeflow deployment, see <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#dex-ingress">Dex</a>.</p>
+<h2 id="cognito-ingress">Cognito ingress</h2>
+<p>It is not currently possible to programatically authenticate a request that uses Amazon Cognito for user authentication through Load Balancer. You cannot generate <code>AWSELBAuthSessionCookie</code> cookies by using the access tokens from Cognito.</p>
+<p>To work around this, it is necessary to create a new Load Balancer endpoint for serving traffic that authorizes based on custom strings specified in a predefined HTTP header.</p>
+<p>Use an ingress to set the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions">HTTP header conditions</a> on your Load Balancer. This creates rules that route requests based on HTTP headers. This can be used for service-to-service communication in your application.</p>
+<h3 id="create-ingress">Create ingress</h3>
+<ol>
+<li>Configure the following parameters for <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/istio-ingress/overlays/api/params.env">ingress</a>:
+<ul>
+<li><code>certArn</code>: ARN of certificate created during <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#request-a-certificate">Request a certificate</a> step.</li>
+<li>(optional) <code>httpHeaderName</code>: Custom HTTP header name that you want to configure for the rule evaluation. Defaults to <code>x-api-key</code>.</li>
+<li><code>httpHeaderValues</code>: One or more match strings that need to be compared against the header value if the request received. You only need to pass one of the tokens in the request. Pick strong values.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Note: The <code>httpHeaderName</code> and <code>httpHeaderValues</code> values correspond to the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions">HttpHeaderConfig</a> values</p>
+</blockquote>
+<ol start="2">
+<li>Replace the <code>token1</code> string with a token of your choice. Optionally, replace the <code>httpHeaderName</code> string as well.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">certArn=&#39;</span><span class="nv">$certArn</span><span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">httpHeaderName=x-api-key
+</span></span></span><span class="line"><span class="cl"><span class="s1">httpHeaderValues=[&#34;token1&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span> &gt; awsconfigs/common/istio-ingress/overlays/api/params.env
 </span></span></code></pre></div></li>
-<li>
-<p>Save the variables to a <code>.tfvars</code> file:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF &gt; sample.auto.tfvars
-</span></span></span><span class="line"><span class="cl"><span class="s">cluster_name=&#34;${CLUSTER_NAME}&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">cluster_region=&#34;${CLUSTER_REGION}&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">generate_db_password=&#34;true&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">use_rds=&#34;${USE_RDS}&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">use_s3=&#34;${USE_S3}&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s"># The below values are set to make cleanup easier but are not recommended for production
-</span></span></span><span class="line"><span class="cl"><span class="s">deletion_protection=&#34;false&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">secret_recovery_window_in_days=&#34;0&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">force_destroy_s3_bucket=&#34;true&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+<li>Create the ingress with the following command:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kustomize build awsconfigs/common/istio-ingress/overlays/api <span class="p">|</span> kubectl apply -f -
+</span></span></code></pre></div></li>
+<li>Check if the ingress-managed Load Balancer is provisioned. This may take a few minutes to complete.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get ingress -n istio-system istio-ingress-api
+</span></span><span class="line"><span class="cl">NAME                CLASS    HOSTS   ADDRESS                                                              PORTS   AGE
+</span></span><span class="line"><span class="cl">istio-ingress-api   &lt;none&gt;   *       k8s-istiosys-istioing-xxxxxx-110050202.us-west-2.elb.amazonaws.com   <span class="m">80</span>      14m
 </span></span></code></pre></div></li>
 </ol>
-<h3 id="all-configurations">All Configurations</h3>
-<p>A full list of inputs for the terraform stack can be found <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/deployments/rds-s3/terraform/variables.tf">here</a>.</p>
-<h3 id="preview">Preview</h3>
-<p>View a preview of the configuration you are about apply:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">terraform init <span class="o">&amp;&amp;</span> terraform plan
-</span></span></code></pre></div><h3 id="apply">Apply</h3>
-<p>Run the following command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make deploy
-</span></span></code></pre></div><h2 id="connect-to-your-kubeflow-dashboard">Connect to your Kubeflow dashboard</h2>
-<p>For information on connecting to your Kubeflow dashboard depending on your deployment environment, see <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#port-forward-terraform-deployment">Port-forward (Terraform deployment)</a>. Then, <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/#log-into-the-kubeflow-ui">log into the Kubeflow UI</a>.</p>
-<h2 id="cleanup">Cleanup</h2>
-<p>Uninstall Kubeflow on AWS with a single command.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make delete
+<p>Once your Load Balancer is ready, move on to the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#add-dns-records">Add DNS records</a> step to add a DNS record for the staging subdomain.</p>
+<h2 id="dex-ingress">Dex ingress</h2>
+<h3 id="update-the-certificate-for-your-load-balancer">Update the certificate for your Load Balancer</h3>
+<ol>
+<li>Configure the parameters for <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/istio-ingress/overlays/api/params.env">ingress</a> with the ARN of the certificate created during the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#request-a-certificate">Request a certificate</a> step.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;certArn=&#39;</span><span class="nv">$certArn</span><span class="s1">&#39;&#39;</span> &gt; awsconfigs/common/istio-ingress/overlays/https/params.env
+</span></span></code></pre></div></li>
+<li>Update the Load Balancer with the following command:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kustomize build awsconfigs/common/istio-ingress/overlays/https <span class="p">|</span> kubectl apply -f -
+</span></span></code></pre></div></li>
+<li>Get the Load Balancer address
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get ingress -n istio-system istio-ingress
+</span></span><span class="line"><span class="cl">NAME            CLASS    HOSTS   ADDRESS                                                              PORTS   AGE
+</span></span><span class="line"><span class="cl">istio-ingress   &lt;none&gt;   *       k8s-istiosys-istioing-xxxxxx-110050202.us-west-2.elb.amazonaws.com   <span class="m">80</span>      15d
+</span></span></code></pre></div></li>
+</ol>
+<p>Once your Load Balancer is ready, move on to the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#add-dns-records">Add DNS records</a> step to add a DNS record for the staging subdomain.</p>
+<h2 id="add-dns-records">Add DNS records</h2>
+<p>Once your ingress-managed Load Balancer is ready, copy the <code>ADDRESS</code> of that Load Balancer and create a <code>CNAME</code> entry to it in <a href="https://aws.amazon.com/route53/">Amazon Route 53</a> under your subdomain (e.g. <code>platform.example.com</code>) for <code>*.staging.platform.example.com</code>.</p>
+<h2 id="run-a-sample-inferenceservice">Run a sample InferenceService</h2>
+<h3 id="create-an-authorizationpolicy">Create an <code>AuthorizationPolicy</code></h3>
+<p>Namespaces created by the Kubeflow profile controller have a missing authorization policy that prevents the KServe predictor and transformer from working.</p>
+<blockquote>
+<p>Known Issue: See <a href="https://github.com/kserve/kserve/issues/1558">kserve/kserve#1558</a> and <a href="https://github.com/kubeflow/kubeflow/issues/5965">kubeflow/kubeflow#5965</a> for more information.</p>
+</blockquote>
+<p>Create the <code>AuthorizationPolicy</code> as mentioned in <a href="https://github.com/awslabs/kubeflow-manifests/issues/82#issuecomment-1068641378">issue #82</a> as a workaround until this is resolved. Verify that the policies have been created by listing the <code>authorizationpolicies</code> in the <code>istio-system</code> namespace:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get authorizationpolicies -n istio-system
+</span></span></code></pre></div><h3 id="create-an-inferenceservice">Create an <code>InferenceService</code></h3>
+<p>Set the environment variable value for <code>PROFILE_NAMESPACE</code>(e.g. <code>staging</code>) according to your environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILE_NAMESPACE</span><span class="o">=</span><span class="s2">&#34;staging&#34;</span>
+</span></span></code></pre></div><p>Create a scikit-learn <code>InferenceService</code> using a <a href="https://github.com/kserve/kserve/blob/release-0.7/docs/samples/v1beta1/sklearn/v2/sklearn.yaml">sample</a> from the KServe repository and wait for <code>READY</code> to be <code>True</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span> -f https://raw.githubusercontent.com/kserve/kserve/release-0.8/docs/samples/v1beta1/sklearn/v1/sklearn.yaml
+</span></span></code></pre></div><h3 id="check-inferenceservice-status">Check <code>InferenceService</code> status</h3>
+<p>Check the <code>InferenceService</code> status. Once it is ready, copy the URL to use for sending a prediction request.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get inferenceservices sklearn-iris -n <span class="si">${</span><span class="nv">PROFILE_NAMESPACE</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME             URL                                                 READY   PREV   LATEST   PREVROLLEDOUTREVISION   LATESTREADYREVISION                      AGE
+</span></span><span class="line"><span class="cl">sklearn-iris   http://sklearn-iris.staging.platform.example.com   True           <span class="m">100</span>                              sklearn-iris-predictor-default-00001   3m31s
+</span></span></code></pre></div><h3 id="send-an-inference-request">Send an inference request</h3>
+<p>Set the environment variable values for <code>KUBEFLOW_DOMAIN</code>(e.g. <code>platform.example.com</code>) according to your environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBEFLOW_DOMAIN</span><span class="o">=</span><span class="s2">&#34;platform.example.com&#34;</span>
+</span></span></code></pre></div><p>Install dependencies for the script by running:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> tests/e2e
+</span></span><span class="line"><span class="cl">pip install -r requirements.txt
+</span></span></code></pre></div><p>Run the sample python script to send an inference request based on your auth provider:</p>
+<h4 id="cognito-inference">Cognito inference</h4>
+<p>Run the <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/tests/e2e/utils/kserve/inference_sample.py">inference_sample.py</a> Python script by exporting the values for <code>HTTP_HEADER_NAME</code>(e.g. <code>x-api-key</code>) and <code>HTTP_HEADER_VALUE</code>(e.g. <code>token1</code>) according to the values configured in <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#create-ingress">ingress section</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AUTH_PROVIDER</span><span class="o">=</span><span class="s2">&#34;cognito&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HTTP_HEADER_NAME</span><span class="o">=</span><span class="s2">&#34;x-api-key&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HTTP_HEADER_VALUE</span><span class="o">=</span><span class="s2">&#34;token1&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/kserve/inference_sample.py
+</span></span></code></pre></div><p>The output should look similar to the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Status Code <span class="m">200</span>
+</span></span><span class="line"><span class="cl">JSON Response  <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;predictions&#34;</span>: <span class="o">[</span>1, 1<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h4 id="dex-inference">Dex inference</h4>
+<p>Run the <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/tests/e2e/utils/kserve/inference_sample.py">inference_sample.py</a> Python script by exporting the values for <code>USERNAME</code>(e.g. <code>user@example.com</code>), <code>PASSWORD</code> according to the user profile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AUTH_PROVIDER</span><span class="o">=</span><span class="s2">&#34;dex&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">USERNAME</span><span class="o">=</span><span class="s2">&#34;user@example.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PASSWORD</span><span class="o">=</span><span class="s2">&#34;12341234&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/kserve/inference_sample.py
+</span></span></code></pre></div><p>The output should look similar to the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Status Code <span class="m">200</span>
+</span></span><span class="line"><span class="cl">JSON Response  <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;predictions&#34;</span>: <span class="o">[</span>1, 1<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div>
 	
 	

@@ -22,7 +22,10 @@
       <description>
         
         
-        &lt;p&gt;This guide describes how to deploy Kubeflow on Amazon EKS using Cognito for your identity provider, RDS for your database, and S3 for your artifact storage.&lt;/p&gt;
+        &lt;blockquote&gt;
+&lt;p&gt;Note: Helm installation option is still in preview.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This guide describes how to deploy Kubeflow on Amazon EKS using Cognito for your identity provider, RDS for your database, and S3 for your artifact storage.&lt;/p&gt;
 &lt;h2 id=&#34;1-prerequisites&#34;&gt;1. Prerequisites&lt;/h2&gt;
 &lt;p&gt;Refer to the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/&#34;&gt;general prerequisites guide&lt;/a&gt; and the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/guide/&#34;&gt;RDS and S3 setup guide&lt;/a&gt; in order to:&lt;/p&gt;
 &lt;ol&gt;
@@ -37,7 +40,7 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;configure-custom-domain-and-cognito&#34;&gt;Configure Custom Domain and Cognito&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/&#34;&gt;Cognito setup guide&lt;/a&gt; from &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/#10-custom-domain-and-certificates&#34;&gt;Section 1.0 (Custom domain)&lt;/a&gt; up to &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/#30-configure-ingress&#34;&gt;Section 3.0 (Configure ingress)&lt;/a&gt; in order to:
+&lt;li&gt;Follow the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/&#34;&gt;Cognito setup guide&lt;/a&gt; from &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#10-custom-domain-and-certificates&#34;&gt;Section 1.0 (Custom domain)&lt;/a&gt; up to &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#30-configure-ingress&#34;&gt;Section 3.0 (Configure ingress)&lt;/a&gt; in order to:
 &lt;ol&gt;
 &lt;li&gt;Create a custom domain&lt;/li&gt;
 &lt;li&gt;Create TLS certificates for the domain&lt;/li&gt;
@@ -107,7 +110,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;Follow the rest of the Cognito guide from &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/#50-updating-the-domain-with-alb-address&#34;&gt;section 5.0 (Updating the domain with ALB address)&lt;/a&gt; in order to:
+&lt;li&gt;Follow the rest of the Cognito guide from &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#50-updating-the-domain-with-alb-address&#34;&gt;section 5.0 (Updating the domain with ALB address)&lt;/a&gt; in order to:
 &lt;ol&gt;
 &lt;li&gt;Add/Update the DNS records in a custom domain with the ALB address&lt;/li&gt;
 &lt;li&gt;Create a user in a Cognito user pool&lt;/li&gt;
@@ -159,9 +162,25 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deployment-steps&#34;&gt;Deployment Steps&lt;/h2&gt;
 &lt;h3 id=&#34;configure&#34;&gt;Configure&lt;/h3&gt;
-&lt;p&gt;Create a root domain manually (e.g. not through Terraform.) To create a domain as the root domain through Route53 follow the steps &lt;a href=&#34;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To create a subdomain manually as well follow the steps &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-domain-and-certificates&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi&#34;&gt;Create an IAM user&lt;/a&gt; with permissions to get bucket locations and allow read and write access to objects in an S3 bucket where you want to store the Kubeflow artifacts. Take note of the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY of the IAM user that you created to use in the following step, which will be referenced as TF_VAR_minio_aws_access_key_id and TF_VAR_minio_aws_secret_access_key respectively.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Register a domain using &lt;a href=&#34;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html&#34;&gt;Route 53&lt;/a&gt;. When you register a domain with Route 53, it automatically creates a hosted zone for the domain.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The provided Terraform stack will create and delegate a subdomain for the Kubeflow platform automatically.&lt;/li&gt;
+&lt;li&gt;If you do not use Route53 for your top level domain, you can follow the steps in &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-a-subdomain&#34;&gt;create a subdomain section&lt;/a&gt; of load balancer guide to create a subdomain manually and provide the route 53 subdomain hosted zone name as input to the terraform stack.
+&lt;ul&gt;
+&lt;li&gt;Additionally you have to set the Terraform variable &lt;code&gt;create_subdomain=false&lt;/code&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TF_VAR_create_subdomain&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create an IAM user to use with the Minio Client&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi&#34;&gt;Create an IAM user&lt;/a&gt; with permissions to get bucket locations and allow read and write access to objects in an S3 bucket where you want to store the Kubeflow artifacts. Take note of the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY of the IAM user that you created to use in the following step, which will be referenced as &lt;code&gt;TF_VAR_minio_aws_access_key_id&lt;/code&gt; and &lt;code&gt;TF_VAR_minio_aws_secret_access_key&lt;/code&gt; respectively.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;Define the following environment variables:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Region to create the cluster in&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CLUSTER_REGION&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
@@ -183,7 +202,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;USE_S3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# true/false flag to configure and deploy with Cognito&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;USE_COGNITO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Save the variables to a &lt;code&gt;.tfvars&lt;/code&gt; file:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Save the variables to a &lt;code&gt;.tfvars&lt;/code&gt; file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt;EOF &amp;gt; sample.auto.tfvars
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;cluster_name=&amp;#34;${CLUSTER_NAME}&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;cluster_region=&amp;#34;${CLUSTER_REGION}&amp;#34;
@@ -191,7 +212,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;aws_route53_root_zone_name=&amp;#34;${ROOT_DOMAIN}&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;aws_route53_subdomain_zone_name=&amp;#34;${SUBDOMAIN}&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;cognito_user_pool_name=&amp;#34;${USER_POOL_NAME}&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;create_subdomain=&amp;#34;true&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;use_rds=&amp;#34;${USE_RDS}&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;use_s3=&amp;#34;${USE_S3}&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;use_cognito=&amp;#34;${USE_COGNITO}&amp;#34;
@@ -201,7 +221,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;secret_recovery_window_in_days=&amp;#34;0&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;force_destroy_s3_bucket=&amp;#34;true&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;all-configurations&#34;&gt;All Configurations&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;all-configurations&#34;&gt;All Configurations&lt;/h3&gt;
 &lt;p&gt;A full list of inputs for the terraform stack can be found &lt;a href=&#34;https://github.com/awslabs/kubeflow-manifests/blob/main/deployments/cognito-rds-s3/terraform/variables.tf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;preview&#34;&gt;Preview&lt;/h3&gt;
 &lt;p&gt;View a preview of the configuration you are about apply:&lt;/p&gt;

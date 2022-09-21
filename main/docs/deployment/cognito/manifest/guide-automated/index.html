@@ -15,9 +15,9 @@
            "@id": "https:\/\/awslabs.github.io\/kubeflow-manifests\/main"
       },
       "articleSection" : "docs",
-      "name" : "Load Balancer",
-      "headline" : "Load Balancer",
-      "description" : "Expose Kubeflow over Load Balancer on AWS",
+      "name" : "Automated Deployment Guide",
+      "headline" : "Automated Deployment Guide",
+      "description" : "Deploying Kubeflow with AWS Cognito as identity provider using setup scripts",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/add-ons\/load-balancer\/guide\/",
-      "wordCount" : "1610",
+      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/cognito\/manifest\/guide-automated\/",
+      "wordCount" : "635",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -42,22 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>Load Balancer | Kubeflow on AWS</title>
-<meta name="description" content="Expose Kubeflow over Load Balancer on AWS">
-<meta property="og:title" content="Load Balancer" />
-<meta property="og:description" content="Expose Kubeflow over Load Balancer on AWS" />
+<title>Automated Deployment Guide | Kubeflow on AWS</title>
+<meta name="description" content="Deploying Kubeflow with AWS Cognito as identity provider using setup scripts">
+<meta property="og:title" content="Automated Deployment Guide" />
+<meta property="og:description" content="Deploying Kubeflow with AWS Cognito as identity provider using setup scripts" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide-automated/" /><meta property="article:section" content="docs" />
 
 <meta property="article:modified_time" content="2022-09-21T11:18:22-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
-<meta itemprop="name" content="Load Balancer">
-<meta itemprop="description" content="Expose Kubeflow over Load Balancer on AWS">
+<meta itemprop="name" content="Automated Deployment Guide">
+<meta itemprop="description" content="Deploying Kubeflow with AWS Cognito as identity provider using setup scripts">
 <meta itemprop="dateModified" content="2022-09-21T11:18:22-07:00" />
-<meta itemprop="wordCount" content="1610">
+<meta itemprop="wordCount" content="635">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Load Balancer"/>
-<meta name="twitter:description" content="Expose Kubeflow over Load Balancer on AWS"/>
+<meta name="twitter:title" content="Automated Deployment Guide"/>
+<meta name="twitter:description" content="Deploying Kubeflow with AWS Cognito as identity provider using setup scripts"/>
 
 
 
@@ -180,8 +180,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsdeployment-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeployment-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsdeployment-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeployment-check" checked/>
   <label for="m-kubeflow-manifestsmaindocsdeployment-check"><a href="/kubeflow-manifests/main/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsdeployment"><span class="">Deployment Options</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -223,19 +223,19 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsdeploymentcognito-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognito-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentcognito-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognito-check" checked/>
   <label for="m-kubeflow-manifestsmaindocsdeploymentcognito-check"><a href="/kubeflow-manifests/main/docs/deployment/cognito/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsdeploymentcognito"><span class="">Cognito</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifest-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifest-check"/>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifest-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifest-check" checked/>
   <label for="m-kubeflow-manifestsmaindocsdeploymentcognitomanifest-check"><a href="/kubeflow-manifests/main/docs/deployment/cognito/manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifest"><span class="">Manifest Deployment Guides</span></a></label>
   
   <ul class="ul-4 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated-check"/>
-  <label for="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated-check"><a href="/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide-automated/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated"><span class="">Automated Deployment Guide</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated-check" checked/>
+  <label for="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated-check"><a href="/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide-automated/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-automated"><span class="td-sidebar-nav-active-item">Automated Deployment Guide</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-li">
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsdeploymentcognitomanifestguide-check"/>
@@ -270,14 +270,14 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsadd-ons-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsadd-ons-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsadd-ons-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsadd-ons-check"/>
   <label for="m-kubeflow-manifestsmaindocsadd-ons-check"><a href="/kubeflow-manifests/main/docs/add-ons/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsadd-ons"><span class="">Deployment Add-ons</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide-check" checked/>
-  <label for="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide-check"><a href="/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide"><span class="td-sidebar-nav-active-item">Load Balancer</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide-check"/>
+  <label for="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide-check"><a href="/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsadd-onsload-balancerguide"><span class="">Load Balancer</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsadd-onsstorageefsguide-li">
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsadd-onsstorageefsguide-check"/>
@@ -369,10 +369,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/add-ons/load-balancer/guide.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/add-ons/load-balancer/guide.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/add-ons/load-balancer/guide.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=Load%20Balancer" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/deployment/cognito/manifest/guide-automated.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/deployment/cognito/manifest/guide-automated.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/deployment/cognito/manifest/guide-automated.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=Automated%20Deployment%20Guide" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/awslabs/kubeflow-manifests/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -382,20 +382,9 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#before-you-begin">Before you begin</a></li>
-    <li><a href="#background">Background</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#create-load-balancer">Create Load Balancer</a>
-      <ul>
-        <li><a href="#create-domain-and-certificates">Create domain and certificates</a></li>
-        <li><a href="#configure-ingress">Configure Ingress</a></li>
-        <li><a href="#configure-load-balancer-controller">Configure Load Balancer controller</a></li>
-        <li><a href="#build-manifests-and-deploy-components">Build Manifests and deploy components</a></li>
-        <li><a href="#update-the-domain-with-alb-address">Update the domain with ALB address</a></li>
-        <li><a href="#automated-script">Automated script</a></li>
-      </ul>
-    </li>
-    <li><a href="#clean-up">Clean up</a></li>
+    <li><a href="#create-required-resources-and-deploy-kubeflow">Create required resources and deploy Kubeflow</a></li>
+    <li><a href="#uninstall-kubeflow">Uninstall Kubeflow</a></li>
   </ul>
 </nav></div>
 
@@ -432,17 +421,23 @@
     <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/">Deployment Add-ons</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/">Deployment Options</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/">Cognito</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/">Manifest Deployment Guides</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/">Load Balancer</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide-automated/">Automated Deployment Guide</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Load Balancer</h1>
-	<div class="lead">Expose Kubeflow over Load Balancer on AWS</div>
+	<h1>Automated Deployment Guide</h1>
+	<div class="lead">Deploying Kubeflow with AWS Cognito as identity provider using setup scripts</div>
 	<header class="article-meta">
 		
 
@@ -458,201 +453,317 @@
 
 		
 	</header>    
-	<p>This tutorial shows how to expose Kubeflow over a load balancer on AWS.</p>
-<h2 id="before-you-begin">Before you begin</h2>
-<p>Follow this guide only if you are <strong>not</strong> using <code>Cognito</code> as the authentication provider in your deployment. Cognito-integrated deployment is configured with the AWS Load Balancer controller by default to create an ingress-managed Application Load Balancer and exposes Kubeflow via a hosted domain.</p>
-<h2 id="background">Background</h2>
-<p>Kubeflow does not offer a generic solution for connecting to Kubeflow over a Load Balancer because this process is highly dependent on your environment and cloud provider. On AWS, we use the <a href="https://kubernetes-sigs.github.io/aws-load-balancer-controller/">AWS Load Balancer (ALB) controller</a>, which satisfies the Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress resource</a> to create an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html">Application Load Balancer</a> (ALB). When you create a Kubernetes <code>Ingress</code>, an ALB is provisioned that load balances application traffic.</p>
-<p>In order to connect to Kubeflow using a Load Balancer, we need to setup HTTPS. Many of the Kubeflow web apps (e.g. Tensorboard Web App, Jupyter Web App, Katib UI) use <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies">Secure Cookies</a>, so accessing Kubeflow with HTTP over a non-localhost domain does not work.</p>
-<p>To secure the traffic and use HTTPS, we must associate a Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificate with the Load Balancer. <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a> is a service that lets you easily provision, manage, and deploy public and private SSL/TLS certificates for use with AWS services and your internal connected resources. To create a certificate for use with the Load Balancer, <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates">you must specify a domain name</a> (i.e. certificates cannot be created for ALB DNS). You can register your domain using any domain service provider such as <a href="https://aws.amazon.com/route53/">Route53</a>, or GoDoddy.</p>
+	<blockquote>
+<p>Note: Helm installation option is still in preview.</p>
+</blockquote>
+<p>This guide describes how to deploy Kubeflow on AWS EKS using Cognito as identity provider. Kubeflow uses Istio to manage internal traffic. In this guide we will be creating an Ingress to manage external traffic to the Kubernetes services and an Application Load Balancer (ALB) to provide public DNS and enable TLS authentication at the load balancer. We will also be creating a custom domain to host Kubeflow since certificates (needed for TLS) for ALB&rsquo;s public DNS names are not supported.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This guide assumes that you have:</p>
-<ul>
-<li>A Kubeflow deployment on EKS with Dex as your authentication provider (Dex is the default authentication provider in the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/">Vanilla</a> deployment of Kubeflow on AWS).</li>
-<li>Installed the tools mentioned in the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/">general prerequisites</a> guide on the client machine.</li>
-<li>Verified that you are connected to the right cluster, that the cluster has compute, and that the AWS region is set to the region of your cluster.
-<ul>
-<li>Verify that your cluster name and region are exported:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$CLUSTER_REGION</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$CLUSTER_NAME</span>
-</span></span></code></pre></div></li>
-<li>Display the current cluster that kubeconfig points to:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl config current-context
-</span></span><span class="line"><span class="cl">aws eks describe-cluster --name <span class="nv">$CLUSTER_NAME</span> --region <span class="nv">$CLUSTER_REGION</span>
-</span></span></code></pre></div></li>
-</ul>
-</li>
-<li>Verify that the current directory is the root of the repository by running the <code>pwd</code> command. The output should be <code>&lt;path/to/kubeflow-manifests&gt;</code>.</li>
-</ul>
-<h2 id="create-load-balancer">Create Load Balancer</h2>
-<p>If you prefer to create a load balancer using automated scripts, you <strong>only</strong> need to follow the steps in the <a href="#automated-script">automated script section</a>. You can read the following sections in this guide to understand what happens when you run the automated script or to walk through all of the steps manually.</p>
-<h3 id="create-domain-and-certificates">Create domain and certificates</h3>
-<p>You need a registered domain and TLS certificate to use HTTPS with Load Balancer. Since your top level domain (e.g. <code>example.com</code>) can be registered at any service provider, for uniformity and taking advantage of the integration provided between Route53, ACM, and Application Load Balancer, you will create a separate <a href="https://en.wikipedia.org/wiki/Subdomain">sudomain</a> (e.g. <code>platform.example.com</code>) to host Kubeflow and a corresponding hosted zone in Route53 to route traffic for this subdomain. To get TLS support, you will need certificates for both the root domain (<code>*.example.com</code>) and subdomain (<code>*.platform.example.com</code>) in the region where your platform will run (your EKS cluster region).</p>
-<h4 id="create-a-subdomain">Create a subdomain</h4>
+<p>This guide assumes you have Python 3.8 installed and that you have completed the <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/">prerequisites</a>.</p>
+<h2 id="create-required-resources-and-deploy-kubeflow">Create required resources and deploy Kubeflow</h2>
 <ol>
-<li>Register a domain in any domain provider like <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html">Route 53</a> or GoDaddy. For this guide, we assume that this domain is <code>example.com</code>. It is handy to have a domain managed by Route53 to deal with all the DNS records that you will have to add (wildcard for ALB DNS, validation for the certificate manager, etc).</li>
-<li>Go to Route53 and create a subdomain to host Kubeflow:
-<ul>
 <li>
-<p>Create a hosted zone for the desired subdomain (e.g. <code>platform.example.com</code>).</p>
+<p>The following steps automate <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#10-custom-domain-and-certificates">section 1.0(Custom domain and certificates)</a> (creating a custom domain to host Kubeflow and TLS certificates for the domain), <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#20-cognito-user-pool">section 2.0(Cognito user pool)</a> (creating a Cognito Userpool used for user authentication) and<a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#30-configure-ingress">section 3.0(Configure Ingress)</a> (configuring ingress and load balancer controller manifests) of the cognito guide.</p>
+<ol>
+<li>Install dependencies for the scripts
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip install -r tests/e2e/requirements.txt
+</span></span></code></pre></div></li>
+<li>Substitute values in <code>tests/e2e/utils/cognito_bootstrap/config.yaml</code>.
+<ol>
+<li>Registed root domain in <code>route53.rootDomain.name</code>. Lets assume this domain is <code>example.com</code>
+<ol>
+<li>If your domain is managed in route53, enter the Hosted zone ID found under Hosted zone details in <code>route53.rootDomain.hostedZoneId</code>. Skip this step if your domain is managed by other domain provider.</li>
+</ol>
 </li>
+<li>Name of the sudomain you want to host Kubeflow (e.g. <code>platform.example.com</code>) in <code>route53.subDomain.name</code>. Please read <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-domain-and-certificates">this section</a> to understand why we use a subdomain.</li>
+<li>Cluster name and region where kubeflow will be deployed in <code>cluster.name</code> and <code>cluster.region</code> (e.g. us-west-2) respectively.</li>
+<li>Name of cognito userpool in <code>cognitoUserpool.name</code> e.g. kubeflow-users.</li>
+<li>The config file will look something like:
+<ol>
 <li>
-<p>Copy the value of the NS type record from the subdomain hosted zone (<code>platform.example.com</code>)
-<img src="https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/load-balancer/subdomain-NS.png" alt="subdomain-NS"></p>
-</li>
-<li>
-<p>Create an <code>NS</code> type record in the root <code>example.com</code> hosted zone for the subdomain <code>platform.example.com</code>.</p>
-<p><img src="https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/load-balancer/root-domain-NS-creating-NS.png" alt="root-domain-NS-creating-NS"></p>
-<p>Verify the creation of your NS record in the Route53 console.</p>
-<p><img src="https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/load-balancer/root-domain-NS-created.png" alt="root-domain-NS-created"></p>
-</li>
-</ul>
-</li>
-</ol>
-<p>From this point on, you create and update the DNS records <strong>only in the subdomain</strong>. All of the images of the hosted zone in the following steps of this guide are for the subdomain.</p>
-<h4 id="create-certificates-for-domain">Create certificates for domain</h4>
-<p>To create the certificates for the domains in the region where your platform will run (i.e. EKS cluster region), follow the steps in the <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html#request-public-console">Request a public certificate using the console</a> guide.</p>
-<blockquote>
-<p>Note: The certificates are valid only after successful <a href="https://docs.aws.amazon.com/acm/latest/userguide/domain-ownership-validation.html">validation of domain ownership</a>.</p>
-</blockquote>
-<p>The following image is a screenshot showing that a certificate has been issued.</p>
-<blockquote>
-<p>Note: Status turns to <code>Issued</code> after a few minutes of validation.
-<img src="https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/load-balancer/successfully-issued-certificate.png" alt="successfully-issued-certificate"></p>
-</blockquote>
-<p>If you choose DNS validation for the validation of the certificates, you will be asked to create a CNAME type record in the hosted zone. The following image is a screenshot of the CNAME record of the certificate in the <code>platform.example.com</code> hosted zone for DNS validation:
-<img src="https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/load-balancer/DNS-record-for-certificate-validation.png" alt="DNS-record-for-certificate-validation"></p>
-<ol>
-<li>Create a certificate for <code>*.example.com</code> in the region where your platform will run.</li>
-<li>Create a certificate for <code>*.platform.example.com</code> in the region where your platform will run.</li>
-</ol>
-<h3 id="configure-ingress">Configure Ingress</h3>
-<ol>
-<li>Export the ARN of the certificate created for <code>*.platform.example.com</code>:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">certArn</span><span class="o">=</span>&lt;&gt;
-</span></span></code></pre></div></li>
-<li>Configure the parameters for <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/istio-ingress/overlays/https/params.env">ingress</a> with the certificate ARN of the subdomain.
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;certArn=&#39;</span><span class="nv">$certArn</span><span class="s1">&#39;&#39;</span> &gt; awsconfigs/common/istio-ingress/overlays/https/params.env
-</span></span></code></pre></div></li>
-</ol>
-<h3 id="configure-load-balancer-controller">Configure Load Balancer controller</h3>
-<p>Set up resources required for the Load Balancer controller:</p>
-<ol>
-<li>Make sure that all the subnets (public and private) corresponding to the EKS cluster are tagged according to the <strong>Prerequisites</strong> section in the <a href="https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html">Application load balancing on Amazon EKS</a> guide. Ignore the requirement to have an existing ALB provisioned on the cluster. We will deploy Load Balancer controller version 1.1.5 later on.
-<ul>
-<li>Check if the following tags exist on the subnets:
-<ul>
-<li><code>kubernetes.io/cluster/cluster-name</code> (replace <code>cluster-name</code> with your cluster name e.g. <code>kubernetes.io/cluster/my-k8s-cluster</code>). Add this tag in both private and public subnets. If you created the cluster using <code>eksctl</code>, you might be missing only this tag. Use the following command to tag all subnets by substituting the value of <code>TAG_VALUE</code> variable(<code>owned</code> or <code>shared</code>). Use <code>shared</code> as the tag value if you have more than one cluster using the subnets:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TAG_VALUE</span><span class="o">=</span>&lt;&gt;
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_SUBNET_IDS</span><span class="o">=</span><span class="k">$(</span>aws ec2 describe-subnets --region <span class="nv">$CLUSTER_REGION</span> --filters <span class="nv">Name</span><span class="o">=</span>tag:alpha.eksctl.io/cluster-name,Values<span class="o">=</span><span class="nv">$CLUSTER_NAME</span> --output json <span class="p">|</span> jq -r <span class="s1">&#39;.Subnets[].SubnetId&#39;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CLUSTER_SUBNET_IDS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">do</span>
-</span></span><span class="line"><span class="cl">    aws ec2 create-tags --resources <span class="si">${</span><span class="nv">i</span><span class="si">}</span> --tags <span class="nv">Key</span><span class="o">=</span>kubernetes.io/cluster/<span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span>,Value<span class="o">=</span><span class="si">${</span><span class="nv">TAG_VALUE</span><span class="si">}</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span></code></pre></div></li>
-<li><code>kubernetes.io/role/internal-elb</code>. Add this tag only to private subnets.</li>
-<li><code>kubernetes.io/role/elb</code>. Add this tag only to public subnets.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>The Load balancer controller uses <a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">IAM roles for service accounts</a>(IRSA) to access AWS services. An OIDC provider must exist for your cluster to use IRSA. Create an OIDC provider and associate it with your EKS cluster by running the following command if your cluster doesn’t already have one:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">eksctl utils associate-iam-oidc-provider --cluster <span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span> --region <span class="si">${</span><span class="nv">CLUSTER_REGION</span><span class="si">}</span> --approve
-</span></span></code></pre></div></li>
-<li>Create an IAM role with <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/infra_configs/iam_alb_ingress_policy.json">the necessary permissions</a> for the Load Balancer controller to use via a service account to access AWS services.
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LBC_POLICY_NAME</span><span class="o">=</span>alb_ingress_controller_<span class="si">${</span><span class="nv">CLUSTER_REGION</span><span class="si">}</span>_<span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LBC_POLICY_ARN</span><span class="o">=</span><span class="k">$(</span>aws iam create-policy --policy-name <span class="nv">$LBC_POLICY_NAME</span> --policy-document file://awsconfigs/infra_configs/iam_alb_ingress_policy.json --output text --query <span class="s1">&#39;Policy.Arn&#39;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">eksctl create iamserviceaccount --name aws-load-balancer-controller --namespace kube-system --cluster <span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span> --region <span class="si">${</span><span class="nv">CLUSTER_REGION</span><span class="si">}</span> --attach-policy-arn <span class="si">${</span><span class="nv">LBC_POLICY_ARN</span><span class="si">}</span> --override-existing-serviceaccounts --approve
-</span></span></code></pre></div></li>
-<li>Configure the parameters for <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/aws-alb-ingress-controller/base/params.env">load balancer controller</a> with the cluster name.
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;clusterName=&#39;</span><span class="nv">$CLUSTER_NAME</span><span class="s1">&#39;&#39;</span> &gt; awsconfigs/common/aws-alb-ingress-controller/base/params.env
-</span></span></code></pre></div></li>
-</ol>
-<h3 id="build-manifests-and-deploy-components">Build Manifests and deploy components</h3>
-<p>Run the following command to build and install the components specified in the Load Balancer <a href="https://github.com/awslabs/kubeflow-manifests/blob/main/deployments/add-ons/load-balancer/kustomization.yaml">kustomize</a> file.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">while</span> ! kustomize build deployments/add-ons/load-balancer <span class="p">|</span> kubectl apply -f -<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&#34;Retrying to apply resources&#34;</span><span class="p">;</span> sleep 30<span class="p">;</span> <span class="k">done</span>
-</span></span></code></pre></div><h3 id="update-the-domain-with-alb-address">Update the domain with ALB address</h3>
-<ol>
-<li>Check if ALB is provisioned. This may take a few minutes.
-<pre tabindex="0"><code>    kubectl get ingress -n istio-system istio-ingress
-    NAME            CLASS    HOSTS   ADDRESS                                                              PORTS   AGE
-    istio-ingress   &lt;none&gt;   *       k8s-istiosys-istioing-xxxxxx-110050202.us-west-2.elb.amazonaws.com   80      15d
-</code></pre>If <code>ADDRESS</code> is empty after a few minutes, check the logs of the controller by following the troubleshooting steps in <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/troubleshooting-aws/#alb-fails-to-provision">ALB fails to provision</a>.</li>
-<li>When ALB is ready, copy the DNS name of that load balancer and create a CNAME entry to it in Route53 under the subdomain (<code>platform.example.com</code>) for <code>*.platform.example.com</code>. Please note that it might make up to five to ten minutes for DNS changes to propagate and for your URL to work.
-<img src="https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/load-balancer/subdomain-*.platform-record.png" alt="subdomain-*.platform-record"></li>
-</ol>
-<blockquote>
-<p>Note: Check if the DNS entry propogated with the <a href="https://toolbox.googleapps.com/apps/dig/#CNAME/">Google Admin Toolbox</a>.</p>
-</blockquote>
-<ol start="3">
-<li>The central dashboard should now be available at <code>https://kubeflow.platform.example.com</code>. Open a browser and navigate to this URL.</li>
-</ol>
-<h3 id="automated-script">Automated script</h3>
-<ol>
-<li>Install dependencies for the script
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> tests/e2e
-</span></span><span class="line"><span class="cl">pip install -r requirements.txt
-</span></span></code></pre></div></li>
-<li>Substitute values in <code>tests/e2e/utils/load_balancer/config.yaml</code>.
-<ul>
-<li>Register root domain in <code>route53.rootDomain.name</code>. For this example, assume that this domain is <code>example.com</code>.
-<ul>
-<li>If your domain is managed in Route53, enter the Hosted zone ID found under Hosted zone details in <code>route53.rootDomain.hostedZoneId</code>. Skip this step if your domain is managed by other domain provider.</li>
-</ul>
-</li>
-<li>Name of the sudomain that you want to use to host Kubeflow (e.g. <code>platform.example.com</code>) in <code>route53.subDomain.name</code>.</li>
-<li>Cluster name and region where Kubeflow is deployed in <code>cluster.name</code> and <code>cluster.region</code> (e.g. <code>us-west-2</code>), respectively.</li>
-<li>The Config file will look something like:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cluster</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kube-eks-cluster</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">us-west-2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">route53</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rootDomain</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="l">XXXX</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example.com</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">subDomain</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">platform.example.com</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">cognitoUserpool</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow-users</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kube-eks-cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">us-west-2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">route53</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">rootDomain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">hostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="l">XXXX</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">subDomain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">platform.example.com</span><span class="w">
 </span></span></span></code></pre></div></li>
-</ul>
+</ol>
 </li>
-<li>Run the script to create the resources.
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/load_balancer/setup_load_balancer.py
+</ol>
+</li>
+<li>Run the script to create the resources
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> <span class="nb">cd</span> tests/e2e
+</span></span><span class="line"><span class="cl"> <span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/cognito_bootstrap/cognito_pre_deployment.py
+</span></span><span class="line"><span class="cl"> <span class="nb">cd</span> -
 </span></span></code></pre></div></li>
-<li>The script will update the Config file with the resource names, IDs, and ARNs that it created. Refer to the following example for more information:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kubeflow</span><span class="p">:</span><span class="w">
+</ol>
+</li>
+<li>The script will update the config file with the resource names/ids/ARNs it created. It will look something like:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">cognitoUserpool</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">ARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:cognito-idp:us-west-2:123456789012:userpool/us-west-2_yasI9dbxF</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">appClientId</span><span class="p">:</span><span class="w"> </span><span class="l">5jmk7ljl2a74jk3n0a0fvj3l31</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">domainAliasTarget</span><span class="p">:</span><span class="w"> </span><span class="l">xxxxxxxxxx.cloudfront.net</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">auth.platform.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow-users</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">kubeflow</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">alb</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">serviceAccount</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">alb-ingress-controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">policyArn</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:iam::123456789012:policy/alb_ingress_controller_kube-eks-clusterxxx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kube-eks-cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">us-west-2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">route53</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">rootDomain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-east-1:123456789012:certificate/9d8c4bbc-3b02-4a48-8c7d-d91441c6e5af</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">hostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="l">XXXXX</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">subDomain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">us-west-2-certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-west-2:123456789012:certificate/d1d7b641c238-4bc7-f525-b7bf-373cc726</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">hostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="l">XXXXX</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">platform.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">us-east-1-certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-east-1:123456789012:certificate/373cc726-f525-4bc7-b7bf-d1d7b641c238</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Install Kubeflow using the following command:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
+      <a class="nav-link active tab-Kustomize"
+        id="tabs-5-0-tab" data-toggle="tab" href="#tabs-5-0" role="tab" onclick="handleClick(&#34;Kustomize&#34;);"
+        aria-controls="tabs-5-0" aria-selected="true">
+        Kustomize
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link tab-Helm"
+        id="tabs-5-1-tab" data-toggle="tab" href="#tabs-5-1" role="tab" onclick="handleClick(&#34;Helm&#34;);"
+        aria-controls="tabs-5-1" aria-selected="false">
+        Helm
+      </a>
+    </li></ul>
+
+
+<div class="tab-content" id="tabs-5-content"><div class="tab-pane fade show active"
+        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">cognito</span></span></span></code></pre></div></div>
+  <div class="tab-pane fade"
+        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=cognito</span></span></span></code></pre></div></div>
+  
+</div>
+</p>
+</li>
+<li>
+<p>Updating the domain with ALB address</p>
+<ol>
+<li>Check if ALB is provisioned. It takes around 3-5 minutes
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> kubectl get ingress -n istio-system
+</span></span><span class="line"><span class="cl"> Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+<span class="p">;</span> use networking.k8s.io/v1 Ingress
+</span></span><span class="line"><span class="cl"> NAME            CLASS    HOSTS   ADDRESS                                                              PORTS   AGE
+</span></span><span class="line"><span class="cl"> istio-ingress   &lt;none&gt;   *       k8s-istiosys-istioing-xxxxxx-110050202.us-west-2.elb.amazonaws.com   <span class="m">80</span>      15d
+</span></span></code></pre></div></li>
+<li>If <code>ADDRESS</code> is empty after a few minutes, check the logs of alb-ingress-controller by following <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/troubleshooting-aws/#alb-fails-to-provision">this guide</a></li>
+</ol>
+</li>
+<li>Substitute the ALB address under <code>kubeflow.alb.dns</code> in <code>tests/e2e/utils/cognito_bootstrap/config.yaml</code>. The kubeflow section of the config file will look like:
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">kubeflow</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">alb</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">dns</span><span class="p">:</span><span class="w"> </span><span class="l">ebde55ee-istiosystem-istio-2af2-1100502020.us-west-2.elb.amazonaws.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">serviceAccount</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">alb-ingress-controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">policyArn</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:iam::123456789012:policy/alb_ingress_controller_kube-eks-clusterxxx</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Run the following script to update the subdomain with ALB address
+<ol>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> <span class="nb">cd</span> tests/e2e
+</span></span><span class="line"><span class="cl"> <span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/cognito_bootstrap/cognito_post_deployment.py
+</span></span><span class="line"><span class="cl"> <span class="nb">cd</span> -
+</span></span></code></pre></div></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Follow the rest of the cognito guide from <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#60-connecting-to-central-dashboard">section 6.0(Connecting to central dashboard)</a> to:</p>
+<ol>
+<li>Create a user in Cognito user pool</li>
+<li>Create a profile for the user from the user pool</li>
+<li>Connect to the central dashboard</li>
+</ol>
+</li>
+</ol>
+<h2 id="uninstall-kubeflow">Uninstall Kubeflow</h2>
+<blockquote>
+<p>Note: Delete all the resources you might have created in your profile namespaces before running these steps.</p>
+</blockquote>
+<ol>
+<li>
+<p>Run the following commands to delete the profiles, ingress and corresponding ingress managed load balancer</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> kubectl delete profiles --all
+</span></span><span class="line"><span class="cl"> kubectl delete ingress -n istio-system istio-ingress
+</span></span></code></pre></div></li>
+<li>
+<p>Delete the kubeflow deployment</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: Make sure you have the correct INSTALLATION_OPTION and DEPLOYMENT_OPTION environment variables set for your chosen installation.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs" id="tabs-8" role="tablist"><li class="nav-item">
+      <a class="nav-link active tab-Kustomize"
+        id="tabs-8-0-tab" data-toggle="tab" href="#tabs-8-0" role="tab" onclick="handleClick(&#34;Kustomize&#34;);"
+        aria-controls="tabs-8-0" aria-selected="true">
+        Kustomize
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link tab-Helm"
+        id="tabs-8-1-tab" data-toggle="tab" href="#tabs-8-1" role="tab" onclick="handleClick(&#34;Helm&#34;);"
+        aria-controls="tabs-8-1" aria-selected="false">
+        Helm
+      </a>
+    </li></ul>
+
+
+<div class="tab-content" id="tabs-8-content"><div class="tab-pane fade show active"
+        id="tabs-8-0" role="tabpanel" aria-labelled-by="tabs-8-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">delete-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">cognito</span></span></span></code></pre></div></div>
+  <div class="tab-pane fade"
+        id="tabs-8-1" role="tabpanel" aria-labelled-by="tabs-8-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make delete-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=cognito</span></span></span></code></pre></div></div>
+  
+</div>
+
+<ol>
+<li>To delete the rest of resources(subdomain, certificates etc.), run the following commands from the root of your repository:
+<blockquote>
+<p>Note: Make sure that you have the configuration file created by the script in <code>tests/e2e/utils/cognito_bootstrap/config.yaml</code>. If you did not use the script, plug in the name, ARN, or ID of the resources that you created in a yaml file in <code>tests/e2e/utils/cognito_bootstrap/config.yaml</code> by referring to the following sample:</p>
+</blockquote>
+<ul>
+<li>Sample config file:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cognitoUserpool</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:cognito-idp:us-west-2:123456789012:userpool/us-west-2_yasI9dbxF</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">appClientId</span><span class="p">:</span><span class="w"> </span><span class="l">5jmk7ljl2a74jk3n0a0fvj3l31</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">domainAliasTarget</span><span class="p">:</span><span class="w"> </span><span class="l">xxxxxxxxxx.cloudfront.net</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">auth.platform.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow-users</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeflow</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">alb</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">dns</span><span class="p">:</span><span class="w"> </span><span class="l">xxxxxx-istiosystem-istio-2af2-1100502020.us-west-2.elb.amazonaws.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">serviceAccount</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">alb-ingress-controller</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">policyArn</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:iam::123456789012:policy/alb_ingress_controller_kube-eks-clusterxxx</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cluster</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cluster</span><span class="p">:</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kube-eks-cluster</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">us-west-2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">route53</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rootDomain</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-west-2:123456789012:certificate/9d8c4bbc-3b02-4a48-8c7d-d91441c6e5af</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-east-1:123456789012:certificate/9d8c4bbc-3b02-4a48-8c7d-d91441c6e5af</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="l">XXXXX</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">subDomain</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-west-2:123456789012:certificate/d1d7b641c238-4bc7-f525-b7bf-373cc726</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">us-west-2-certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-west-2:123456789012:certificate/d1d7b641c238-4bc7-f525-b7bf-373cc726</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="l">XXXXX</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">platform.example.com</span><span class="w">
-</span></span></span></code></pre></div></li>
-<li>The central dashboard should now be available at <code>https://kubeflow.platform.example.com</code>. Open a browser and navigate to this URL.</li>
-</ol>
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">us-east-1-certARN</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:acm:us-east-1:123456789012:certificate/373cc726-f525-4bc7-b7bf-d1d7b641c238</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Run the following command to install the script dependencies and delete the resources:</li>
+</ul>
 <blockquote>
-<p>Note: It might a few minutes for DNS changes to propagate and for your URL to work. Check if the DNS entry propogated with the <a href="https://toolbox.googleapps.com/apps/dig/#CNAME/">Google Admin Toolbox</a></p>
-</blockquote>
-<h2 id="clean-up">Clean up</h2>
-<p>To delete the resources created in this guide, run the following commands from the root of your repository:</p>
-<blockquote>
-<p>Note: Make sure that you have the configuration file created by the script in <code>tests/e2e/utils/load_balancer/config.yaml</code>. If you did not use the script, plug in the name, ARN, or ID of the resources that you created in the configuration file by referring to the sample in Step 4 of the <a href="#automated-script">previous section</a>.</p>
+<p>Note: You can rerun the script incase some resources fail to delete</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> tests/e2e
-</span></span><span class="line"><span class="cl"><span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/load_balancer/lb_resources_cleanup.py
+</span></span><span class="line"><span class="cl">pip install -r requirements.txt
+</span></span><span class="line"><span class="cl"><span class="nv">PYTHONPATH</span><span class="o">=</span>.. python utils/cognito_bootstrap/cognito_resources_cleanup.py
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> -
-</span></span></code></pre></div>
+</span></span></code></pre></div></li>
+</ol>
+
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
