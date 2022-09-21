@@ -15,9 +15,9 @@
            "@id": "https:\/\/awslabs.github.io\/kubeflow-manifests\/main"
       },
       "articleSection" : "docs",
-      "name" : "Amazon EKS and Kubeflow Compatibility",
-      "headline" : "Amazon EKS and Kubeflow Compatibility",
-      "description" : "Check compatibility between Amazon EKS and Kubeflow versions",
+      "name" : "SageMaker Operators for Kubernetes (ACK)",
+      "headline" : "SageMaker Operators for Kubernetes (ACK)",
+      "description" : "Use SageMaker Operators for Kubernetes (ACK) with Kubeflow on AWS",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/about\/eks-compatibility\/",
-      "wordCount" : "62",
+      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/amazon-sagemaker-integration\/sagemaker-operators-ack\/",
+      "wordCount" : "148",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -42,22 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>Amazon EKS and Kubeflow Compatibility | Kubeflow on AWS</title>
-<meta name="description" content="Check compatibility between Amazon EKS and Kubeflow versions">
-<meta property="og:title" content="Amazon EKS and Kubeflow Compatibility" />
-<meta property="og:description" content="Check compatibility between Amazon EKS and Kubeflow versions" />
+<title>SageMaker Operators for Kubernetes (ACK) | Kubeflow on AWS</title>
+<meta name="description" content="Use SageMaker Operators for Kubernetes (ACK) with Kubeflow on AWS">
+<meta property="og:title" content="SageMaker Operators for Kubernetes (ACK)" />
+<meta property="og:description" content="Use SageMaker Operators for Kubernetes (ACK) with Kubeflow on AWS" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/about/eks-compatibility/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/" /><meta property="article:section" content="docs" />
 
 <meta property="article:modified_time" content="2022-09-21T12:55:23-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
-<meta itemprop="name" content="Amazon EKS and Kubeflow Compatibility">
-<meta itemprop="description" content="Check compatibility between Amazon EKS and Kubeflow versions">
+<meta itemprop="name" content="SageMaker Operators for Kubernetes (ACK)">
+<meta itemprop="description" content="Use SageMaker Operators for Kubernetes (ACK) with Kubeflow on AWS">
 <meta itemprop="dateModified" content="2022-09-21T12:55:23-07:00" />
-<meta itemprop="wordCount" content="62">
+<meta itemprop="wordCount" content="148">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Amazon EKS and Kubeflow Compatibility"/>
-<meta name="twitter:description" content="Check compatibility between Amazon EKS and Kubeflow versions"/>
+<meta name="twitter:title" content="SageMaker Operators for Kubernetes (ACK)"/>
+<meta name="twitter:description" content="Use SageMaker Operators for Kubernetes (ACK) with Kubeflow on AWS"/>
 
 
 
@@ -147,8 +147,8 @@
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocs-li">
   <a href="/kubeflow-manifests/main/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-kubeflow-manifestsmaindocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsabout-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsabout-check" checked/>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsabout-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsabout-check"/>
   <label for="m-kubeflow-manifestsmaindocsabout-check"><a href="/kubeflow-manifests/main/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsabout"><span class="">About</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -160,9 +160,9 @@
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsaboutreleases-check"/>
   <label for="m-kubeflow-manifestsmaindocsaboutreleases-check"><a href="/kubeflow-manifests/main/docs/about/releases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsaboutreleases"><span class="">Releases and Versioning</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsabouteks-compatibility-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsabouteks-compatibility-check" checked/>
-  <label for="m-kubeflow-manifestsmaindocsabouteks-compatibility-check"><a href="/kubeflow-manifests/main/docs/about/eks-compatibility/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsabouteks-compatibility"><span class="td-sidebar-nav-active-item">Amazon EKS and Kubeflow Compatibility</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsabouteks-compatibility-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsabouteks-compatibility-check"/>
+  <label for="m-kubeflow-manifestsmaindocsabouteks-compatibility-check"><a href="/kubeflow-manifests/main/docs/about/eks-compatibility/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsabouteks-compatibility"><span class="">Amazon EKS and Kubeflow Compatibility</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsaboutsecurity-li">
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsaboutsecurity-check"/>
@@ -333,14 +333,14 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integration-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integration-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integration-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integration-check" checked/>
   <label for="m-kubeflow-manifestsmaindocsamazon-sagemaker-integration-check"><a href="/kubeflow-manifests/main/docs/amazon-sagemaker-integration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integration"><span class="">Amazon SageMaker Integration</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack-li">
-  <input type="checkbox" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack-check"/>
-  <label for="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack-check"><a href="/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack"><span class="">SageMaker Operators for Kubernetes (ACK)</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack-li">
+  <input type="checkbox" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack-check" checked/>
+  <label for="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack-check"><a href="/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-operators-ack"><span class="td-sidebar-nav-active-item">SageMaker Operators for Kubernetes (ACK)</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-components-for-kubeflow-pipelines-li">
   <input type="checkbox" id="m-kubeflow-manifestsmaindocsamazon-sagemaker-integrationsagemaker-components-for-kubeflow-pipelines-check"/>
@@ -363,10 +363,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/about/eks-compatibility.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/about/eks-compatibility.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/about/eks-compatibility.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=Amazon%20EKS%20and%20Kubeflow%20Compatibility" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/awslabs/kubeflow-manifests//tree/main/website/content/en/docs/amazon-sagemaker-integration/sagemaker-operators-ack.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//edit/main/website/content/en/docs/amazon-sagemaker-integration/sagemaker-operators-ack.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//new/main/website/content/en/docs/amazon-sagemaker-integration/sagemaker-operators-ack.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/awslabs/kubeflow-manifests//issues/new?title=SageMaker%20Operators%20for%20Kubernetes%20%28ACK%29" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/awslabs/kubeflow-manifests/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -407,17 +407,17 @@
     <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/about/">About</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/">Amazon SageMaker Integration</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/about/eks-compatibility/">Amazon EKS and Kubeflow Compatibility</a>
+    <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/">SageMaker Operators for Kubernetes (ACK)</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Amazon EKS and Kubeflow Compatibility</h1>
-	<div class="lead">Check compatibility between Amazon EKS and Kubeflow versions</div>
+	<h1>SageMaker Operators for Kubernetes (ACK)</h1>
+	<div class="lead">Use SageMaker Operators for Kubernetes (ACK) with Kubeflow on AWS</div>
 	<header class="article-meta">
 		
 
@@ -433,40 +433,14 @@
 
 		
 	</header>    
-	<h2 id="compatibility">Compatibility</h2>
-<p>Amazon EKS maintains end-to-end testing between EKS Kubernetes versions and Kubeflow versions. The following table relates compatibility between Kubernetes versions on Amazon EKS and Kubeflow v1.6.</p>
-<div class="table-responsive">
-  <table class="table table-bordered">
-    <thead class="thead-light">
-      <tr>
-        <th>EKS Versions</th>
-        <th>Kubeflow v1.6</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>1.23</td>
-        <td><b>Compatible</b></td>
-      </tr>
-      <tr>
-        <td>1.22</td>
-        <td><b>Compatible</b></td>
-      </tr>
-      <tr>
-        <td>1.21</td>
-        <td><b>Incompatible</b></td>
-      </tr>
-      <tr>
-        <td>1.20</td>
-        <td><b>Incompatible</b></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+	<p><a href="https://github.com/aws-controllers-k8s/sagemaker-controller">SageMaker Operators for Kubernetes (ACK)</a> make it easier for developers and data scientists using Kubernetes to train, tune, and deploy machine learning (ML) models using Amazon SageMaker. <a href="https://aws-controllers-k8s.github.io/community/docs/community/overview/">ACK</a> lets you define and use AWS service resources directly from Kubernetes. With ACK, you can take advantage of AWS-managed services for your Kubernetes applications without needing to define resources outside of the cluster or run services that provide supporting capabilities like databases or message queues within the cluster.</p>
+<h2 id="tutorials">Tutorials</h2>
+<p>SageMaker Operators for Kubernetes (ACK) comes installed with all <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/">deployment options</a> for Kubeflow on AWS.</p>
+<p>For more in-depth guides on installing and using the new SageMaker Operator for Kubernetes, see the following tutorials:</p>
 <ul>
-<li><strong>Incompatible</strong>: the combination is not known to work together</li>
-<li><strong>Compatible</strong>: all Kubeflow features have been tested and verified for the EKS Kubernetes version</li>
+<li><a href="https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/">Machine Learning with the ACK SageMaker Controller</a></li>
 </ul>
+<p>Use SageMaker Operators for Kubernetes (ACK) to manage your SageMaker resources from your Kubernetes cluster directly or from AWS-optimized <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/">Kubeflow Notebooks</a> that are built on top of <a href="https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/what-is-dlc.html">AWS Deep Learning Containers</a>.</p>
 
 	
 	
