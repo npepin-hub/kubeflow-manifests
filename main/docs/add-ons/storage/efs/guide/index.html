@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/storage/efs/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-21T11:18:22-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-21T11:33:28-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="EFS">
 <meta itemprop="description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-21T11:18:22-07:00" />
+<meta itemprop="dateModified" content="2022-09-21T11:33:28-07:00" />
 <meta itemprop="wordCount" content="2690">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="EFS"/>
@@ -658,7 +658,7 @@ The PVC needs to be in the namespace you will be accessing it from. Replace the 
 For the manual setup, you need to edit the <code>uid</code> and <code>gid</code> in the storage class inside <code>dynamic-provisioning/sc.yaml</code>. <br>
 For the automated setup, you can specify the <code>uid</code> and <code>gid</code> as arguments to the script, see <a href="#advanced-customization">Advanced Customization</a> for more details on the different parameters that are available.</p>
 <h3 id="34-use-existing-efs-volume-as-workspace-or-data-volume-for-a-notebook">3.4 Use existing EFS volume as workspace or data volume for a Notebook</h3>
-<p>Spin up a new Kubeflow notebook server and specify the name of the PVC to be used as the workspace volume or the data volume and specify your desired mount point. We&rsquo;ll assume you created a PVC with the name <code>efs-claim</code> via Kubeflow Volumes UI or via the manual setup step <a href="#4-option-2-static-provisioning">Static Provisioning</a>. For our example here, we are using the AWS Optimized Tensorflow 2.6 CPU image provided in the Notebook configuration options (<code>public.ecr.aws/c9e4w0g3/notebook-servers/jupyter-tensorflow</code>). Additionally, use the existing <code>efs-claim</code> volume as the workspace volume at the default mount point <code>/home/jovyan</code>. The server might take a few minutes to come up.</p>
+<p>Spin up a new Kubeflow notebook server and specify the name of the PVC to be used as the workspace volume or the data volume and specify your desired mount point. We&rsquo;ll assume you created a PVC with the name <code>efs-claim</code> via Kubeflow Volumes UI or via the manual setup step <a href="#4-option-2-static-provisioning">Static Provisioning</a>. For our example here, we are using the AWS Optimized Tensorflow 2.6 CPU image provided in the Notebook configuration options (<code>public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-tensorflow</code>). Additionally, use the existing <code>efs-claim</code> volume as the workspace volume at the default mount point <code>/home/jovyan</code>. The server might take a few minutes to come up.</p>
 <p>In case the server does not start up in the expected time, do make sure to check:</p>
 <ol>
 <li>The Notebook Controller Logs</li>
@@ -724,7 +724,7 @@ b. Delete the <code>efs-csi-controller-sa</code> service account and then re-run
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/35f2f5532dc6364e27379fc79287fe5f8ff363ab">More tf docs (#406) (35f2f55)</a>
+  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/b40def070f774749a30529219ce3edaace9c6718">Update notebook images to include kserve instead of kfserving. Also update repo name.  (#405) (b40def0)</a>
 </div>
 
 </div>

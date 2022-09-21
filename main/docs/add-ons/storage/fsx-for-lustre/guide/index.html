@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/storage/fsx-for-lustre/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-21T11:18:22-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-21T11:33:28-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="FSx for Lustre">
 <meta itemprop="description" content="Use Amazon FSx as persistent storage with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-21T11:18:22-07:00" />
+<meta itemprop="dateModified" content="2022-09-21T11:33:28-07:00" />
 <meta itemprop="wordCount" content="2080">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="FSx for Lustre"/>
@@ -619,7 +619,7 @@ For more details on how to access your Kubeflow dashboard, refer to one of the <
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">kubectl apply -f <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
 </span></span></code></pre></div><h3 id="32-using-fsx-volume-as-workspace-or-data-volume-for-a-notebook-server">3.2 Using FSx volume as workspace or data volume for a notebook server</h3>
-<p>Spin up a new Kubeflow notebook server and specify the name of the PVC to be used as the workspace volume or the data volume and specify your desired mount point. For our example here, we are using the AWS-optimized Tensorflow 2.6 CPU image provided in the Notebook configuration options (<code>public.ecr.aws/c9e4w0g3/notebook-servers/jupyter-tensorflow</code>). Additionally, use the existing PVC as the workspace volume at the default mount point <code>/home/jovyan</code>. The server might take a few minutes to come up.</p>
+<p>Spin up a new Kubeflow notebook server and specify the name of the PVC to be used as the workspace volume or the data volume and specify your desired mount point. For our example here, we are using the AWS-optimized Tensorflow 2.6 CPU image provided in the Notebook configuration options (<code>public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-tensorflow</code>). Additionally, use the existing PVC as the workspace volume at the default mount point <code>/home/jovyan</code>. The server might take a few minutes to come up.</p>
 <p>In case the server does not start up in the expected time, do make sure to check:</p>
 <ol>
 <li>The Notebook Controller Logs</li>
@@ -684,7 +684,7 @@ Source: <a href="https://www.tensorflow.org/tutorials/load_data/images">https://
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/35f2f5532dc6364e27379fc79287fe5f8ff363ab">More tf docs (#406) (35f2f55)</a>
+  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/b40def070f774749a30529219ce3edaace9c6718">Update notebook images to include kserve instead of kfserving. Also update repo name.  (#405) (b40def0)</a>
 </div>
 
 </div>
