@@ -626,7 +626,7 @@ Take note of your &lt;code&gt;S3 bucket name&lt;/code&gt; to use in the followin
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment&#34;&gt;Create a Ubuntu environment&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#clone-repository&#34;&gt;Clone the repository&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#create-ubuntu-environment&#34;&gt;Install the necessary tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/#install-necessary-tools&#34;&gt;Install the necessary tools&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Additionally, ensure you are in the &lt;code&gt;REPO_ROOT/deployments/rds-s3/terraform&lt;/code&gt; folder.&lt;/p&gt;
 &lt;p&gt;If you are in repository&amp;rsquo;s root folder, run:&lt;/p&gt;
