@@ -49,11 +49,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito-rds-s3/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-20T21:29:41-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T23:28:35-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Manifest Deployment Guide">
 <meta itemprop="description" content="Deploying Kubeflow with Amazon Cognito, RDS and S3">
-<meta itemprop="dateModified" content="2022-09-20T21:29:41-07:00" />
+<meta itemprop="dateModified" content="2022-09-20T23:28:35-07:00" />
 <meta itemprop="wordCount" content="203">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manifest Deployment Guide"/>
@@ -454,7 +454,6 @@
 <ol>
 <li>Install Kubeflow using the following command:
 
-        
 
 
 
@@ -471,7 +470,6 @@
 
 
 
-        
 
 
 
@@ -488,7 +486,9 @@
 
 
 
-        <ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
+
+
+<ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
       <a class="nav-link active tab-Kustomize"
         id="tabs-5-0-tab" data-toggle="tab" href="#tabs-5-0" role="tab" onclick="handleClick(&#34;Kustomize&#34;);"
         aria-controls="tabs-5-0" aria-selected="true">
@@ -504,11 +504,9 @@
 
 
 <div class="tab-content" id="tabs-5-content"><div class="tab-pane fade show active"
-        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">        <span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">cognito-rds-s3</span>
-</span></span><span class="line"><span class="cl">        </span></span></code></pre></div></div>
+        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">cognito-rds-s3</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">        </span><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=cognito-rds-s3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span></span></span></code></pre></div></div>
+        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=cognito-rds-s3</span></span></span></code></pre></div></div>
   
 </div>
 </li>
@@ -527,7 +525,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/28ebd9045615798454a10a4ae3ca90752aecd66d">missing character in make  (#402) (28ebd90)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/aad222d4532024770016ddc3f28152b56db2dca9">fix makefile spacing (#404) (aad222d)</a>
 </div>
 
 </div>
