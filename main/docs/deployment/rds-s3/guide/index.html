@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/rds-s3\/guide\/",
-      "wordCount" : "2204",
+      "wordCount" : "2196",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-20T17:06:51-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T20:13:01-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Manifest Deployment Guide">
 <meta itemprop="description" content="Deploying Kubeflow with RDS and S3 using Kustomize or Helm">
-<meta itemprop="dateModified" content="2022-09-20T17:06:51-07:00" />
-<meta itemprop="wordCount" content="2204">
+<meta itemprop="dateModified" content="2022-09-20T20:13:01-07:00" />
+<meta itemprop="wordCount" content="2196">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manifest Deployment Guide"/>
 <meta name="twitter:description" content="Deploying Kubeflow with RDS and S3 using Kustomize or Helm"/>
@@ -736,13 +736,9 @@ Take note of your <code>S3 bucket name</code> to use in the following steps.</p>
 
 
 <div class="tab-content" id="tabs-3-content"><div class="tab-pane fade show active"
-        id="tabs-3-0" role="tabpanel" aria-labelled-by="tabs-3-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">rds-s3</span>
-</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
-</span></span><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-3-0" role="tabpanel" aria-labelled-by="tabs-3-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">NSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">rds-s3</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-3-1" role="tabpanel" aria-labelled-by="tabs-3-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">export DEPLOYMENT_OPTION=rds-s3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">make deploy-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-3-1" role="tabpanel" aria-labelled-by="tabs-3-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=rds-s3</span></span></span></code></pre></div></div>
   
 </div>
 </p>
@@ -799,13 +795,9 @@ Take note of your <code>S3 bucket name</code> to use in the following steps.</p>
 
 
 <div class="tab-content" id="tabs-4-content"><div class="tab-pane fade show active"
-        id="tabs-4-0" role="tabpanel" aria-labelled-by="tabs-4-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">rds-only</span>
-</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
-</span></span><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-4-0" role="tabpanel" aria-labelled-by="tabs-4-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">rds-only</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-4-1" role="tabpanel" aria-labelled-by="tabs-4-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">export DEPLOYMENT_OPTION=rds-only</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">make deploy-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-4-1" role="tabpanel" aria-labelled-by="tabs-4-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=rds-only</span></span></span></code></pre></div></div>
   
 </div>
 </p>
@@ -862,13 +854,9 @@ Take note of your <code>S3 bucket name</code> to use in the following steps.</p>
 
 
 <div class="tab-content" id="tabs-5-content"><div class="tab-pane fade show active"
-        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">s3-only</span>
-</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
-</span></span><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">s3-only</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">export DEPLOYMENT_OPTION=s3-only</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">make deploy-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=s3-only</span></span></span></code></pre></div></div>
   
 </div>
 </p>
@@ -1012,13 +1000,9 @@ Take note of your <code>S3 bucket name</code> to use in the following steps.</p>
 
 
 <div class="tab-content" id="tabs-9-content"><div class="tab-pane fade show active"
-        id="tabs-9-0" role="tabpanel" aria-labelled-by="tabs-9-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">rds-s3</span>
-</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span>
-</span></span><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">delete-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-9-0" role="tabpanel" aria-labelled-by="tabs-9-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">make</span> <span class="nx">delete-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">rds-s3</span></span></span></code></pre></div></div>
   <div class="tab-pane fade"
-        id="tabs-9-1" role="tabpanel" aria-labelled-by="tabs-9-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">export DEPLOYMENT_OPTION=rds-s3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">export INSTALLATION_OPTION=helm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">make delete-kubeflow</span></span></span></code></pre></div></div>
+        id="tabs-9-1" role="tabpanel" aria-labelled-by="tabs-9-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">make delete-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=rds-s3</span></span></span></code></pre></div></div>
   
 </div>
 
@@ -1045,7 +1029,7 @@ Take note of your <code>S3 bucket name</code> to use in the following steps.</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/94d5e134d49b23885f4af8e4cc812280f6a26128">Add AMG and AMP to addons index page (#394) (94d5e13)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/38de6f686688dd761afb5e0e00fd69ca5e952bbd">Update make commands for deployments (#399) (38de6f6)</a>
 </div>
 
 </div>

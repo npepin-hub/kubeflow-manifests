@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/cognito-rds-s3\/guide\/",
-      "wordCount" : "498",
+      "wordCount" : "203",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito-rds-s3/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-20T17:06:51-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-20T20:13:01-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Manifest Deployment Guide">
 <meta itemprop="description" content="Deploying Kubeflow with Amazon Cognito, RDS and S3">
-<meta itemprop="dateModified" content="2022-09-20T17:06:51-07:00" />
-<meta itemprop="wordCount" content="498">
+<meta itemprop="dateModified" content="2022-09-20T20:13:01-07:00" />
+<meta itemprop="wordCount" content="203">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manifest Deployment Guide"/>
 <meta name="twitter:description" content="Deploying Kubeflow with Amazon Cognito, RDS and S3"/>
@@ -452,80 +452,66 @@
 </li>
 <li>Deploy Kubeflow.
 <ol>
-<li>Install individual components:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Kubeflow namespace</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/kubeflow-namespace/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Kubeflow Roles</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/kubeflow-roles/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Istio</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-crds/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/istio-namespace/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/istio <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Cert-Manager</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/cert-manager/cert-manager/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/cert-manager/kubeflow-issuer/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># KNative</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/overlays/gateways <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-eventing/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Kubeflow Istio Resources</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/kubeflow-istio-resources/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># KServe</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/apps/kserve <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/contrib/kserve/models-web-app/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Central Dashboard</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/centraldashboard/upstream/overlays/kserve <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Notebooks</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/jupyter/notebook-controller/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/apps/jupyter-web-app <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Admission Webhook</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/admission-webhook/upstream/overlays/cert-manager <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Profiles + KFAM</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/profiles/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Volumes Web App</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/volumes-web-app/upstream/overlays/istio <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Tensorboard</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Training Operator</span>
-</span></span><span class="line"><span class="cl">kustomize build upstream/apps/training-operator/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># AWS Telemetry - This is an optional component. See usage tracking documentation for more information.</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/aws-telemetry <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># AWS Secret Manager</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/aws-secrets-manager <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Kubeflow Pipelines</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/apps/pipeline <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Katib</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/apps/katib-external-db-with-kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Configured for AWS Cognito</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Ingress</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/istio-ingress/overlays/cognito <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># ALB controller</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/aws-alb-ingress-controller/base <span class="p">|</span> kubectl apply -f -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Authservice</span>
-</span></span><span class="line"><span class="cl">kustomize build awsconfigs/common/aws-authservice/base <span class="p">|</span> kubectl apply -f -        
-</span></span></code></pre></div></li>
+<li>Install Kubeflow using the following command:
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
+      <a class="nav-link active tab-Kustomize"
+        id="tabs-5-0-tab" data-toggle="tab" href="#tabs-5-0" role="tab" onclick="handleClick(&#34;Kustomize&#34;);"
+        aria-controls="tabs-5-0" aria-selected="true">
+        Kustomize
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link tab-Helm"
+        id="tabs-5-1-tab" data-toggle="tab" href="#tabs-5-1" role="tab" onclick="handleClick(&#34;Helm&#34;);"
+        aria-controls="tabs-5-1" aria-selected="false">
+        Helm
+      </a>
+    </li></ul>
+
+
+<div class="tab-content" id="tabs-5-content"><div class="tab-pane fade show active"
+        id="tabs-5-0" role="tabpanel" aria-labelled-by="tabs-5-0-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">        <span class="nx">make</span> <span class="nx">deploy-kubeflow</span> <span class="nx">INSTALLATION_OPTION</span><span class="p">=</span><span class="nx">kustomize</span> <span class="nx">DEPLOYMENT_OPTION</span><span class="p">=</span><span class="nx">cognito-rds-s3</span>
+</span></span><span class="line"><span class="cl">        </span></span></code></pre></div></div>
+  <div class="tab-pane fade"
+        id="tabs-5-1" role="tabpanel" aria-labelled-by="tabs-5-1-tab"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">        </span><span class="l">make deploy-kubeflow INSTALLATION_OPTION=helm DEPLOYMENT_OPTION=cognito-rds-s3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span></span></span></code></pre></div></div>
+  
+</div>
+</li>
 </ol>
 </li>
 <li>Follow the rest of the Cognito guide from <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/guide/#50-updating-the-domain-with-alb-address">section 5.0 (Updating the domain with ALB address)</a> in order to:
@@ -541,7 +527,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/94d5e134d49b23885f4af8e4cc812280f6a26128">Add AMG and AMP to addons index page (#394) (94d5e13)</a>
+  Last modified September 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/38de6f686688dd761afb5e0e00fd69ca5e952bbd">Update make commands for deployments (#399) (38de6f6)</a>
 </div>
 
 </div>
