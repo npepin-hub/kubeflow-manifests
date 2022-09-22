@@ -79,7 +79,8 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;configure-aws-credentials-and-region-for-deployment&#34;&gt;Configure AWS Credentials and Region for Deployment&lt;/h2&gt;
 &lt;p&gt;To access AWS services, you need an AWS account and setup IAM credentials. Follow &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html&#34;&gt;AWS CLI Configure Quickstart documentation&lt;/a&gt; to setup your IAM credentials.&lt;/p&gt;
-&lt;p&gt;Your IAM user/role must have &lt;strong&gt;Administrative Privileges&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Your IAM user/role needs the necessary privileges to create and manage your cluster and dependencies.
+You might want to grant &lt;code&gt;Administrative Privileges&lt;/code&gt; as it will require access to multiple services.&lt;/p&gt;
 &lt;p&gt;Run the following command to configure AWS CLI:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Warning &lt;a href=&#34;https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html&#34;&gt;Cloud9&lt;/a&gt; users: When configuring your IAM credentials on Cloud9, we recommend using a &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-profiles&#34;&gt;profile&lt;/a&gt;. Click &lt;code&gt;Cancel&lt;/code&gt; when a pop up &amp;ldquo;Could not update credentials&amp;rdquo; opens, then choose &lt;code&gt;Permanently disable&lt;/code&gt; for the &amp;ldquo;Unable to update credentials&amp;rdquo; pop up.&lt;/p&gt;

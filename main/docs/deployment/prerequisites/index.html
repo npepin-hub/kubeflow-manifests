@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/prerequisites\/",
-      "wordCount" : "686",
+      "wordCount" : "709",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-22T10:49:20-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-22T14:44:42-04:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Prerequisites">
 <meta itemprop="description" content="Set up your environment for deploying Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-22T10:49:20-07:00" />
-<meta itemprop="wordCount" content="686">
+<meta itemprop="dateModified" content="2022-09-22T14:44:42-04:00" />
+<meta itemprop="wordCount" content="709">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prerequisites"/>
 <meta name="twitter:description" content="Set up your environment for deploying Kubeflow on AWS"/>
@@ -512,7 +512,8 @@
 </ul>
 <h2 id="configure-aws-credentials-and-region-for-deployment">Configure AWS Credentials and Region for Deployment</h2>
 <p>To access AWS services, you need an AWS account and setup IAM credentials. Follow <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">AWS CLI Configure Quickstart documentation</a> to setup your IAM credentials.</p>
-<p>Your IAM user/role must have <strong>Administrative Privileges</strong>.</p>
+<p>Your IAM user/role needs the necessary privileges to create and manage your cluster and dependencies.
+You might want to grant <code>Administrative Privileges</code> as it will require access to multiple services.</p>
 <p>Run the following command to configure AWS CLI:</p>
 <blockquote>
 <p>Warning <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html">Cloud9</a> users: When configuring your IAM credentials on Cloud9, we recommend using a <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-profiles">profile</a>. Click <code>Cancel</code> when a pop up &ldquo;Could not update credentials&rdquo; opens, then choose <code>Permanently disable</code> for the &ldquo;Unable to update credentials&rdquo; pop up.</p>
@@ -532,7 +533,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 22, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/0ee8b976a7958b002dd9f7089f3c752f80177cf7">Cognito automated deployment guide doc fix (#431) (0ee8b97)</a>
+  Last modified September 22, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/0baa01929b1532bca28eaf4abf5ce65a7bd2f810">Rewording of IAM User&#39;s permissions requirements (#432) (0baa019)</a>
 </div>
 
 </div>
