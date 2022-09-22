@@ -118,7 +118,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using an existing EKS cluster, create an &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html&#34;&gt;OIDC provider&lt;/a&gt; and associate it with for your EKS cluster with the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;eksctl utils associate-iam-oidc-provider --cluster &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--region &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CLUSTER_REGION&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; --approve
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;More details about cluster creation via &lt;code&gt;eksctl&lt;/code&gt; can be found in the &lt;a href=&#34;https://eksctl.io/usage/creating-and-managing-clusters/&#34;&gt;Creating and managing clusters&lt;/a&gt; guide.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;important-if-you-are-using-an-eks-version--123-install-the-amazon-ebs-csi-driver-by-following-the-instructions-herehttpsdocsawsamazoncomekslatestuserguideebs-csihtml&#34;&gt;&lt;strong&gt;Important:&lt;/strong&gt; If you are using an EKS version &lt;code&gt;&amp;gt;= 1.23&lt;/code&gt; install the Amazon EBS CSI driver by following the instructions &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html&#34;&gt;here&lt;/a&gt;.&lt;/h2&gt;
+&lt;p&gt;More details about cluster creation via &lt;code&gt;eksctl&lt;/code&gt; can be found in the &lt;a href=&#34;https://eksctl.io/usage/creating-and-managing-clusters/&#34;&gt;Creating and managing clusters&lt;/a&gt; guide.&lt;/p&gt;
 
       </description>
     </item>
@@ -200,15 +201,16 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make port-forward
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, open the AWS Cloud9 browser and go to &lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;port-forward-terraform-deployment&#34;&gt;Port-forward (Terraform deployment)&lt;/h2&gt;
-&lt;p&gt;First, update the &lt;code&gt;kubeconfig&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Update the &lt;code&gt;kubeconfig&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;terraform output -raw configure_kubectl&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;activate-portforwarding-for-the-kubeflow-dashboard&#34;&gt;Activate portforwarding for the Kubeflow dashboard&lt;/h3&gt;
-&lt;p&gt;Run the following command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;amazon-ec2-only-activate-portfowarding-from-your-ec2-instance&#34;&gt;(Amazon EC2 only) Activate portfowarding from your EC2 instance&lt;/h3&gt;
-&lt;p&gt;If you are running &lt;code&gt;kubectl&lt;/code&gt; on an EC2 instance, then you must run the following command on your local machine.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -i &amp;lt;path-to-your-key-pem&amp;gt; -L 8080:localhost:8080 -N ubuntu@ec2-&amp;lt;Public-IPv4-DNS&amp;gt;.compute-1.amazonaws.com -o &lt;span class=&#34;nv&#34;&gt;ExitOnForwardFailure&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;yes
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;open-the-browser&#34;&gt;Open the browser&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose your port forward option from &lt;a href=&#34;#port-forward-manifest-deployment&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;open-the-browser&#34;&gt;Open the browser&lt;/h2&gt;
 &lt;p&gt;You can then open the browser and go to &lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;log-into-the-kubeflow-ui&#34;&gt;Log into the Kubeflow UI&lt;/h2&gt;
 &lt;p&gt;Use the following default credentials to log into the Kubeflow UI:&lt;/p&gt;

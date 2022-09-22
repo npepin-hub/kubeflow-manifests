@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/connect-kubeflow-dashboard\/",
-      "wordCount" : "343",
+      "wordCount" : "295",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/connect-kubeflow-dashboard/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-21T18:03:05-04:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-21T21:53:31-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Connect to your Kubeflow Dashboard">
 <meta itemprop="description" content="Start experimenting and running your end-to-end ML workflows with Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-21T18:03:05-04:00" />
-<meta itemprop="wordCount" content="343">
+<meta itemprop="dateModified" content="2022-09-21T21:53:31-07:00" />
+<meta itemprop="wordCount" content="295">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Connect to your Kubeflow Dashboard"/>
 <meta name="twitter:description" content="Start experimenting and running your end-to-end ML workflows with Kubeflow on AWS"/>
@@ -389,13 +389,8 @@
         <li><a href="#option-3-aws-cloud9">Option 3: AWS Cloud9</a></li>
       </ul>
     </li>
-    <li><a href="#port-forward-terraform-deployment">Port-forward (Terraform deployment)</a>
-      <ul>
-        <li><a href="#activate-portforwarding-for-the-kubeflow-dashboard">Activate portforwarding for the Kubeflow dashboard</a></li>
-        <li><a href="#amazon-ec2-only-activate-portfowarding-from-your-ec2-instance">(Amazon EC2 only) Activate portfowarding from your EC2 instance</a></li>
-        <li><a href="#open-the-browser">Open the browser</a></li>
-      </ul>
-    </li>
+    <li><a href="#port-forward-terraform-deployment">Port-forward (Terraform deployment)</a></li>
+    <li><a href="#open-the-browser">Open the browser</a></li>
     <li><a href="#log-into-the-kubeflow-ui">Log into the Kubeflow UI</a></li>
     <li><a href="#exposing-kubeflow-over-load-balancer-optional">Exposing Kubeflow over Load Balancer (Optional)</a></li>
     <li><a href="#change-the-default-user-password-kustomize">Change the default user password (Kustomize)</a></li>
@@ -477,15 +472,16 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">make port-forward
 </span></span></code></pre></div><p>Then, open the AWS Cloud9 browser and go to <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
 <h2 id="port-forward-terraform-deployment">Port-forward (Terraform deployment)</h2>
-<p>First, update the <code>kubeconfig</code>:</p>
+<ol>
+<li>
+<p>Update the <code>kubeconfig</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="k">$(</span>terraform output -raw configure_kubectl<span class="k">)</span>
-</span></span></code></pre></div><h3 id="activate-portforwarding-for-the-kubeflow-dashboard">Activate portforwarding for the Kubeflow dashboard</h3>
-<p>Run the following command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
-</span></span></code></pre></div><h3 id="amazon-ec2-only-activate-portfowarding-from-your-ec2-instance">(Amazon EC2 only) Activate portfowarding from your EC2 instance</h3>
-<p>If you are running <code>kubectl</code> on an EC2 instance, then you must run the following command on your local machine.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh -i &lt;path-to-your-key-pem&gt; -L 8080:localhost:8080 -N ubuntu@ec2-&lt;Public-IPv4-DNS&gt;.compute-1.amazonaws.com -o <span class="nv">ExitOnForwardFailure</span><span class="o">=</span>yes
-</span></span></code></pre></div><h3 id="open-the-browser">Open the browser</h3>
+</span></span></code></pre></div></li>
+<li>
+<p>Choose your port forward option from <a href="#port-forward-manifest-deployment">here</a></p>
+</li>
+</ol>
+<h2 id="open-the-browser">Open the browser</h2>
 <p>You can then open the browser and go to <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
 <h2 id="log-into-the-kubeflow-ui">Log into the Kubeflow UI</h2>
 <p>Use the following default credentials to log into the Kubeflow UI:</p>
@@ -519,7 +515,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/fa060f33eff8e96d4853695b0e3112b1e9519efa">Fixed docker-compose.yaml  (#416) (fa060f3)</a>
+  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/b572ba570d572e39116b49183e6c1ec9da4edd16">Doc fixes (#426) (b572ba5)</a>
 </div>
 
 </div>

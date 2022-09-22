@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/create-eks-cluster\/",
-      "wordCount" : "175",
+      "wordCount" : "196",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/create-eks-cluster/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-21T18:03:05-04:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-21T21:53:31-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Create an EKS Cluster">
 <meta itemprop="description" content="Create an EKS cluster before you deploy Kubeflow on AWS using Kustomize or Helm">
-<meta itemprop="dateModified" content="2022-09-21T18:03:05-04:00" />
-<meta itemprop="wordCount" content="175">
+<meta itemprop="dateModified" content="2022-09-21T21:53:31-07:00" />
+<meta itemprop="wordCount" content="196">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create an EKS Cluster"/>
 <meta name="twitter:description" content="Create an EKS cluster before you deploy Kubeflow on AWS using Kustomize or Helm"/>
@@ -380,6 +380,13 @@
             
 
 
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-eks-cluster-using-eksctl">Create EKS Cluster using <code>eksctl</code></a></li>
+    <li><a href="#important-if-you-are-using-an-eks-version--123-install-the-amazon-ebs-csi-driver-by-following-the-instructions-herehttpsdocsawsamazoncomekslatestuserguideebs-csihtml"><strong>Important:</strong> If you are using an EKS version <code>&gt;= 1.23</code> install the Amazon EBS CSI driver by following the instructions <a href="https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html">here</a>.</a></li>
+  </ul>
+</nav></div>
+
 
 
             
@@ -468,12 +475,13 @@
 </span></span></code></pre></div><p>If you are using an existing EKS cluster, create an <a href="https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html">OIDC provider</a> and associate it with for your EKS cluster with the following command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">eksctl utils associate-iam-oidc-provider --cluster <span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--region <span class="si">${</span><span class="nv">CLUSTER_REGION</span><span class="si">}</span> --approve
-</span></span></code></pre></div><p>More details about cluster creation via <code>eksctl</code> can be found in the <a href="https://eksctl.io/usage/creating-and-managing-clusters/">Creating and managing clusters</a> guide.</p>
+</span></span></code></pre></div><h2 id="important-if-you-are-using-an-eks-version--123-install-the-amazon-ebs-csi-driver-by-following-the-instructions-herehttpsdocsawsamazoncomekslatestuserguideebs-csihtml"><strong>Important:</strong> If you are using an EKS version <code>&gt;= 1.23</code> install the Amazon EBS CSI driver by following the instructions <a href="https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html">here</a>.</h2>
+<p>More details about cluster creation via <code>eksctl</code> can be found in the <a href="https://eksctl.io/usage/creating-and-managing-clusters/">Creating and managing clusters</a> guide.</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/fa060f33eff8e96d4853695b0e3112b1e9519efa">Fixed docker-compose.yaml  (#416) (fa060f3)</a>
+  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/b572ba570d572e39116b49183e6c1ec9da4edd16">Doc fixes (#426) (b572ba5)</a>
 </div>
 
 </div>
