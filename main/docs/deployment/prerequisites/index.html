@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/main\/docs\/deployment\/prerequisites\/",
-      "wordCount" : "516",
+      "wordCount" : "663",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-21T21:53:31-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-09-22T01:09:12-04:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Prerequisites">
 <meta itemprop="description" content="Set up your environment for deploying Kubeflow on AWS">
-<meta itemprop="dateModified" content="2022-09-21T21:53:31-07:00" />
-<meta itemprop="wordCount" content="516">
+<meta itemprop="dateModified" content="2022-09-22T01:09:12-04:00" />
+<meta itemprop="wordCount" content="663">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prerequisites"/>
 <meta name="twitter:description" content="Set up your environment for deploying Kubeflow on AWS"/>
@@ -391,6 +391,7 @@
     </li>
     <li><a href="#clone-repository">Clone repository</a></li>
     <li><a href="#install-necessary-tools">Install necessary tools</a></li>
+    <li><a href="#configure-aws-credentials-and-region-for-deployment">Configure AWS Credentials and Region for Deployment</a></li>
     <li><a href="#installation-options">Installation options</a></li>
   </ul>
 </nav></div>
@@ -506,13 +507,29 @@
 <li><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">terraform</a> - An infrastructure as code tool that lets you develop cloud and on-prem resources.</li>
 <li><a href="https://helm.sh/docs/intro/install/">helm</a> - A package manager for Kubernetes</li>
 </ul>
+<h2 id="configure-aws-credentials-and-region-for-deployment">Configure AWS Credentials and Region for Deployment</h2>
+<p>To access AWS services, you need an AWS account and setup IAM credentials. Follow <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">AWS CLI Configure Quickstart documentation</a> to setup your IAM credentials.</p>
+<p>Your IAM user/role must have <strong>Administrative Privileges</strong>.</p>
+<p>Run the following command to configure AWS CLI:</p>
+<blockquote>
+<p>Warning <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html">Cloud9</a> users: When configuring your IAM credentials on Cloud9, we recommend using a <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-profiles">profile</a>. Click <code>Cancel</code> when a pop up &ldquo;Could not update credentials&rdquo; opens, then choose <code>Permanently disable</code> for the &ldquo;Unable to update credentials&rdquo; pop up.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aws configure --profile<span class="o">=</span>kubeflow
+</span></span><span class="line"><span class="cl">AWS Access Key ID <span class="o">[</span>None<span class="o">]</span>: &lt;enter access key id&gt;
+</span></span><span class="line"><span class="cl">AWS Secret Access Key <span class="o">[</span>None<span class="o">]</span>: &lt;enter secret access key&gt;
+</span></span><span class="line"><span class="cl">Default region name <span class="o">[</span>None<span class="o">]</span>: &lt;AWS region&gt;
+</span></span><span class="line"><span class="cl">Default output format <span class="o">[</span>None<span class="o">]</span>: json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set the AWS_PROFILE variable with the profile above</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AWS_PROFILE</span><span class="o">=</span>kubeflow
+</span></span></code></pre></div><p>Once your configuration is complete, run <code>aws sts get-caller-identity</code> to verify that AWS CLI has access to your IAM credentials.</p>
 <h2 id="installation-options">Installation options</h2>
 <p>Kubeflow on AWS can be installed completely using terraform or using manifests(kustomize, helm). If you are looking to install using terraform, navigate directly to one of the Terraform deployment guides. To deploy using manifests, proceed to <a href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/create-eks-cluster/">Create an EKS Cluster guide</a></p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/b572ba570d572e39116b49183e6c1ec9da4edd16">Doc fixes (#426) (b572ba5)</a>
+  Last modified September 22, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/6004ab0d61cd6a3ffe1da0c890d87c42fa0075de">Add configure aws cli section in pre-requisites &#43; warning for cloud9 users (#421) (6004ab0)</a>
 </div>
 
 </div>

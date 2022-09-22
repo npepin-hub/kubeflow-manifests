@@ -74,6 +74,22 @@
 &lt;li&gt;&lt;a href=&#34;https://learn.hashicorp.com/tutorials/terraform/install-cli&#34;&gt;terraform&lt;/a&gt; - An infrastructure as code tool that lets you develop cloud and on-prem resources.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://helm.sh/docs/intro/install/&#34;&gt;helm&lt;/a&gt; - A package manager for Kubernetes&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;configure-aws-credentials-and-region-for-deployment&#34;&gt;Configure AWS Credentials and Region for Deployment&lt;/h2&gt;
+&lt;p&gt;To access AWS services, you need an AWS account and setup IAM credentials. Follow &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html&#34;&gt;AWS CLI Configure Quickstart documentation&lt;/a&gt; to setup your IAM credentials.&lt;/p&gt;
+&lt;p&gt;Your IAM user/role must have &lt;strong&gt;Administrative Privileges&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Run the following command to configure AWS CLI:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warning &lt;a href=&#34;https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html&#34;&gt;Cloud9&lt;/a&gt; users: When configuring your IAM credentials on Cloud9, we recommend using a &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-profiles&#34;&gt;profile&lt;/a&gt;. Click &lt;code&gt;Cancel&lt;/code&gt; when a pop up &amp;ldquo;Could not update credentials&amp;rdquo; opens, then choose &lt;code&gt;Permanently disable&lt;/code&gt; for the &amp;ldquo;Unable to update credentials&amp;rdquo; pop up.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws configure --profile&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;kubeflow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;AWS Access Key ID &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;None&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: &amp;lt;enter access key id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;AWS Secret Access Key &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;None&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: &amp;lt;enter secret access key&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default region name &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;None&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: &amp;lt;AWS region&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default output format &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;None&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: json
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Set the AWS_PROFILE variable with the profile above&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AWS_PROFILE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;kubeflow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once your configuration is complete, run &lt;code&gt;aws sts get-caller-identity&lt;/code&gt; to verify that AWS CLI has access to your IAM credentials.&lt;/p&gt;
 &lt;h2 id=&#34;installation-options&#34;&gt;Installation options&lt;/h2&gt;
 &lt;p&gt;Kubeflow on AWS can be installed completely using terraform or using manifests(kustomize, helm). If you are looking to install using terraform, navigate directly to one of the Terraform deployment guides. To deploy using manifests, proceed to &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/create-eks-cluster/&#34;&gt;Create an EKS Cluster guide&lt;/a&gt;&lt;/p&gt;
 
