@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubeflow on AWS – Component Guides</title>
-    <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/</link>
+    <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/</link>
     <description>Recent content in Component Guides on Kubeflow on AWS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Notebooks</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/</guid>
       <description>
         
         
@@ -52,7 +52,7 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;h2 id=&#34;access-aws-services-from-notebooks&#34;&gt;Access AWS Services from Notebooks&lt;/h2&gt;
 &lt;p&gt;Use &lt;a href=&#34;https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html&#34;&gt;AWS IAM&lt;/a&gt; to securely access AWS resources through Kubeflow Notebooks.&lt;/p&gt;
 &lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
-&lt;p&gt;Prerequisites for setting up AWS IAM for Kubeflow Profiles can be found in the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/profiles/#configuration-steps&#34;&gt;Profiles component guide&lt;/a&gt;. These steps go through creating a profile that uses the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin. No additional configuration steps are required.&lt;/p&gt;
+&lt;p&gt;Prerequisites for setting up AWS IAM for Kubeflow Profiles can be found in the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/profiles/#configuration-steps&#34;&gt;Profiles component guide&lt;/a&gt;. These steps go through creating a profile that uses the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin. No additional configuration steps are required.&lt;/p&gt;
 &lt;h3 id=&#34;try-it-out&#34;&gt;Try it out&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Create a Notebook server through the central dashboard.&lt;/li&gt;
@@ -123,17 +123,17 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
     
     <item>
       <title>Docs: Katib</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/katib/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/katib/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/katib/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/katib/</guid>
       <description>
         
         
         &lt;h2 id=&#34;access-aws-services-from-katib&#34;&gt;Access AWS Services from Katib&lt;/h2&gt;
 &lt;p&gt;In order to grant Katib experiment pods access to AWS resources, the corresponding profile in which the experiment is created needs to be configured with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin. To configure the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin to work with Profiles, follow the steps below.&lt;/p&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
-&lt;p&gt;Steps to configure Profiles with AWS IAM permissions can be found in the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/profiles/#configuration-steps&#34;&gt;Profiles component guide&lt;/a&gt;. Follow those steps to configure the profile controller to work with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin.&lt;/p&gt;
+&lt;p&gt;Steps to configure Profiles with AWS IAM permissions can be found in the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/profiles/#configuration-steps&#34;&gt;Profiles component guide&lt;/a&gt;. Follow those steps to configure the profile controller to work with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin.&lt;/p&gt;
 &lt;p&gt;The following is an example of a profile using the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;apiVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;kubeflow.org/v1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;kind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Profile&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -275,11 +275,11 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;h3 id=&#34;example-s3-access-from-katib-experiment-pods&#34;&gt;Example: S3 Access from Katib experiment pods&lt;/h3&gt;
 &lt;p&gt;The following steps walk through creating an experiment with pods that have permissions to list buckets in S3.&lt;/p&gt;
 &lt;h4 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h4&gt;
-&lt;p&gt;Make sure that you have completed the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/katib/#configuration&#34;&gt;configuration steps&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Make sure that you have completed the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/katib/#configuration&#34;&gt;configuration steps&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;steps&#34;&gt;Steps&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Export the name of the profile created in the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/katib/#configuration&#34;&gt;configuration steps&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Export the name of the profile created in the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/katib/#configuration&#34;&gt;configuration steps&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PROFILE_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;the created profile name&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -375,10 +375,10 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
     
     <item>
       <title>Docs: Pipelines</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/pipelines/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/pipelines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/pipelines/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/pipelines/</guid>
       <description>
         
         
@@ -404,7 +404,7 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;client&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; kfp.Client&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;host&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;f&lt;span class=&#34;s2&#34;&gt;&amp;#34;http://{kubeflow_gateway_endpoint}/pipeline&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;cookies&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;f&lt;span class=&#34;s2&#34;&gt;&amp;#34;authservice_session={authservice_session_cookie}&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;client.list_experiments&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;namespace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;namespace&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to set up application load balancing (ALB) with Dex, see the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/&#34;&gt;Load Balancer&lt;/a&gt; guide and use the ALB address as the Kubeflow Endpoint.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to set up application load balancing (ALB) with Dex, see the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/&#34;&gt;Load Balancer&lt;/a&gt; guide and use the ALB address as the Kubeflow Endpoint.&lt;/p&gt;
 &lt;p&gt;To do programmatic authentication with Dex, refer to the following comments under &lt;a href=&#34;https://github.com/kubeflow/kfctl/issues/140&#34;&gt;issue #140&lt;/a&gt; in the &lt;code&gt;kfctl&lt;/code&gt; repository: &lt;a href=&#34;https://github.com/kubeflow/kfctl/issues/140#issuecomment-578837304&#34;&gt;#140 (comment)&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubeflow/kfctl/issues/140#issuecomment-719894529&#34;&gt;#140 (comment)&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;cognito&#34;&gt;&lt;strong&gt;Cognito&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# This is the &amp;#34;Domain&amp;#34; in your cookies. eg: kubeflow.&amp;lt;platform.example.com&amp;gt;&lt;/span&gt;
@@ -420,7 +420,7 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;access-aws-services-from-pipeline-components&#34;&gt;Access AWS Services from Pipeline Components&lt;/h2&gt;
 &lt;p&gt;For pipelines components to be granted access to AWS resources, the corresponding profile in which the pipeline is created needs to be configured with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin. To configure the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin to work with profiles, follow the steps below.&lt;/p&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
-&lt;p&gt;Configuration steps to configure Profiles with AWS IAM permissions can be found in the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/profiles/#configuration-steps&#34;&gt;Profiles component guide&lt;/a&gt;. Follow the configuration steps to configure the profile controller to work with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin.&lt;/p&gt;
+&lt;p&gt;Configuration steps to configure Profiles with AWS IAM permissions can be found in the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/profiles/#configuration-steps&#34;&gt;Profiles component guide&lt;/a&gt;. Follow the configuration steps to configure the profile controller to work with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin.&lt;/p&gt;
 &lt;p&gt;The following is an example of a profile using the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;apiVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;kubeflow.org/v1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;kind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Profile&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -446,7 +446,7 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;example-s3-access-from-a-pipeline-component&#34;&gt;Example: S3 Access from a Pipeline Component&lt;/h3&gt;
 &lt;p&gt;The following steps walk through creating a pipeline with a component that has permissions to list buckets in S3.&lt;/p&gt;
 &lt;h4 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h4&gt;
-&lt;p&gt;Make sure that you have completed the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/pipelines/#prerequisites&#34;&gt;prerequisites&lt;/a&gt; and Profile configuration steps.&lt;/p&gt;
+&lt;p&gt;Make sure that you have completed the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/pipelines/#prerequisites&#34;&gt;prerequisites&lt;/a&gt; and Profile configuration steps.&lt;/p&gt;
 &lt;h4 id=&#34;steps&#34;&gt;Steps&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -484,10 +484,10 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
     
     <item>
       <title>Docs: Training Operators</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/training/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/training/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/training/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/training/</guid>
       <description>
         
         
@@ -500,10 +500,10 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
     
     <item>
       <title>Docs: KServe</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/</guid>
       <description>
         
         
@@ -513,10 +513,10 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
     
     <item>
       <title>Docs: Profiles</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/profiles/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/profiles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/profiles/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/profiles/</guid>
       <description>
         
         
@@ -544,9 +544,9 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;li&gt;Kubeflow Pipelines SDK&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Integration with the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin is actively being worked on for all components with &lt;a href=&#34;https://www.kubeflow.org/docs/components/multi-tenancy/overview/#current-integration&#34;&gt;Profile-level support&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can find documentation about the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin for specific components in the individual &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/&#34;&gt;component guides&lt;/a&gt;. Read on for general configuration instructions.&lt;/p&gt;
+&lt;p&gt;You can find documentation about the &lt;code&gt;AwsIamForServiceAccount&lt;/code&gt; plugin for specific components in the individual &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/&#34;&gt;component guides&lt;/a&gt;. Read on for general configuration instructions.&lt;/p&gt;
 &lt;h2 id=&#34;configuration-steps&#34;&gt;Configuration steps&lt;/h2&gt;
-&lt;p&gt;After installing Kubeflow on AWS with one of the available &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;deployment options&lt;/a&gt;, you can configure Kubeflow Profiles with the following steps:&lt;/p&gt;
+&lt;p&gt;After installing Kubeflow on AWS with one of the available &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;deployment options&lt;/a&gt;, you can configure Kubeflow Profiles with the following steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Define the following environment variables:&lt;/p&gt;
@@ -640,7 +640,7 @@ public.ecr.aws/kubeflow-on-aws/notebook-servers/jupyter-pytorch:1.12.0-cpu-py38-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;use-kubeflow-profiles-with-notebooks&#34;&gt;Use Kubeflow Profiles with Notebooks&lt;/h2&gt;
-&lt;p&gt;Verify your configuration by &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/#try-it-out&#34;&gt;creating and running&lt;/a&gt; a &lt;a href=&#34;https://www.kubeflow.org/docs/components/notebooks/quickstart-guide/&#34;&gt;Kubeflow Notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Verify your configuration by &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/#try-it-out&#34;&gt;creating and running&lt;/a&gt; a &lt;a href=&#34;https://www.kubeflow.org/docs/components/notebooks/quickstart-guide/&#34;&gt;Kubeflow Notebook&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>

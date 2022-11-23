@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubeflow on AWS – KServe</title>
-    <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/</link>
+    <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/</link>
     <description>Recent content in KServe on Kubeflow on AWS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -14,11 +14,106 @@
     
     
     <item>
-      <title>Docs: KServe with Kubeflow on AWS</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/</link>
+      <title>Docs: Configure inferenceService to Access AWS Services from KServe</title>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/access-aws-services-from-kserve/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/access-aws-services-from-kserve/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;access-aws-service-from-kserve-with-iam-roles-for-serviceaccountirsa&#34;&gt;Access AWS Service from Kserve with IAM Roles for ServiceAccount（IRSA）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Export env values:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CLUSTER_REGION&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PROFILE_NAMESPACE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;kubeflow-user-example-com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;SERVICE_ACCOUNT_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;aws-sa
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 123456789.dkr.ecr.us-west-2.amazonaws.com/kserve/sklearnserver:v0.8.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ECR_IMAGE_URL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# s3://your-s3-bucket/model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;S3_BUCKET_URL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create Service Account with IAM Role using &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html&#34;&gt;IRSA&lt;/a&gt;. The following command attaches both &lt;code&gt;AmazonEC2ContainerRegistryReadOnly&lt;/code&gt; and &lt;code&gt;AmazonS3ReadOnlyAccess&lt;/code&gt; IAM policies:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;eksctl create iamserviceaccount --name ${SERVICE_ACCOUNT_NAME} --namespace ${PROFILE_NAMESPACE} --cluster ${CLUSTER_NAME} --region ${CLUSTER_REGION} --attach-policy-arn=arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly --attach-policy-arn=arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess  --override-existing-serviceaccounts --approve
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;NOTE: You can use ECR (&lt;code&gt;AmazonEC2ContainerRegistryReadOnly&lt;/code&gt;) and S3 (&lt;code&gt;AmazonS3ReadOnlyAccess&lt;/code&gt;) ReadOnly managed policies. We recommend creating fine grained policy for production usecase.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;deploy-models-from-s3-bucket&#34;&gt;Deploy models from S3 Bucket&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Create Secret with empty AWS Credential:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt;EOF &amp;gt; secret.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;apiVersion: v1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    kind: Secret
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      name: aws-secret
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      namespace: ${PROFILE_NAMESPACE}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      annotations:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;        serving.kserve.io/s3-endpoint: s3.amazonaws.com
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;        serving.kserve.io/s3-usehttps: &amp;#34;1&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;        serving.kserve.io/s3-region: ${CLUSTER_REGION}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    type: Opaque
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    data:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      AWS_ACCESS_KEY_ID: &amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      AWS_SECRET_ACCESS_KEY: &amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -f secret.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;NOTE: The &lt;strong&gt;empty&lt;/strong&gt; keys for &lt;code&gt;AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY&lt;/code&gt; force it to add the env vars to the init containers but don&amp;rsquo;t override the actual credentials from the IAM role (which happens if you add dummy values). These &lt;strong&gt;empty&lt;/strong&gt; keys are needed for IRSA to work in current version and will not be needed in future release.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Attach secret to IRSA in your profile namespace:
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kubectl patch serviceaccount ${SERVICE_ACCOUNT_NAME} -n ${PROFILE_NAMESPACE} -p &amp;#39;{&amp;#34;secrets&amp;#34;: [{&amp;#34;name&amp;#34;: &amp;#34;aws-secret&amp;#34;}]}&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;create-an-inferenceservice&#34;&gt;Create an InferenceService&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Specify the service account in the model server spec :&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: make sure you have workable image in &lt;code&gt;${ECR_IMAGE_URL}&lt;/code&gt;and model in &lt;code&gt;${S3_BUCKET_URL}&lt;/code&gt; for the inferenceService to work. Versioning of model and image must be consistent: eg. you can not use a v1 model then a v2 image.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt;EOF &amp;gt; inferenceService.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;apiVersion: serving.kserve.io/v1beta1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;kind: InferenceService
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;  name: &amp;#34;sklearn-iris&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;  namespace: ${PROFILE_NAMESPACE}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;  annotations:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    sidecar.istio.io/inject: &amp;#34;false&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;spec:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;  predictor:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    serviceAccountName: ${SERVICE_ACCOUNT_NAME}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    model:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      modelFormat:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;        name: sklearn
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      image: ${ECR_IMAGE_URL}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;      storageUri: ${S3_BUCKET_URL}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -f inferenceService.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Check the InferenceService status:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get inferenceservices sklearn-iris -n &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROFILE_NAMESPACE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME           URL                                                        READY   PREV   LATEST   PREVROLLEDOUTREVISION   LATESTREADYREVISION                    AGE
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sklearn-iris   http://sklearn-iris.kubeflow-user-example-com.example.com   True           &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;                              sklearn-iris-predictor-default-00001   105s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: KServe with Kubeflow on AWS</title>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/</guid>
       <description>
         
         
@@ -26,15 +121,15 @@
 &lt;blockquote&gt;
 &lt;p&gt;Note: The KFServing project is now called &lt;a href=&#34;https://kserve.github.io/website/0.7/blog/articles/2021-09-27-kfserving-transition/#kfserving-is-now-kserve&#34;&gt;KServe&lt;/a&gt;. To migrate from KFServing to Kserve follow this &lt;a href=&#34;https://kserve.github.io/website/0.7/admin/migration/&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Read the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#background&#34;&gt;background&lt;/a&gt; section of the Load Balancer installation guide to familiarize yourself with the requirements for creating an Application Load Balancer on AWS.&lt;/p&gt;
+&lt;p&gt;Read the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#background&#34;&gt;background&lt;/a&gt; section of the Load Balancer installation guide to familiarize yourself with the requirements for creating an Application Load Balancer on AWS.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;This guide assumes that you have:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The necessary &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;prerequisites&lt;/a&gt;, including a Kubeflow deployment.&lt;/li&gt;
+&lt;li&gt;The necessary &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;prerequisites&lt;/a&gt;, including a Kubeflow deployment.&lt;/li&gt;
 &lt;li&gt;The &lt;a href=&#34;https://kubernetes-sigs.github.io/aws-load-balancer-controller/&#34;&gt;AWS Load Balancer controller&lt;/a&gt; configured with one of the following deployment options:
 &lt;ul&gt;
-&lt;li&gt;A Cognito-integrated deployment that is configured with the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#30-configure-ingress&#34;&gt;AWS Load Balancer controller by default&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;A deployment that is not integrated with Cognito (for example, the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/&#34;&gt;Vanilla deployment&lt;/a&gt;, which uses Dex as an auth provider), but have followed the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/&#34;&gt;Exposing Kubeflow over Load Balancer guide&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A Cognito-integrated deployment that is configured with the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/deployment/cognito/manifest/guide/#30-configure-ingress&#34;&gt;AWS Load Balancer controller by default&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A deployment that is not integrated with Cognito (for example, the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/&#34;&gt;Vanilla deployment&lt;/a&gt;, which uses Dex as an auth provider), but have followed the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/&#34;&gt;Exposing Kubeflow over Load Balancer guide&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;A subdomain for hosting Kubeflow. For this guide, we will use the domain &lt;code&gt;platform.example.com&lt;/code&gt;.&lt;/li&gt;
@@ -71,10 +166,10 @@ data:
 &lt;blockquote&gt;
 &lt;p&gt;Note: Both of these domains should be requested in the same certificate&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Create an ACM certificate for &lt;code&gt;*.platform.example.com&lt;/code&gt; and &lt;code&gt;*.staging.platform.example.com&lt;/code&gt; in your cluster&amp;rsquo;s region by following the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-certificates-for-domain&#34;&gt;create certificates for domain&lt;/a&gt; steps in the Load Balancer installation guide.&lt;/p&gt;
+&lt;p&gt;Create an ACM certificate for &lt;code&gt;*.platform.example.com&lt;/code&gt; and &lt;code&gt;*.staging.platform.example.com&lt;/code&gt; in your cluster&amp;rsquo;s region by following the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/#create-certificates-for-domain&#34;&gt;create certificates for domain&lt;/a&gt; steps in the Load Balancer installation guide.&lt;/p&gt;
 &lt;p&gt;Once the certificate status changes to &lt;code&gt;Issued&lt;/code&gt;, export the ARN of the certificate created:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;certArn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using Cognito for user authentication, see &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#cognito-ingress&#34;&gt;Cognito&lt;/a&gt;. If you use Dex as the auth provider in your Kubeflow deployment, see &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#dex-ingress&#34;&gt;Dex&lt;/a&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using Cognito for user authentication, see &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#cognito-ingress&#34;&gt;Cognito&lt;/a&gt;. If you use Dex as the auth provider in your Kubeflow deployment, see &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#dex-ingress&#34;&gt;Dex&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;cognito-ingress&#34;&gt;Cognito ingress&lt;/h2&gt;
 &lt;p&gt;It is not currently possible to programatically authenticate a request that uses Amazon Cognito for user authentication through Load Balancer. You cannot generate &lt;code&gt;AWSELBAuthSessionCookie&lt;/code&gt; cookies by using the access tokens from Cognito.&lt;/p&gt;
 &lt;p&gt;To work around this, it is necessary to create a new Load Balancer endpoint for serving traffic that authorizes based on custom strings specified in a predefined HTTP header.&lt;/p&gt;
@@ -83,7 +178,7 @@ data:
 &lt;ol&gt;
 &lt;li&gt;Configure the following parameters for &lt;a href=&#34;https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/istio-ingress/overlays/api/params.env&#34;&gt;ingress&lt;/a&gt;:
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;certArn&lt;/code&gt;: ARN of certificate created during &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#request-a-certificate&#34;&gt;Request a certificate&lt;/a&gt; step.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;certArn&lt;/code&gt;: ARN of certificate created during &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#request-a-certificate&#34;&gt;Request a certificate&lt;/a&gt; step.&lt;/li&gt;
 &lt;li&gt;(optional) &lt;code&gt;httpHeaderName&lt;/code&gt;: Custom HTTP header name that you want to configure for the rule evaluation. Defaults to &lt;code&gt;x-api-key&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;httpHeaderValues&lt;/code&gt;: One or more match strings that need to be compared against the header value if the request received. You only need to pass one of the tokens in the request. Pick strong values.&lt;/li&gt;
 &lt;/ul&gt;
@@ -109,11 +204,11 @@ data:
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;istio-ingress-api   &amp;lt;none&amp;gt;   *       k8s-istiosys-istioing-xxxxxx-110050202.us-west-2.elb.amazonaws.com   &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;      14m
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Once your Load Balancer is ready, move on to the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#add-dns-records&#34;&gt;Add DNS records&lt;/a&gt; step to add a DNS record for the staging subdomain.&lt;/p&gt;
+&lt;p&gt;Once your Load Balancer is ready, move on to the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#add-dns-records&#34;&gt;Add DNS records&lt;/a&gt; step to add a DNS record for the staging subdomain.&lt;/p&gt;
 &lt;h2 id=&#34;dex-ingress&#34;&gt;Dex ingress&lt;/h2&gt;
 &lt;h3 id=&#34;update-the-certificate-for-your-load-balancer&#34;&gt;Update the certificate for your Load Balancer&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Configure the parameters for &lt;a href=&#34;https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/istio-ingress/overlays/api/params.env&#34;&gt;ingress&lt;/a&gt; with the ARN of the certificate created during the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#request-a-certificate&#34;&gt;Request a certificate&lt;/a&gt; step.
+&lt;li&gt;Configure the parameters for &lt;a href=&#34;https://github.com/awslabs/kubeflow-manifests/blob/main/awsconfigs/common/istio-ingress/overlays/api/params.env&#34;&gt;ingress&lt;/a&gt; with the ARN of the certificate created during the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#request-a-certificate&#34;&gt;Request a certificate&lt;/a&gt; step.
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;certArn=&amp;#39;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$certArn&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &amp;gt; awsconfigs/common/istio-ingress/overlays/https/params.env
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;Update the Load Balancer with the following command:
@@ -125,7 +220,7 @@ data:
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;istio-ingress   &amp;lt;none&amp;gt;   *       k8s-istiosys-istioing-xxxxxx-110050202.us-west-2.elb.amazonaws.com   &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;      15d
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Once your Load Balancer is ready, move on to the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#add-dns-records&#34;&gt;Add DNS records&lt;/a&gt; step to add a DNS record for the staging subdomain.&lt;/p&gt;
+&lt;p&gt;Once your Load Balancer is ready, move on to the &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#add-dns-records&#34;&gt;Add DNS records&lt;/a&gt; step to add a DNS record for the staging subdomain.&lt;/p&gt;
 &lt;h2 id=&#34;add-dns-records&#34;&gt;Add DNS records&lt;/h2&gt;
 &lt;p&gt;Once your ingress-managed Load Balancer is ready, copy the &lt;code&gt;ADDRESS&lt;/code&gt; of that Load Balancer and create a &lt;code&gt;CNAME&lt;/code&gt; entry to it in &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Amazon Route 53&lt;/a&gt; under your subdomain (e.g. &lt;code&gt;platform.example.com&lt;/code&gt;) for &lt;code&gt;*.staging.platform.example.com&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;run-a-sample-inferenceservice&#34;&gt;Run a sample InferenceService&lt;/h2&gt;
@@ -155,7 +250,7 @@ data:
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install -r requirements.txt
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run the sample python script to send an inference request based on your auth provider:&lt;/p&gt;
 &lt;h4 id=&#34;cognito-inference&#34;&gt;Cognito inference&lt;/h4&gt;
-&lt;p&gt;Run the &lt;a href=&#34;https://github.com/awslabs/kubeflow-manifests/blob/main/tests/e2e/utils/kserve/inference_sample.py&#34;&gt;inference_sample.py&lt;/a&gt; Python script by exporting the values for &lt;code&gt;HTTP_HEADER_NAME&lt;/code&gt;(e.g. &lt;code&gt;x-api-key&lt;/code&gt;) and &lt;code&gt;HTTP_HEADER_VALUE&lt;/code&gt;(e.g. &lt;code&gt;token1&lt;/code&gt;) according to the values configured in &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#create-ingress&#34;&gt;ingress section&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Run the &lt;a href=&#34;https://github.com/awslabs/kubeflow-manifests/blob/main/tests/e2e/utils/kserve/inference_sample.py&#34;&gt;inference_sample.py&lt;/a&gt; Python script by exporting the values for &lt;code&gt;HTTP_HEADER_NAME&lt;/code&gt;(e.g. &lt;code&gt;x-api-key&lt;/code&gt;) and &lt;code&gt;HTTP_HEADER_VALUE&lt;/code&gt;(e.g. &lt;code&gt;token1&lt;/code&gt;) according to the values configured in &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/tutorial/#create-ingress&#34;&gt;ingress section&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AUTH_PROVIDER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;cognito&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HTTP_HEADER_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x-api-key&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HTTP_HEADER_VALUE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;token1&amp;#34;&lt;/span&gt;
@@ -182,10 +277,10 @@ data:
     
     <item>
       <title>Docs: KServe with AWS Deep Learning Containers</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/aws-deep-learning-containers/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/aws-deep-learning-containers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/kserve/aws-deep-learning-containers/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/kserve/aws-deep-learning-containers/</guid>
       <description>
         
         

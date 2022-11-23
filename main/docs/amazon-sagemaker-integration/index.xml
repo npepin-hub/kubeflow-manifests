@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubeflow on AWS – Amazon SageMaker Integration</title>
-    <link>https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/</link>
+    <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/</link>
     <description>Recent content in Amazon SageMaker Integration on Kubeflow on AWS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://npepin-hub.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,31 +15,31 @@
     
     <item>
       <title>Docs: SageMaker Operators for Kubernetes (ACK)</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-operators-ack/</guid>
       <description>
         
         
         &lt;p&gt;&lt;a href=&#34;https://github.com/aws-controllers-k8s/sagemaker-controller&#34;&gt;SageMaker Operators for Kubernetes (ACK)&lt;/a&gt; make it easier for developers and data scientists using Kubernetes to train, tune, and deploy machine learning (ML) models using Amazon SageMaker. &lt;a href=&#34;https://aws-controllers-k8s.github.io/community/docs/community/overview/&#34;&gt;ACK&lt;/a&gt; lets you define and use AWS service resources directly from Kubernetes. With ACK, you can take advantage of AWS-managed services for your Kubernetes applications without needing to define resources outside of the cluster or run services that provide supporting capabilities like databases or message queues within the cluster.&lt;/p&gt;
 &lt;h2 id=&#34;tutorials&#34;&gt;Tutorials&lt;/h2&gt;
-&lt;p&gt;SageMaker Operators for Kubernetes (ACK) comes installed with all &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;deployment options&lt;/a&gt; for Kubeflow on AWS.&lt;/p&gt;
+&lt;p&gt;SageMaker Operators for Kubernetes (ACK) comes installed with all &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;deployment options&lt;/a&gt; for Kubeflow on AWS.&lt;/p&gt;
 &lt;p&gt;For examples on using the SageMaker Operators for Kubernetes (ACK), see the following tutorials:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/#train-an-xgboost-model&#34;&gt;Machine Learning with the ACK SageMaker Controller&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Use SageMaker Operators for Kubernetes (ACK) to manage your SageMaker resources from your Kubernetes cluster directly or from AWS-optimized &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/&#34;&gt;Kubeflow Notebooks&lt;/a&gt; that are built on top of &lt;a href=&#34;https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/what-is-dlc.html&#34;&gt;AWS Deep Learning Containers&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Use SageMaker Operators for Kubernetes (ACK) to manage your SageMaker resources from your Kubernetes cluster directly or from AWS-optimized &lt;a href=&#34;https://npepin-hub.github.io/kubeflow-manifests/main/docs/component-guides/notebooks/&#34;&gt;Kubeflow Notebooks&lt;/a&gt; that are built on top of &lt;a href=&#34;https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/what-is-dlc.html&#34;&gt;AWS Deep Learning Containers&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: SageMaker Components for Kubeflow Pipelines</title>
-      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-components-for-kubeflow-pipelines/</link>
+      <link>https://npepin-hub.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-components-for-kubeflow-pipelines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-components-for-kubeflow-pipelines/</guid>
+      <guid>https://npepin-hub.github.io/kubeflow-manifests/main/docs/amazon-sagemaker-integration/sagemaker-components-for-kubeflow-pipelines/</guid>
       <description>
         
         
