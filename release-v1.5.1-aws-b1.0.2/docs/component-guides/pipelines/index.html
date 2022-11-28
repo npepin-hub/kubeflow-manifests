@@ -12,7 +12,7 @@
       "@type" : "WebSite",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "https:\/\/awslabs.github.io\/kubeflow-manifests\/release-v1.5.1-aws-b1.0.2"
+           "@id": "https:\/\/npepin-hub.github.io\/kubeflow-manifests\/release-v1.5.1-aws-b1.0.2"
       },
       "articleSection" : "docs",
       "name" : "Pipelines",
@@ -27,7 +27,7 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/release-v1.5.1-aws-b1.0.2\/docs\/component-guides\/pipelines\/",
+      "url" : "https:\/\/npepin-hub.github.io\/kubeflow-manifests\/release-v1.5.1-aws-b1.0.2\/docs\/component-guides\/pipelines\/",
       "wordCount" : "585",
       "keywords" : [ "Kubeflow" ]
   }
@@ -47,13 +47,13 @@
 <meta property="og:title" content="Pipelines" />
 <meta property="og:description" content="Get started with Kubeflow Pipelines on Amazon EKS" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/pipelines/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/pipelines/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-09-16T20:39:48-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-11-28T13:09:52-05:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Pipelines">
 <meta itemprop="description" content="Get started with Kubeflow Pipelines on Amazon EKS">
-<meta itemprop="dateModified" content="2022-09-16T20:39:48-07:00" />
+<meta itemprop="dateModified" content="2022-11-28T13:09:52-05:00" />
 <meta itemprop="wordCount" content="585">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pipelines"/>
@@ -62,8 +62,8 @@
 
 
 
-<link rel="preload" href="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/scss/main.min.da9a6963d4efb20122a519bd217b1a074d0a90730980b7ca4bfa051e80c00d93.css" as="style">
-<link href="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/scss/main.min.da9a6963d4efb20122a519bd217b1a074d0a90730980b7ca4bfa051e80c00d93.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/scss/main.min.cfd7574257326fddbc6f33f260c0bda4c6d74394ebf2531282625a18d0a19e75.css" as="style">
+<link href="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/scss/main.min.cfd7574257326fddbc6f33f260c0bda4c6d74394ebf2531282625a18d0a19e75.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -100,6 +100,16 @@
 				
 				
 				<a class="nav-link" href="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/" ><i class='fas fa-book pr-2'></i><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/kubeflow-manifests/blog/" ><i class='fas fa-blog pr-2'></i><span>Blog</span></a>
 			</li>
 			
 			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
@@ -349,13 +359,13 @@
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/">Documentation</a>
+    <a href="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/">Component Guides</a>
+    <a href="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/">Component Guides</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/pipelines/">Pipelines</a>
+    <a href="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/pipelines/">Pipelines</a>
   </li>
   </ol>
 </nav>
@@ -400,7 +410,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">client</span> <span class="o">=</span> kfp.Client<span class="o">(</span><span class="nv">host</span><span class="o">=</span>f<span class="s2">&#34;http://{kubeflow_gateway_endpoint}/pipeline&#34;</span>, <span class="nv">cookies</span><span class="o">=</span>f<span class="s2">&#34;authservice_session={authservice_session_cookie}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">client.list_experiments<span class="o">(</span><span class="nv">namespace</span><span class="o">=</span>namespace<span class="o">)</span>
-</span></span></code></pre></div><p>If you want to set up application load balancing (ALB) with Dex, see the <a href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/deployment/add-ons/load-balancer/guide/">Load Balancer</a> guide and use the ALB address as the Kubeflow Endpoint.</p>
+</span></span></code></pre></div><p>If you want to set up application load balancing (ALB) with Dex, see the <a href="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/deployment/add-ons/load-balancer/guide/">Load Balancer</a> guide and use the ALB address as the Kubeflow Endpoint.</p>
 <p>To do programmatic authentication with Dex, refer to the following comments under <a href="https://github.com/kubeflow/kfctl/issues/140">issue #140</a> in the <code>kfctl</code> repository: <a href="https://github.com/kubeflow/kfctl/issues/140#issuecomment-578837304">#140 (comment)</a> and <a href="https://github.com/kubeflow/kfctl/issues/140#issuecomment-719894529">#140 (comment)</a>.</p>
 <h3 id="cognito"><strong>Cognito</strong></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This is the &#34;Domain&#34; in your cookies. eg: kubeflow.&lt;platform.example.com&gt;</span>
@@ -416,7 +426,7 @@
 </span></span></code></pre></div><h2 id="access-aws-services-from-pipeline-components">Access AWS Services from Pipeline Components</h2>
 <p>For pipelines components to be granted access to AWS resources, the corresponding profile in which the pipeline is created needs to be configured with the <code>AwsIamForServiceAccount</code> plugin. To configure the <code>AwsIamForServiceAccount</code> plugin to work with profiles, follow the steps below.</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Configuration steps to configure Profiles with AWS IAM permissions can be found in the <a href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/profiles/#configuration-steps">Profiles component guide</a>. Follow the configuration steps to configure the profile controller to work with the <code>AwsIamForServiceAccount</code> plugin.</p>
+<p>Configuration steps to configure Profiles with AWS IAM permissions can be found in the <a href="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/profiles/#configuration-steps">Profiles component guide</a>. Follow the configuration steps to configure the profile controller to work with the <code>AwsIamForServiceAccount</code> plugin.</p>
 <p>The following is an example of a profile using the <code>AwsIamForServiceAccount</code> plugin:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow.org/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Profile</span><span class="w">
@@ -442,7 +452,7 @@
 </span></span></code></pre></div><h3 id="example-s3-access-from-a-pipeline-component">Example: S3 Access from a Pipeline Component</h3>
 <p>The following steps walk through creating a pipeline with a component that has permissions to list buckets in S3.</p>
 <h4 id="prerequisites-1">Prerequisites</h4>
-<p>Make sure that you have completed the <a href="https://awslabs.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/pipelines/#prerequisites">prerequisites</a> and Profile configuration steps.</p>
+<p>Make sure that you have completed the <a href="https://npepin-hub.github.io/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/docs/component-guides/pipelines/#prerequisites">prerequisites</a> and Profile configuration steps.</p>
 <h4 id="steps">Steps</h4>
 <ol>
 <li>
@@ -478,7 +488,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 16, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/6fd4625b23334b5818849dce9545d0a7417e6ffe">update 1.5.1-1.0.2 website branch to be latest (#378) (6fd4625)</a>
+  Last modified November 28, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/d8f4ea1641a4103c3c625d49205e473a7b691b6b">added Blog to 1.5 -&gt; points to latest Blog (d8f4ea1)</a>
 </div>
 
 </div>
@@ -538,7 +548,7 @@
 
 
 
-<script src="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/js/main.min.fb3621b8083924840ef938617e1bf3abd6e2d284d6e2e34650dfe11266f86529.js" integrity="sha256-&#43;zYhuAg5JIQO&#43;Thhfhvzq9bi0oTW4uNGUN/hEmb4ZSk=" crossorigin="anonymous"></script>
+<script src="/kubeflow-manifests/release-v1.5.1-aws-b1.0.2/js/main.min.53488cac7c1fd7471b2c50da9914ddc6bc3715be23d41b18d0dd90becc369b22.js" integrity="sha256-U0iMrHwf10cbLFDamRTdxrw3Fb4j1BsY0N2Qvsw2myI=" crossorigin="anonymous"></script>
 
 
 
