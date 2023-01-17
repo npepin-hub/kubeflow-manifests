@@ -29,7 +29,7 @@
       "datePublished": "2022-10-10 00:00:00 \u002b0000 UTC",
       "dateModified" : "2022-10-10 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/npepin-hub.github.io\/kubeflow-manifests\/main\/blog\/",
-      "wordCount" : "421",
+      "wordCount" : "591",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -66,6 +66,8 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+
 
   </head>
   <body class="td-section">
@@ -80,6 +82,10 @@
 	</button>
 	<div class="collapse navbar-collapse ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav ml-auto pt-4 pt-md-0 my-2 my-md-1">
+			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
+				<div id="docsearch"></div>
+			</li>
+
 			
 			
 			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
@@ -136,6 +142,7 @@
 			
 		</ul>
 	</div>
+	
 </nav>
 
     </header>
@@ -234,6 +241,14 @@
 <p>A curated list of blogs illustrating how to build flexible, scalable ML workflows on Kubernetes using AWS distribution of Kubeflow.
 Find case studies, use cases, best practices, benchmarks, and more.</p>
 <ol>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/enabling-hybrid-ml-workflows-on-amazon-eks-and-amazon-sagemaker-with-one-click-kubeflow-on-aws-deployment/">Enabling hybrid ML workflows on Amazon EKS and Amazon SageMaker with one-click Kubeflow on AWS deployment</a> - In this blog, we discuss Kubeflow on AWS v1.6.1 features and highlight three important integrations that have been bundled on one platform to offer:</li>
+</ol>
+<ul>
+<li>Infrastructure as Code (IaaC) one-click solution that automates the end-to-end installation of Kubeflow, including EKS cluster creation.</li>
+<li>Support for running machine learning workloads on Amazon SageMaker from Kubeflow.</li>
+<li>Enhanced monitoring and observability for ML workloads using Amazon Managed Prometheus (AMP) and Amazon Managed Grafana.</li>
+</ul>
+<ol>
 <li>
 <p><a href="https://aws.amazon.com/blogs/machine-learning/build-and-deploy-a-scalable-machine-learning-system-on-kubernetes-with-kubeflow-on-aws/">Build and deploy a scalable machine learning system on Kubernetes with Kubeflow on AWS</a>. This blog post is based on Kubeflow-1.4 and is listed here for educational purpose. AWS distribution of Kubeflow might have changed since then. We recommend to install the <a href="http://localhost:1313/kubeflow-manifests/main/docs/deployment/prerequisites/">latest version</a>.</p>
 </li>
@@ -250,6 +265,10 @@ Find case studies, use cases, best practices, benchmarks, and more.</p>
 <h2 id="watch">Watch</h2>
 <p>This section curates a list of recorded virtual workshops, demos, and general presentations illustrating how to leverage Kubeflow on AWS and SageMaker to build, run, and monitor scalable ML workflows on Kubernetes.</p>
 <ol>
+<li>
+<p><a href="https://pages.awscloud.com/Train-and-deploy-your-deep-learning-models-with-AWS-distribution-of-Kubeflow-integrated-with-Amazon-SageMaker_2022_VW_s50e02-MCL_OD">Train and deploy your deep learning models with AWS distribution of Kubeflow integrated with Amazon SageMaker</a> - This workshop covers Kubeflow on AWS v1.6 architecture and is using one-click solution that is now provided in AWS Kubeflow distribution to automate end to end deployment of Amazon EKS and Kubeflow.
+The workshop has further used this automated setup to demonstrate how Amazon Sagemaker could be leveraged from Kubeflow Pipelines using latest SageMaker components that now supports SageMaker ACK Operators to run PyTorch based distributed model training.</p>
+</li>
 <li>
 <p><a href="http://youtu.be/qctwfYZKK8M">AWS Virtual Workshop &ldquo;Distributed Training using PyTorch with Kubeflow on AWS and AWS DLC&rdquo;</a> - Demonstrates how Kubeflow on AWS integration with AWS Deep Learning Containers and Amazon Elastic File System (Amazon EFS) allows building and training PyTorch based deep learning models on both Amazon SageMaker and Amazon Elastic Kubernetes Service (EKS) with flexibility and scale in a hybrid architecture. Attended by over 50 customers. Aug 23rd, 2022</p>
 </li>
@@ -279,7 +298,7 @@ Find case studies, use cases, best practices, benchmarks, and more.</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified December 20, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/100eda733684e33fd5f781957fef14e9c35eb6b5">Task/s3nopublic (#518) (100eda7)</a>
+  Last modified January 13, 2023: <a href="https://github.com/awslabs/kubeflow-manifests//commit/7bc2f9b9194bed2bee5cf7f459bcc7490a3f4334">Disable minio for s3 related deployments (#541) (7bc2f9b)</a>
 </div>
 
 </div>
@@ -298,7 +317,7 @@ Find case studies, use cases, best practices, benchmarks, and more.</p>
         
       </div>
       <div class="col text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Kubeflow on AWS Authors.</small>
+        <small class="text-white">&copy; 2023 The Kubeflow on AWS Authors.</small>
         
 	
       </div>
@@ -342,6 +361,28 @@ Find case studies, use cases, best practices, benchmarks, and more.</p>
 
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+
+<script type="text/javascript">
+
+docsearch({
+
+appId: 'A1FXAERJE4',
+
+apiKey: '88f3a753878f24ffdcd3d786be775545',
+
+indexName: 'kubeflow-manifests',
+
+container: '#docsearch',
+
+searchParameters: {
+    facetFilters: ['version: latest'],
+  },
+debug: true 
+
+});
+</script>
 
 
 
