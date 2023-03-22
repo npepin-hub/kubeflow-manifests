@@ -17,12 +17,21 @@ INSTALLATION_CONFIG_COGNITO = "./resources/installation_config/cognito.yaml"
 INSTALLATION_CONFIG_RDS_S3 = "./resources/installation_config/rds-s3.yaml"
 INSTALLATION_CONFIG_RDS_ONLY = "./resources/installation_config/rds-only.yaml"
 INSTALLATION_CONFIG_S3_ONLY = "./resources/installation_config/s3-only.yaml"
-INSTALLATION_CONFIG_COGNITO_RDS_S3 = "./resources/installation_config/cognito-rds-s3.yaml"
+INSTALLATION_CONFIG_COGNITO_RDS_S3 = (
+    "./resources/installation_config/cognito-rds-s3.yaml"
+)
+INSTALLATION_CONFIG_S3_ONLY_STATIC = (
+    "./resources/installation_config/s3-only-static.yaml"
+)
+INSTALLATION_CONFIG_RDS_S3_STATIC = "./resources/installation_config/rds-s3-static.yaml"
+INSTALLATION_CONFIG_COGNITO_RDS_S3_STATIC = (
+    "./resources/installation_config/cognito-rds-s3-static.yaml"
+)
 
 
 Install_Sequence = [
     "cert-manager",
-    "istio-1-14",
+    "istio",
     "dex",
     "oidc-authservice",
     "cluster-local-gateway",
@@ -55,13 +64,23 @@ Install_Sequence = [
 
 
 def install_kubeflow(
-    installation_option, deployment_option, cluster_name, aws_telemetry=True
+    installation_option,
+    deployment_option,
+    cluster_name,
+    credentials_option,
+    aws_telemetry=True,
 ):
     print(cluster_name)
     if deployment_option == "vanilla":
         installation_config = load_yaml_file(INSTALLATION_CONFIG_VANILLA)
     elif deployment_option == "cognito":
         installation_config = load_yaml_file(INSTALLATION_CONFIG_COGNITO)
+    elif deployment_option == "rds-s3" and credentials_option == "static":
+        installation_config = load_yaml_file(INSTALLATION_CONFIG_RDS_S3_STATIC)
+    elif deployment_option == "s3" and credentials_option == "static":
+        installation_config = load_yaml_file(INSTALLATION_CONFIG_S3_ONLY_STATIC)
+    elif deployment_option == "cognito-rds-s3" and credentials_option == "static":
+        installation_config = load_yaml_file(INSTALLATION_CONFIG_COGNITO_RDS_S3_STATIC)
     elif deployment_option == "rds-s3":
         installation_config = load_yaml_file(INSTALLATION_CONFIG_RDS_S3)
     elif deployment_option == "rds-only":
@@ -72,7 +91,7 @@ def install_kubeflow(
         installation_config = load_yaml_file(INSTALLATION_CONFIG_COGNITO_RDS_S3)
 
     print_banner(
-        f"Installing kubeflow {deployment_option} deployment with {installation_option}"
+        f"Installing kubeflow {deployment_option} deployment with {installation_option} with {credentials_option}"
     )
 
     for component in Install_Sequence:
@@ -80,7 +99,8 @@ def install_kubeflow(
             installation_option,
             component,
             installation_config,
-            cluster_name
+            cluster_name,
+            credentials_option,
         )
 
     if aws_telemetry == True:
@@ -89,6 +109,7 @@ def install_kubeflow(
             "aws-telemetry",
             installation_config,
             cluster_name,
+            credentials_option,
         )
 
 
@@ -97,6 +118,7 @@ def install_component(
     component_name,
     installation_config,
     cluster_name,
+    credentials_option,
     crd_established=True,
 ):
     # component not applicable for deployment option
@@ -105,26 +127,52 @@ def install_component(
     else:
         print(f"==========Installing {component_name}==========")
         # remote repo
-        if "repo"in installation_config[component_name]["installation_options"][installation_option]:
+        if (
+            "repo"
+            in installation_config[component_name]["installation_options"][
+                installation_option
+            ]
+        ):
             install_remote_component(component_name, cluster_name)
         # local repo
         else:
-            installation_paths = installation_config[component_name]["installation_options"][installation_option]["paths"]
+            installation_paths = installation_config[component_name][
+                "installation_options"
+            ][installation_option]["paths"]
             # helm
             if installation_option == "helm":
                 ##deal with namespace already exist issue for rds-s3 auto set-up script
                 if component_name == "kubeflow-namespace":
-                    for kustomize_path in installation_config[component_name]["installation_options"]["kustomize"]["paths"]:
+                    for kustomize_path in installation_config[component_name][
+                        "installation_options"
+                    ]["kustomize"]["paths"]:
                         apply_kustomize(kustomize_path)
                 else:
+                    if component_name == "kubeflow-pipelines":
+                        configure_kubeflow_pipelines(
+                            component_name,
+                            installation_paths,
+                            installation_option,
+                            credentials_option,
+                        )
                     install_helm(component_name, installation_paths)
             # kustomize
             else:
                 # crd required to established for installation
-                if "validations" in installation_config[component_name] and "crds" in installation_config[component_name]["validations"]:
+                if (
+                    "validations" in installation_config[component_name]
+                    and "crds" in installation_config[component_name]["validations"]
+                ):
                     print("need to wait for crds....")
                     crds = installation_config[component_name]["validations"]["crds"]
                     crd_established = False
+                if component_name == "kubeflow-pipelines":
+                    configure_kubeflow_pipelines(
+                        component_name,
+                        installation_paths,
+                        installation_option,
+                        credentials_option,
+                    )
                 for kustomize_path in installation_paths:
                     if not crd_established:
                         apply_kustomize(kustomize_path, crds)
@@ -132,12 +180,12 @@ def install_component(
                     else:
                         apply_kustomize(kustomize_path)
                 # TO DO: Debug and add additional validation step for cert-manager resources in future for kubeflow-issuer to be installed
-                # temporary solution to wait for 30s
+                # temporary solution to wait for 60s
                 if component_name == "cert-manager":
                     print(
-                        "wait for 30s for cert-manager-webhook resource to be ready..."
+                        "wait for 60s for cert-manager-webhook resource to be ready..."
                     )
-                    time.sleep(30)
+                    time.sleep(60)
 
         if "validations" in installation_config[component_name]:
             validate_component_installation(installation_config, component_name)
@@ -172,7 +220,7 @@ def install_certmanager():
         f"helm upgrade --install cert-manager jetstack/cert-manager \
                         --namespace cert-manager \
                         --create-namespace \
-                        --version v1.5.0 \
+                        --version v1.10.1 \
                         --set installCRDs=true"
     )
 
@@ -230,6 +278,32 @@ def install_ack_controller():
     )
 
 
+def configure_kubeflow_pipelines(
+    component_name, installation_paths, installation_option, credentials_option
+):
+    if credentials_option == "static":
+        return
+    
+    cfg = load_yaml_file(file_path="./utils/pipelines/config.yaml")
+    IAM_ROLE_ARN_FOR_IRSA = cfg["pipeline_oidc_role"]
+
+    if installation_option == "kustomize":
+        CHART_EXPORT_PATH = "../../awsconfigs/apps/pipeline/s3/service-account.yaml"
+        USER_NAMESPACE_PATH = "../../awsconfigs/common/user-namespace/overlay/profile.yaml"
+
+    else:
+        CHART_EXPORT_PATH = f"{installation_paths}/templates/ServiceAccount/ml-pipeline-kubeflow-ServiceAccount.yaml"
+        USER_NAMESPACE_PATH = "../../charts/common/user-namespace/templates/Profile/kubeflow-user-example-com-Profile.yaml"
+
+    exec_shell(
+            f'yq e \'.metadata.annotations."eks.amazonaws.com/role-arn"="{IAM_ROLE_ARN_FOR_IRSA}"\' '
+            + f"-i {CHART_EXPORT_PATH}"
+        )
+    exec_shell(
+            f'yq e \'.spec.plugins[0].spec."awsIamRole"="{IAM_ROLE_ARN_FOR_IRSA}"\' '
+            + f"-i {USER_NAMESPACE_PATH}"
+        )
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     INSTALLATION_OPTION_DEFAULT = "kustomize"
@@ -272,6 +346,15 @@ if __name__ == "__main__":
         help=f"EKS cluster Name",
         required=True,
     )
+    CREDENTIAL_OPTION_DEFAULT = "irsa"
+    parser.add_argument(
+        "--credentials_option",
+        type=str,
+        default=CREDENTIAL_OPTION_DEFAULT,
+        choices=["irsa", "static"],
+        help=f"Kubeflow default credential option default is set to irsa",
+        required=False,
+    )
 
     args, _ = parser.parse_known_args()
 
@@ -279,5 +362,6 @@ if __name__ == "__main__":
         args.installation_option,
         args.deployment_option,
         args.cluster_name,
+        args.credentials_option,
         args.aws_telemetry,
     )
